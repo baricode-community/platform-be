@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserMeetController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
@@ -7,6 +8,12 @@ use Livewire\Volt\Volt;
 Route::get('/', function () {
     return redirect('/dashboard');
 })->name('home');
+
+Route::prefix('/dashboard/meets')
+    ->controller(UserMeetController::class)
+    ->group(function() {
+        Route::get('/', 'index')->name('meets.index');
+});
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
