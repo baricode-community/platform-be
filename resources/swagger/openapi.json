@@ -1,24 +1,95 @@
 {
-    "openapi": "3.0.0",
-    "info": {
-        "title": "Baricode Platform API",
-        "version": "1.0.0"
-    },
-    "servers": [
-        {
-            "url": "https://baricode.org/api"
-        }
-    ],
-    "paths": {
-        "/": {
-            "get": {
-                "summary": "Dasar endpoint",
-                "responses": {
-                    "200": {
-                        "description": "Successful response"
-                    }
-                }
-            }
-        }
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Baricode Platform API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://baricode.org/api"
     }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Dasar endpoint",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Login user",
+        "description": "Autentikasi user dengan email dan password.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["email", "password"],
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "user@example.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "format": "password",
+                    "example": "mypassword123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login berhasil",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    },
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "username": { "type": "string", "example": "budi" },
+                        "name": { "type": "string", "example": "Budi" },
+                        "email": { "type": "string", "example": "user@example.com" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Email atau password salah",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid credentials"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
