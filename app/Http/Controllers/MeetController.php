@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Meet;
 use Illuminate\Http\Request;
 
 class MeetController extends Controller
@@ -13,6 +14,7 @@ class MeetController extends Controller
 
     public function list()
     {
-        return response()->json(['message' => 'Meet list']);
+        $meets = Meet::all();
+        return response()->json(['data' => $meets]);
     }
 }
