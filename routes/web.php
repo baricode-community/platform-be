@@ -5,10 +5,11 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
 
-Route::get('/', function () {
-    return redirect('/dashboard');
-})->name('home');
-
+Route::controller(App\Http\Controllers\HomeController::class)
+    ->group(function () {
+        Route::get('/', 'index')->name('home');
+    });
+    
 Route::prefix('/dashboard/meets')
     ->controller(UserMeetController::class)
     ->group(function() {
