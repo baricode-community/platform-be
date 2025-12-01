@@ -8,6 +8,12 @@ Route::controller(App\Http\Controllers\HomeController::class)
         Route::get('/', 'index')->name('home');
     });
 
+Route::controller(App\Http\Controllers\UserController::class)
+    ->group(function () {
+        Route::get('/', 'index')->name('users.index');
+        Route::get('/list', 'list')->name('users.list');
+        Route::get('/{user:username}', 'show')->name('users.show');
+    });
 Route::controller(App\Http\Controllers\MeetController::class)
     ->prefix('meets')
     ->group(function () {
