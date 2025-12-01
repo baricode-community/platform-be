@@ -8,6 +8,13 @@ Route::controller(App\Http\Controllers\HomeController::class)
         Route::get('/', 'index')->name('home');
     });
 
+Route::controller(App\Http\Controllers\MeetController::class)
+    ->prefix('meets')
+    ->group(function () {
+        Route::get('/', 'index')->name('meets.index');
+        Route::get('/list', 'list')->name('meets.list');
+    });
+
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
