@@ -71,4 +71,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserMeet::class);
     }
+
+    /**
+     * Relasi many-to-many dengan Meet melalui user_meets pivot table
+     */
+    public function meets()
+    {
+        return $this->belongsToMany(Meet::class, 'user_meets')
+                    ->withPivot('description')
+                    ->withTimestamps();
+    }
 }

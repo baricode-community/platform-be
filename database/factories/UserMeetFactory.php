@@ -17,7 +17,9 @@ class UserMeetFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => \App\Models\User::factory(),
+            'meet_id' => \App\Models\Meet::factory(),
+            'description' => $this->faker->optional()->sentence(),
         ];
     }
 }
