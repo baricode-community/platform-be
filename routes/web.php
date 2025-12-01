@@ -6,7 +6,7 @@ use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
 
 Route::get('/', function () {
-    return redirect()->route('home');
+    return redirect('/api');
 });
 
 Route::prefix('/dashboard/meets')
