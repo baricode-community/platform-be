@@ -11,6 +11,7 @@ class Meet extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'description',
         'scheduled_at',
         'status',
