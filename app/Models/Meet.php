@@ -8,12 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Meet extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'title',
         'description',
         'scheduled_at',
         'status',
+    ];
+
+    protected $hidden = [
+        'id',
+        'created_at'
     ];
 
     protected $casts = [
