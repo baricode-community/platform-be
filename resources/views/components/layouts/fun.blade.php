@@ -11,7 +11,7 @@
         <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
             <div class="flex items-center space-x-3">
                 <span class="text-3xl animate-bounce">🎉</span>
-                <a href="{{ route('meme') }}" class="text-2xl font-extrabold text-white drop-shadow-lg hover:text-yellow-200 transition">
+                <a href="{{ route('memes') }}" class="text-2xl font-extrabold text-white drop-shadow-lg hover:text-yellow-200 transition">
                     Baricode Bergembira
                 </a>
             </div>
