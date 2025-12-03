@@ -106,7 +106,7 @@ new class extends Component {
                                 >
                                     {{ $meme['user']['name'] }}
                                 </a>
-                                <p class="text-xs text-gray-400">@{{ $meme['user']['username'] }}</p>
+                                <p class="text-xs text-gray-400">{{ $meme['user']['username'] }}</p>
                             </div>
                         </div>
                         <div class="text-xs text-gray-400">
@@ -147,7 +147,6 @@ new class extends Component {
                                 <span class="text-xl">🔗</span>
                             </button>
                         </div>
-                        <span class="text-xs text-gray-500">{{ __('Meme') }} #{{ $meme['id'] }}</span>
                     </div>
 
                     <!-- Caption -->
