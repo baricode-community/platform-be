@@ -7,16 +7,6 @@ use Livewire\Volt\Volt;
 
 require __DIR__.'/web/general.php';
 
-Route::prefix('/dashboard/meets')
-    ->controller(UserMeetController::class)
-    ->group(function() {
-        Route::get('/', 'index')->name('meets.index');
-});
-
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 

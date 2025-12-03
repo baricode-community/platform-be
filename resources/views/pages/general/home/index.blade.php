@@ -1,4 +1,4 @@
-<x-layouts.base :title="__('Halaman Utama')">
+<x-layouts.base :title="__('Komunitas IT Paling Keren di Indonesia')">
     <div class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 text-white overflow-hidden">
         
         <!-- Background Code Snippets -->
