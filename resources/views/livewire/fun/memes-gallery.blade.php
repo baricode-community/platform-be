@@ -4,21 +4,23 @@ use App\Models\Fun\Meme;
 use Livewire\Volt\Component;
 
 new class extends Component {
-    public $currentPage = 1;
-    public $perPage = 1;
-    public $sortBy = 'latest';
     public $memes = [];
     public $totalMemes = 0;
-    public $currentMeme = null;
+    public $sortBy = 'latest';
+    public $itemsPerLoad = 5;
+    public $isLoading = false;
+    public $hasMoreMemes = true;
 
     public function mount()
     {
-        $this->loadMemes();
+        $this->loadMoreMemes();
     }
 
-    public function loadMemes()
+    public function loadMoreMemes()
     {
-        $query = Meme::query();
+        $this->isLoading = true;
+
+        $query = Meme::with('user');
 
         if ($this->sortBy === 'latest') {
             $query->orderBy('created_at', 'desc');
@@ -27,39 +29,29 @@ new class extends Component {
         }
 
         $this->totalMemes = $query->count();
-        $skip = ($this->currentPage - 1) * $this->perPage;
         
-        $meme = $query->skip($skip)->first();
-        $this->currentMeme = $meme;
-    }
-
-    public function nextMeme()
-    {
-        if ($this->currentPage < ceil($this->totalMemes / $this->perPage)) {
-            $this->currentPage++;
-            $this->loadMemes();
-        }
-    }
-
-    public function previousMeme()
-    {
-        if ($this->currentPage > 1) {
-            $this->currentPage--;
-            $this->loadMemes();
-        }
+        $skip = count($this->memes);
+        $newMemes = $query->skip($skip)->take($this->itemsPerLoad)->get();
+        
+        $this->memes = array_merge($this->memes, $newMemes->toArray());
+        
+        $this->hasMoreMemes = count($this->memes) < $this->totalMemes;
+        $this->isLoading = false;
     }
 
     public function updatedSortBy()
     {
-        $this->currentPage = 1;
-        $this->loadMemes();
+        $this->memes = [];
+        $this->hasMoreMemes = true;
+        $this->loadMoreMemes();
     }
 
     #[\Livewire\Attributes\On('meme-created')]
     public function refreshMemes()
     {
-        $this->currentPage = 1;
-        $this->loadMemes();
+        $this->memes = [];
+        $this->hasMoreMemes = true;
+        $this->loadMoreMemes();
     }
 }; ?>
 
@@ -81,112 +73,118 @@ new class extends Component {
         </div>
     </div>
 
-    @if ($currentMeme)
-        <!-- Meme Container -->
-        <div class="mb-8">
-            <div class="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 backdrop-blur-xl rounded-3xl p-8 border border-purple-500/20 overflow-hidden">
-                
-                <!-- Header dengan User Info -->
-                <div class="flex items-center gap-4 mb-6 pb-6 border-b border-purple-500/20">
-                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-indigo-400 flex items-center justify-center text-white font-bold">
-                        {{ substr($currentMeme->user->name, 0, 1) }}
-                    </div>
-                    <div>
-                        <a
-                            href="{{ route('profile', $currentMeme->user->username) }}"
-                            class="text-white font-semibold hover:text-purple-300 transition-colors"
-                            wire:navigate
-                        >
-                            {{ $currentMeme->user->name }}
-                        </a>
-                        <p class="text-sm text-gray-400">@{{ $currentMeme->user->username }}</p>
-                    </div>
-                </div>
-
-                <!-- Meme Image -->
-                <div class="w-full mb-6 rounded-2xl overflow-hidden bg-black/30">
-                    <img
-                        src="{{ asset('storage/' . $currentMeme->image_path) }}"
-                        alt="{{ $currentMeme->caption ?? 'Meme' }}"
-                        class="w-full h-auto object-cover"
-                    />
-                </div>
-
-                <!-- Caption -->
-                @if ($currentMeme->caption)
-                    <div class="mb-6 p-4 bg-white/5 rounded-xl border border-purple-500/10">
-                        <p class="text-gray-200 text-lg leading-relaxed">{{ $currentMeme->caption }}</p>
-                    </div>
-                @endif
-
-                <!-- Actions Bar -->
-                <div class="flex items-center justify-between pb-6 border-b border-purple-500/20 mb-6">
-                    <div class="flex gap-4">
-                        <button
-                            class="flex items-center gap-2 px-4 py-2 bg-purple-500/20 border border-purple-500/30 rounded-xl hover:bg-purple-500/30 transition-colors text-purple-300 hover:text-purple-200 group"
-                            title="{{ __('Suka') }}"
-                        >
-                            <span class="text-2xl group-hover:scale-125 transition-transform">❤️</span>
-                            <span class="text-sm font-medium">0</span>
-                        </button>
-                        <button
-                            class="flex items-center gap-2 px-4 py-2 bg-indigo-500/20 border border-indigo-500/30 rounded-xl hover:bg-indigo-500/30 transition-colors text-indigo-300 hover:text-indigo-200"
-                            title="{{ __('Bagikan') }}"
-                        >
-                            <span class="text-2xl">💬</span>
-                            <span class="text-sm font-medium">0</span>
-                        </button>
-                        <button
-                            class="flex items-center gap-2 px-4 py-2 bg-pink-500/20 border border-pink-500/30 rounded-xl hover:bg-pink-500/30 transition-colors text-pink-300 hover:text-pink-200"
-                            title="{{ __('Bagikan') }}"
-                        >
-                            <span class="text-2xl">🔗</span>
-                        </button>
-                    </div>
+    @if (count($memes) > 0)
+        <!-- Memes Feed (Instagram Style with Infinite Scroll) -->
+        <div class="max-w-2xl mx-auto space-y-8 mb-12" x-data="{ observer: null }" x-init="
+            observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !@json($isLoading) && @json($hasMoreMemes)) {
+                        @this.call('loadMoreMemes');
+                    }
+                });
+            }, { rootMargin: '200px' });
+            
+            const sentinel = document.getElementById('infinite-scroll-sentinel');
+            if (sentinel) {
+                observer.observe(sentinel);
+            }
+        ">
+            @foreach ($memes as $meme)
+                <div class="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 backdrop-blur-xl rounded-2xl border border-purple-500/20 overflow-hidden hover:border-purple-500/40 transition-all">
                     
-                    <div class="text-sm text-gray-400">
-                        {{ $currentMeme->created_at->diffForHumans() }}
+                    <!-- Header dengan User Info -->
+                    <div class="flex items-center justify-between p-4 border-b border-purple-500/10">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-indigo-400 flex items-center justify-center text-white font-bold">
+                                {{ substr($meme['user']['name'], 0, 1) }}
+                            </div>
+                            <div>
+                                <a
+                                    href="{{ route('profile', $meme['user']['username']) }}"
+                                    class="text-white font-semibold hover:text-purple-300 transition-colors block"
+                                    wire:navigate
+                                >
+                                    {{ $meme['user']['name'] }}
+                                </a>
+                                <p class="text-xs text-gray-400">@{{ $meme['user']['username'] }}</p>
+                            </div>
+                        </div>
+                        <div class="text-xs text-gray-400">
+                            {{ \Carbon\Carbon::parse($meme['created_at'])->diffForHumans() }}
+                        </div>
                     </div>
-                </div>
 
-                <!-- Post Info -->
-                <div class="text-xs text-gray-400 text-center">
-                    <span class="inline-block">{{ __('Meme') }} #{{ $currentMeme->id }}</span>
+                    <!-- Meme Image -->
+                    <div class="w-full bg-black/30 overflow-hidden">
+                        <img
+                            src="{{ asset('storage/' . $meme['image_path']) }}"
+                            alt="{{ $meme['caption'] ?? 'Meme' }}"
+                            class="w-full h-auto object-cover"
+                        />
+                    </div>
+
+                    <!-- Actions Bar -->
+                    <div class="flex items-center justify-between p-4 border-b border-purple-500/10">
+                        <div class="flex gap-3">
+                            <button
+                                class="flex items-center gap-2 px-3 py-2 bg-purple-500/20 border border-purple-500/30 rounded-lg hover:bg-purple-500/30 transition-colors text-purple-300 hover:text-purple-200 group"
+                                title="{{ __('Suka') }}"
+                            >
+                                <span class="text-xl group-hover:scale-125 transition-transform">❤️</span>
+                                <span class="text-xs font-medium">0</span>
+                            </button>
+                            <button
+                                class="flex items-center gap-2 px-3 py-2 bg-indigo-500/20 border border-indigo-500/30 rounded-lg hover:bg-indigo-500/30 transition-colors text-indigo-300 hover:text-indigo-200"
+                                title="{{ __('Komentar') }}"
+                            >
+                                <span class="text-xl">💬</span>
+                                <span class="text-xs font-medium">0</span>
+                            </button>
+                            <button
+                                class="flex items-center gap-2 px-3 py-2 bg-pink-500/20 border border-pink-500/30 rounded-lg hover:bg-pink-500/30 transition-colors text-pink-300 hover:text-pink-200"
+                                title="{{ __('Bagikan') }}"
+                            >
+                                <span class="text-xl">🔗</span>
+                            </button>
+                        </div>
+                        <span class="text-xs text-gray-500">{{ __('Meme') }} #{{ $meme['id'] }}</span>
+                    </div>
+
+                    <!-- Caption -->
+                    @if ($meme['caption'])
+                        <div class="px-4 py-3">
+                            <p class="text-gray-200 text-sm leading-relaxed">
+                                <span class="font-semibold text-purple-300">{{ $meme['user']['name'] }}</span>
+                                {{ $meme['caption'] }}
+                            </p>
+                        </div>
+                    @endif
                 </div>
-            </div>
+            @endforeach
+
+            <!-- Infinite Scroll Sentinel -->
+            <div id="infinite-scroll-sentinel" class="w-full h-1"></div>
         </div>
 
-        <!-- Navigation Controls -->
-        <div class="flex items-center justify-center gap-4 mb-8">
-            <button
-                wire:click="previousMeme"
-                :disabled="$currentPage <= 1"
-                class="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl font-semibold text-white hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center gap-2"
-            >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                </svg>
-                {{ __('Sebelumnya') }}
-            </button>
-
-            <div class="text-center">
-                <p class="text-gray-300 font-semibold">
-                    {{ $currentPage }}<span class="text-gray-500">/{{ ceil($totalMemes / $perPage) }}</span>
-                </p>
-                <p class="text-sm text-gray-400">{{ __('dari') }} {{ $totalMemes }} {{ __('meme') }}</p>
+        <!-- Loading Indicator -->
+        @if ($isLoading)
+            <div class="max-w-2xl mx-auto flex justify-center py-8 mb-8">
+                <div class="flex items-center gap-2">
+                    <div class="w-3 h-3 bg-purple-500 rounded-full animate-bounce" style="animation-delay: 0s;"></div>
+                    <div class="w-3 h-3 bg-purple-500 rounded-full animate-bounce" style="animation-delay: 0.1s;"></div>
+                    <div class="w-3 h-3 bg-purple-500 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+                </div>
             </div>
+        @endif
 
-            <button
-                wire:click="nextMeme"
-                :disabled="$currentPage >= ceil($totalMemes / $perPage)"
-                class="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl font-semibold text-white hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center gap-2"
-            >
-                {{ __('Berikutnya') }}
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-            </button>
-        </div>
+        <!-- End of Memes Message -->
+        @if (!$hasMoreMemes && count($memes) > 0)
+            <div class="max-w-2xl mx-auto text-center py-8">
+                <p class="text-gray-400 text-sm">{{ __('Tidak ada meme lagi') }} 😅</p>
+                <p class="text-xs text-gray-500 mt-1">{{ __('Total') }} {{ $totalMemes }} {{ __('meme dimuat') }}</p>
+            </div>
+        @endif
+
     @else
         <!-- Empty State -->
         <div class="text-center py-20">

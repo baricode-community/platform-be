@@ -18,10 +18,6 @@ class Meme extends Model
         'caption',
     ];
 
-    protected $hidden = [
-        'created_at',
-    ];
-
     /**
      * Boot the model
      */
