@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Laravel\Fortify\TwoFactorAuthenticatable;
+use App\Models\Fun\Meme;
 
 class User extends Authenticatable
 {
@@ -82,5 +83,13 @@ class User extends Authenticatable
         return $this->belongsToMany(Meet::class, 'user_meets')
                     ->withPivot('description')
                     ->withTimestamps();
+    }
+
+    /**
+     * Relasi dengan Meme - setiap user memiliki satu meme
+     */
+    public function meme()
+    {
+        return $this->hasOne(Meme::class);
     }
 }
