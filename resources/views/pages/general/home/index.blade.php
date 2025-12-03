@@ -33,9 +33,9 @@ function learn() {
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-                    <button class="px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-3xl font-semibold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105">
+                    <a href="{{ route('dashboard') }}" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-3xl font-semibold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105 flex items-center justify-center">
                         Gabung Gratis
-                    </button>
+                    </a>
                     <button class="px-8 py-4 bg-white/10 backdrop-blur-lg rounded-3xl font-semibold text-lg border border-white/20 hover:bg-white/20 transition-all">
                         Lihat Aktivitas Komunitas
                     </button>
