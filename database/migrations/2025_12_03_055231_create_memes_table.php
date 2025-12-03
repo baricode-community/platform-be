@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('memes', function (Blueprint $table) {
             $table->string('id', 5)->primary();
-            $table->foreignId('user_id')->unique()->constrained()->onDelete('cascade');
-            $table->string('image_path')->nullable(false);
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('image_path')->nullable();
             $table->string('caption')->nullable();
             $table->timestamps();
         });
