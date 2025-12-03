@@ -5,9 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
 
-Route::get('/', function () {
-    return redirect('/api');
-});
+require __DIR__.'/web/general.php';
 
 Route::prefix('/dashboard/meets')
     ->controller(UserMeetController::class)
