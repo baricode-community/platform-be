@@ -11,6 +11,11 @@
         <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
             <div class="flex items-center">
                 <a href="{{ route('dashboard') }}" class="text-xl font-bold text-white">Baricode Community</a>
+                <ul class="flex space-x-6 ml-8"></ul>
+                    <li>
+                        <a href="{{ route('home') }}" class="text-white hover:text-gray-300">Halaman Utama</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
