@@ -6,7 +6,9 @@ Route::controller(\App\Http\Controllers\Web\Fun\MemeController::class)
     ->prefix('/meme')
     ->group(function () {
         Route::get('/', 'index')->name('memes');
-        Route::get('/create', 'create')->name('memes.create');
+        Route::get('/create', 'create')
+            ->middleware(['auth', 'verified'])
+            ->name('memes.create');
     });
 
 Route::get('/profile/{username}', function ($username) {
