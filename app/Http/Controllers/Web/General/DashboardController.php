@@ -16,4 +16,9 @@ class DashboardController extends Controller
     {
         return view('pages.general.dashboard.analytics');
     }
+
+    public function memes()
+    {
+        return view('pages.general.dashboard.memes');
+    }
 }

@@ -12,4 +12,5 @@ Route::controller(\App\Http\Controllers\Web\General\DashboardController::class)
     ->group(function () {
         Route::get('/', 'index')->name('dashboard');
         Route::get('/analytics', 'analytics')->name('dashboard.analytics');
+        Route::get('/memes', 'memes')->name('dashboard.memes');
 });

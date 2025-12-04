@@ -26,6 +26,27 @@
                             </div>
                         </div>
                     </a>
+
+                    {{-- Meme Dashboard --}}
+                    <a href="{{ route('dashboard.memes') }}" class="group">
+                        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                            <div class="bg-gradient-to-br from-pink-500 to-rose-600 h-24 flex items-center justify-center">
+                                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-lg font-semibold text-gray-800 mb-2 group-hover:text-rose-600 transition-colors">Dashboard Meme</h3>
+                                <p class="text-gray-600 text-sm mb-4">Kelola dan lihat statistik meme yang telah diunggah.</p>
+                                <span class="inline-flex items-center text-rose-600 font-semibold text-sm">
+                                    Kunjungi
+                                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
 
