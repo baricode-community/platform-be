@@ -11,4 +11,9 @@ class MemeController extends Controller
     {
         return view('pages.fun.meme.index');
     }
+
+    public function create()
+    {
+        return view('pages.fun.meme.create');
+    }
 }

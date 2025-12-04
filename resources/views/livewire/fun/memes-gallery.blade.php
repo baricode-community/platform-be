@@ -6,7 +6,6 @@ use Livewire\Volt\Component;
 new class extends Component {
     public $memes = [];
     public $totalMemes = 0;
-    public $sortBy = 'latest';
     public $itemsPerLoad = 5;
     public $isLoading = false;
     public $hasMoreMemes = true;
@@ -20,13 +19,7 @@ new class extends Component {
     {
         $this->isLoading = true;
 
-        $query = Meme::with('user');
-
-        if ($this->sortBy === 'latest') {
-            $query->orderBy('created_at', 'desc');
-        } elseif ($this->sortBy === 'oldest') {
-            $query->orderBy('created_at', 'asc');
-        }
+        $query = Meme::with('user')->orderBy('created_at', 'desc');
 
         $this->totalMemes = $query->count();
         
@@ -39,13 +32,6 @@ new class extends Component {
         $this->isLoading = false;
     }
 
-    public function updatedSortBy()
-    {
-        $this->memes = [];
-        $this->hasMoreMemes = true;
-        $this->loadMoreMemes();
-    }
-
     #[\Livewire\Attributes\On('meme-created')]
     public function refreshMemes()
     {
@@ -56,23 +42,6 @@ new class extends Component {
 }; ?>
 
 <div class="mt-16">
-    <div class="mb-8 flex items-center justify-between">
-        <h2 class="text-3xl font-bold text-white">{{ __('Feed Meme') }}</h2>
-        
-        <!-- Sort Options -->
-        <div class="flex items-center gap-3">
-            <label for="sort" class="text-sm text-gray-300">{{ __('Urutkan:') }}</label>
-            <select
-                id="sort"
-                wire:model.live="sortBy"
-                class="px-4 py-2 bg-white/5 border border-purple-500/30 rounded-lg text-white text-sm focus:outline-none focus:border-purple-500/60 focus:ring-2 focus:ring-purple-500/20 transition-all"
-            >
-                <option value="latest">{{ __('Terbaru') }}</option>
-                <option value="oldest">{{ __('Tertua') }}</option>
-            </select>
-        </div>
-    </div>
-
     @if (count($memes) > 0)
         <!-- Memes Feed (Instagram Style with Infinite Scroll) -->
         <div class="max-w-2xl mx-auto space-y-8 mb-12" x-data="{ observer: null }" x-init="
@@ -195,7 +164,8 @@ new class extends Component {
             <h3 class="text-2xl font-semibold text-white mb-3">{{ __('Belum Ada Meme') }}</h3>
             <p class="text-gray-400 mb-8 max-w-md mx-auto">{{ __('Jadilah yang pertama membuat meme di komunitas kami! Bagikan kreativitasmu dan buat orang lain tertawa.') }}</p>
             <a
-                href="#create-meme"
+                href="{{ route('memes.create') }}"
+                wire:navigate
                 class="inline-block px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl font-semibold text-white hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105"
             >
                 {{ __('Buat Meme Pertamamu') }}

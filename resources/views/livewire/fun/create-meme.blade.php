@@ -46,6 +46,9 @@ new class extends Component {
             $this->dispatch('meme-created');
             session()->flash('success', __('Meme berhasil dibuat!'));
             
+            // Redirect to memes page
+            return $this->redirect(route('memes'), navigate: true);
+            
         } catch (\Exception $e) {
             dd($e);
             session()->flash('error', __('Gagal membuat meme. Silakan coba lagi.'));
@@ -147,6 +150,13 @@ new class extends Component {
 
         <!-- Submit Button -->
         <div class="flex gap-4 pt-4">
+            <a
+                href="{{ route('memes') }}"
+                wire:navigate
+                class="flex-1 px-6 py-3 bg-gray-600/50 border border-gray-500/50 rounded-xl font-semibold text-lg hover:bg-gray-600/70 transition-all text-white text-center"
+            >
+                {{ __('Batal') }}
+            </a>
             <button
                 type="submit"
                 wire:loading.attr="disabled"
