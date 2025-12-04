@@ -9,10 +9,8 @@ Route::controller(\App\Http\Controllers\Web\Fun\MemeController::class)
         Route::get('/create', 'create')
             ->middleware(['auth', 'verified'])
             ->name('memes.create');
+        
+        Route::get('/user', 'user_list')->name('memes.user_list');
+        Route::get('/user/{user:username}', 'user')->name('memes.user');
     });
-
-Route::get('/profile/{username}', function ($username) {
-    // TODO: Implement user profile page
-    return redirect('/meme');
-})->name('profile');
 

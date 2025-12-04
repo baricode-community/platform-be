@@ -69,7 +69,7 @@ new class extends Component {
                             </div>
                             <div>
                                 <a
-                                    href="{{ route('profile', $meme['user']['username']) }}"
+                                    href="{{ route('memes.user', $meme['user']['username']) }}"
                                     class="text-white font-semibold hover:text-purple-300 transition-colors block"
                                     wire:navigate
                                 >
