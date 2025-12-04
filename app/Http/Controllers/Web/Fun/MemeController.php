@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\Fun;
 
 use App\Http\Controllers\Controller;
+use App\Models\Fun\Meme;
 use Illuminate\Http\Request;
 
 class MemeController extends Controller

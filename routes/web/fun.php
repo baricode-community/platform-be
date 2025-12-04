@@ -13,3 +13,4 @@ Route::get('/profile/{username}', function ($username) {
     // TODO: Implement user profile page
     return redirect('/meme');
 })->name('profile');
+

@@ -4,6 +4,7 @@ namespace App\Models\Fun;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use App\Models\Fun\MemeVote;
 
 class Meme extends Model
 {
@@ -50,5 +51,37 @@ class Meme extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Relasi dengan MemeVote - setiap meme dapat memiliki banyak votes
+     */
+    public function votes()
+    {
+        return $this->hasMany(MemeVote::class);
+    }
+
+    /**
+     * Get upvotes count
+     */
+    public function upvotesCount()
+    {
+        return $this->votes()->where('vote_type', 'up')->count();
+    }
+
+    /**
+     * Get downvotes count
+     */
+    public function downvotesCount()
+    {
+        return $this->votes()->where('vote_type', 'down')->count();
+    }
+
+    /**
+     * Get user's vote on this meme (if any)
+     */
+    public function userVote($userId)
+    {
+        return $this->votes()->where('user_id', $userId)->first();
     }
 }

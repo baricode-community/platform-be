@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use App\Models\Fun\Meme;
+use App\Models\Fun\MemeVote;
 
 class User extends Authenticatable
 {
@@ -91,5 +92,13 @@ class User extends Authenticatable
     public function meme()
     {
         return $this->hasOne(Meme::class);
+    }
+
+    /**
+     * Relasi dengan MemeVote - setiap user dapat memiliki banyak votes
+     */
+    public function memeVotes()
+    {
+        return $this->hasMany(MemeVote::class);
     }
 }

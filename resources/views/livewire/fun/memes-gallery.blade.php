@@ -95,26 +95,7 @@ new class extends Component {
                     <!-- Actions Bar -->
                     <div class="flex items-center justify-between p-4 border-b border-purple-500/10">
                         <div class="flex gap-3">
-                            <button
-                                class="flex items-center gap-2 px-3 py-2 bg-purple-500/20 border border-purple-500/30 rounded-lg hover:bg-purple-500/30 transition-colors text-purple-300 hover:text-purple-200 group"
-                                title="{{ __('Suka') }}"
-                            >
-                                <span class="text-xl group-hover:scale-125 transition-transform">❤️</span>
-                                <span class="text-xs font-medium">0</span>
-                            </button>
-                            <button
-                                class="flex items-center gap-2 px-3 py-2 bg-indigo-500/20 border border-indigo-500/30 rounded-lg hover:bg-indigo-500/30 transition-colors text-indigo-300 hover:text-indigo-200"
-                                title="{{ __('Komentar') }}"
-                            >
-                                <span class="text-xl">💬</span>
-                                <span class="text-xs font-medium">0</span>
-                            </button>
-                            <button
-                                class="flex items-center gap-2 px-3 py-2 bg-pink-500/20 border border-pink-500/30 rounded-lg hover:bg-pink-500/30 transition-colors text-pink-300 hover:text-pink-200"
-                                title="{{ __('Bagikan') }}"
-                            >
-                                <span class="text-xl">🔗</span>
-                            </button>
+                            <livewire:fun.meme-vote-button :memeId="$meme['id']" />
                         </div>
                     </div>
 
@@ -122,7 +103,6 @@ new class extends Component {
                     @if ($meme['caption'])
                         <div class="px-4 py-3">
                             <p class="text-gray-200 text-sm leading-relaxed">
-                                <span class="font-semibold text-purple-300">{{ $meme['user']['name'] }}</span>
                                 {{ $meme['caption'] }}
                             </p>
                         </div>
