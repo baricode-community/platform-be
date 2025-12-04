@@ -96,6 +96,8 @@ new class extends Component {
                     <div class="flex items-center justify-between p-4 border-b border-purple-500/10">
                         <div class="flex gap-3">
                             <livewire:fun.meme-vote-button :memeId="$meme['id']" />
+                            {{-- <livewire:fun.meme-comment-button :memeId="$meme['id']" /> --}}
+                            <livewire:fun.meme-share :memeId="$meme['id']" />
                         </div>
                     </div>
 

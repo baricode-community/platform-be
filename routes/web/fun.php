@@ -12,5 +12,7 @@ Route::controller(\App\Http\Controllers\Web\Fun\MemeController::class)
         
         Route::get('/user', 'user_list')->name('memes.user_list');
         Route::get('/user/{user:username}', 'user')->name('memes.user');
+
+        Route::get('/show/{meme}', 'show')->name('memes.show');
     });
 

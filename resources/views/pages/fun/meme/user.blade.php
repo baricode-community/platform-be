@@ -26,19 +26,6 @@
 
                         <!-- Action Button -->
                         {{-- TODO --}}
-                        <div class="flex-shrink-0">
-                            @if(Auth::check() && Auth::user()->id === $user->id)
-                                <a 
-                                    href="{{ route('profile.edit') }}"
-                                    class="inline-flex items-center px-7 py-3 bg-white/90 text-indigo-700 rounded-xl font-bold shadow hover:bg-indigo-50 transition-colors text-base"
-                                >
-                                    <svg class="w-5 h-5 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536M9 13l6-6m2 2l-6 6m-2 2H7v-2a2 2 0 012-2h2v2a2 2 0 01-2 2z" />
-                                    </svg>
-                                    {{ __('Edit Profile') }}
-                                </a>
-                            @endif
-                        </div>
                     </div>
                 </div>
             </div>

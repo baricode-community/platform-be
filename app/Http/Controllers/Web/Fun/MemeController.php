@@ -72,4 +72,9 @@ class MemeController extends Controller
             'averageVotes' => $averageVotes,
         ]);
     }
+
+    public function show(Meme $meme)
+    {
+        return view('pages.fun.meme.show', ['meme' => $meme]);
+    }
 }
