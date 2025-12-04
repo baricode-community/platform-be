@@ -12,15 +12,6 @@
             <div class="flex items-center">
                 <a href="{{ route('dashboard') }}" class="text-xl font-bold text-white">Baricode Community</a>
             </div>
-            <div class="flex items-center space-x-6">
-                <a href="{{ route('logout') }}" class="text-gray-300 hover:text-white"
-                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                    @csrf
-                </form>
-            </div>
         </div>
     </nav>
     

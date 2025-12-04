@@ -11,4 +11,9 @@ class DashboardController extends Controller
     {
         return view('pages.general.dashboard.index');
     }
+
+    public function analytics()
+    {
+        return view('pages.general.dashboard.analytics');
+    }
 }

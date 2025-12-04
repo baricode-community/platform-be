@@ -11,4 +11,5 @@ Route::controller(\App\Http\Controllers\Web\General\DashboardController::class)
     ->middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', 'index')->name('dashboard');
+        Route::get('/analytics', 'analytics')->name('dashboard.analytics');
 });
