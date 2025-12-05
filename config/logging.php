@@ -127,6 +127,15 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
 
+        /**
+         * Channel security digunakan untuk mencatat event yang sangat penting yang memengaruhi akses dan integritas akun pengguna.
+         */
+        'security' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/security.log'),
+            'level' => 'info',
+        ]
+
     ],
 
 ];
