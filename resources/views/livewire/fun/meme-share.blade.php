@@ -83,7 +83,7 @@ new class extends Component {
     <!-- Clipboard Notification -->
     @if($copiedNotification)
         <div
-            class="fixed top-4 right-4 z-50 animate-in slide-in-from-top-4 fade-in"
+            class="fixed top-4 right-4 z-[60] animate-in slide-in-from-top-4 fade-in"
             x-data
             x-init="setTimeout(() => $wire.hideClipboardNotification(), 3000)"
         >
@@ -118,87 +118,81 @@ new class extends Component {
     <!-- Share Modal -->
     @if($showModal)
         <div
-            class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300"
+            class="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm transition-opacity duration-300"
             wire:click="toggleModal"
         ></div>
 
-        <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 animate-in fade-in zoom-in-95 duration-300">
-            <div class="bg-gradient-to-br from-gray-900 to-black border border-purple-500/30 rounded-2xl shadow-2xl shadow-purple-500/20 p-8 max-w-md w-full mx-4">
+        <div class="fixed inset-4 sm:top-1/2 sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:-translate-y-1/2 sm:inset-auto z-50 animate-in fade-in zoom-in-95 duration-300">
+            <div class="bg-gradient-to-br from-gray-900 via-purple-900/20 to-black border border-purple-500/40 rounded-2xl shadow-2xl shadow-purple-500/30 p-6 sm:p-8 w-full sm:w-auto sm:min-w-[500px] max-w-2xl h-full sm:h-auto flex flex-col">
                 <!-- Header -->
-                <div class="mb-6">
-                    <h3 class="text-2xl font-bold text-white mb-2">{{ __('Bagikan Meme') }}</h3>
-                    <p class="text-gray-400 text-sm">{{ __('Pilih cara bagikan meme ini') }}</p>
+                <div class="mb-6 flex items-center justify-between">
+                    <div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-1">{{ __('Bagikan Meme') }}</h3>
+                        <p class="text-sm text-gray-400">{{ __('Pilih platform untuk berbagi') }}</p>
+                    </div>
+                    <button
+                        wire:click="toggleModal"
+                        class="sm:hidden text-gray-400 hover:text-white transition-colors"
+                    >
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
                 </div>
 
                 <!-- Share Options Grid -->
-                <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 flex-1 sm:flex-none">
                     <!-- WhatsApp -->
                     <button
                         wire:click="shareToWhatsapp"
-                        class="group relative bg-gradient-to-br from-green-500 to-green-600 hover:shadow-lg hover:shadow-green-500/50 rounded-xl p-4 text-white transition-all transform hover:scale-105"
+                        class="group relative bg-gradient-to-br from-green-500 to-green-600 hover:shadow-lg hover:shadow-green-500/50 rounded-xl p-6 sm:p-8 text-white transition-all transform hover:scale-105 active:scale-95"
                     >
-                        <div class="flex flex-col items-center gap-2">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <div class="flex flex-col items-center gap-3">
+                            <svg class="w-8 h-8 sm:w-10 sm:h-10" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-5.031 1.378c-1.087.713-2.057 1.669-2.723 2.776-1.396 2.291-1.573 5.283-.399 7.995 1.203 2.874 3.907 4.97 7.1 4.97 1.584 0 3.149-.356 4.596-1.036 2.965 1.874 6.5 2.753 9.269 1.288 1.775-.956 2.744-2.637 2.952-4.287.208-1.655-.122-3.589-1.202-5.195-1.137-1.745-2.946-2.718-4.684-2.718h-.004c-1.086 0-2.13.353-3.007.935-1.milwaukee.287-1.42.287-2.852 0-.722-.493-1.797-.779-2.816-.779z"/>
                             </svg>
-                            <span class="text-sm font-semibold">{{ __('WhatsApp') }}</span>
+                            <span class="text-sm sm:text-base font-semibold">{{ __('WhatsApp') }}</span>
                         </div>
                     </button>
 
                     <!-- Facebook -->
                     <button
                         wire:click="shareToFacebook"
-                        class="group relative bg-gradient-to-br from-blue-600 to-blue-700 hover:shadow-lg hover:shadow-blue-500/50 rounded-xl p-4 text-white transition-all transform hover:scale-105"
+                        class="group relative bg-gradient-to-br from-blue-600 to-blue-700 hover:shadow-lg hover:shadow-blue-500/50 rounded-xl p-6 sm:p-8 text-white transition-all transform hover:scale-105 active:scale-95"
                     >
-                        <div class="flex flex-col items-center gap-2">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <div class="flex flex-col items-center gap-3">
+                            <svg class="w-8 h-8 sm:w-10 sm:h-10" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                             </svg>
-                            <span class="text-sm font-semibold">{{ __('Facebook') }}</span>
+                            <span class="text-sm sm:text-base font-semibold">{{ __('Facebook') }}</span>
                         </div>
                     </button>
 
                     <!-- Instagram -->
                     <button
                         wire:click="shareToInstagram"
-                        class="group relative bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 hover:shadow-lg hover:shadow-pink-500/50 rounded-xl p-4 text-white transition-all transform hover:scale-105"
+                        class="group relative bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 hover:shadow-lg hover:shadow-pink-500/50 rounded-xl p-6 sm:p-8 text-white transition-all transform hover:scale-105 active:scale-95"
                     >
-                        <div class="flex flex-col items-center gap-2">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <div class="flex flex-col items-center gap-3">
+                            <svg class="w-8 h-8 sm:w-10 sm:h-10" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.322a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
                             </svg>
-                            <span class="text-sm font-semibold">{{ __('Instagram') }}</span>
+                            <span class="text-sm sm:text-base font-semibold">{{ __('Instagram') }}</span>
                         </div>
                     </button>
 
                     <!-- Copy Link -->
                     <button
                         wire:click="copyToClipboard"
-                        class="group relative bg-gradient-to-br from-orange-500 to-red-500 hover:shadow-lg hover:shadow-orange-500/50 rounded-xl p-4 text-white transition-all transform hover:scale-105"
+                        class="group relative bg-gradient-to-br from-orange-500 to-red-500 hover:shadow-lg hover:shadow-orange-500/50 rounded-xl p-6 sm:p-8 text-white transition-all transform hover:scale-105 active:scale-95"
                     >
-                        <div class="flex flex-col items-center gap-2">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="flex flex-col items-center gap-3">
+                            <svg class="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
                             </svg>
-                            <span class="text-sm font-semibold">{{ __('Copy Link') }}</span>
+                            <span class="text-sm sm:text-base font-semibold">{{ __('Copy Link') }}</span>
                         </div>
                     </button>
-                </div>
-
-                <!-- Close Button -->
-                <button
-                    wire:click="toggleModal"
-                    class="w-full bg-gray-800 hover:bg-gray-700 text-gray-300 py-3 rounded-lg transition-colors font-medium"
-                >
-                    {{ __('Tutup') }}
-                </button>
-
-                <!-- Share URL Display -->
-                <div class="mt-6 pt-6 border-t border-gray-800">
-                    <p class="text-xs text-gray-500 mb-2">{{ __('URL Bagikan:') }}</p>
-                    <div class="bg-gray-800 rounded-lg p-3 text-gray-300 text-xs break-all font-mono">
-                        {{ $memeUrl }}
-                    </div>
                 </div>
             </div>
         </div>

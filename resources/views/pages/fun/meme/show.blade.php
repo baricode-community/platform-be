@@ -69,16 +69,6 @@
                                 $shareUrl = route('memes.show', $meme->id);
                             @endphp
                             <livewire:fun.meme-share :memeId="$meme->id" />
-
-                            <!-- Report Button -->
-                            <button
-                                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 hover:bg-red-500/20 hover:border-red-500/50 border border-gray-700 transition-all text-gray-400 hover:text-red-400"
-                                title="{{ __('Laporkan') }}"
-                            >
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4v.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </button>
                         </div>
                     </div>
                 </div>
