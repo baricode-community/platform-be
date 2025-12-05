@@ -167,10 +167,10 @@
                     </div>
                 </div>
 
-                <!-- Account Category -->
+                <!-- Security Category -->
                 <div>
                     <h3 class="mb-2 px-3 text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">
-                        Account
+                        Keamanan
                     </h3>
                     <div class="space-y-1">
                         <a href="{{ route('profile.edit') }}" wire:click="closeSidebar"
@@ -181,7 +181,7 @@
                                         d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                 </svg>
                             </span>
-                            <span class="truncate">Profile</span>
+                            <span class="truncate">Daftar Pengguna</span>
                             @if(request()->routeIs('profile.edit'))
                                 <span class="absolute left-0 top-0 h-full w-1 rounded-r-lg bg-blue-600"></span>
                             @endif

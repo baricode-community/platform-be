@@ -72,6 +72,7 @@ class SystemController extends Controller
 
     public function export()
     {
+        
         return view('pages.system.general.export');
     }
 
