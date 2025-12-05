@@ -1,7 +1,7 @@
 <!-- Header with Dark Mode Toggle -->
 <div class="sticky top-0 z-20 border-b border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900">
     <div class="flex items-center justify-between px-4 py-3 sm:px-6">
-        <h1 class="text-lg font-semibold text-slate-900 dark:text-white">{{ $title ?? 'Dashboard' }}</h1>
+        <div></div>
         
         <!-- Dark Mode Toggle & User Menu -->
         <div class="flex items-center space-x-4">
