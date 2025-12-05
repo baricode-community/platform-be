@@ -132,7 +132,7 @@ return [
          */
         'security' => [
             'driver' => 'daily',
-            'path' => storage_path('logs/security.log'),
+            'path' => storage_path('logs/security/security.log'),
             'level' => 'info',
         ]
 
