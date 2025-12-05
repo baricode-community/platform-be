@@ -1,0 +1,46 @@
+/* Sidebar Custom Scrollbar */
+#sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+#sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+    background: rgb(203, 213, 225);
+    border-radius: 3px;
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgb(148, 163, 184);
+}
+
+html.dark #sidebar::-webkit-scrollbar-thumb {
+    background: rgb(71, 85, 105);
+}
+
+html.dark #sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgb(100, 116, 139);
+}
+
+/* Smooth transitions */
+* {
+    @apply transition-colors duration-200;
+}
+
+/* Prevent layout shift */
+html {
+    overflow-y: scroll;
+}
+
+/* Mobile sidebar smooth animation */
+@media (max-width: 1023px) {
+    #sidebar {
+        @apply shadow-xl;
+    }
+    
+    #sidebarOverlay {
+        @apply transition-opacity duration-300;
+    }
+}

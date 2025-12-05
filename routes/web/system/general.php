@@ -9,3 +9,6 @@ Route::controller(\App\Http\Controllers\Web\System\General\SystemController::cla
         Route::get('/export', 'export')->name('system.export');
         Route::get('/import', 'import')->name('system.import');
 });
+
+// Sidebar demo route
+Route::view('/sidebar-demo', 'pages.sidebar-demo')->name('sidebar-demo');
