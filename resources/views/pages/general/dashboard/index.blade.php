@@ -1,25 +1,147 @@
 <x-layouts.dashboard :title="__('Baricode Dashboard')">
-    <!-- Dashboard Navigation Cards -->
-    <section class="py-6 bg-gray-50">
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .animate-slideInLeft {
+            animation: slideInLeft 0.6s ease-out forwards;
+        }
+
+        .dashboard-card {
+            animation: fadeInUp 0.6s ease-out;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .dashboard-card .icon-container {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .dashboard-card:hover .icon-container {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+
+        .hero-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .grid-item {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .grid-item:nth-child(1) { animation-delay: 0.1s; }
+        .grid-item:nth-child(2) { animation-delay: 0.2s; }
+        .grid-item:nth-child(3) { animation-delay: 0.3s; }
+        .grid-item:nth-child(4) { animation-delay: 0.4s; }
+        .grid-item:nth-child(5) { animation-delay: 0.5s; }
+        .grid-item:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16 px-6">
+        <div class="container mx-auto">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold text-white mb-4 animate-fadeInUp">
+                    Halo, {{ Auth::user()->name ?? 'Member' }}! 👋
+                </h1>
+                <p class="text-xl text-gray-300 animate-fadeInUp" style="animation-delay: 0.1s;">
+                    Selamat datang kembali di Baricode - komunitas IT terbaik dan paling seru!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-12 bg-gray-50 min-h-screen">
         <div class="container mx-auto px-6">
-            <!-- General Dashboard -->
-            <div class="mb-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6">Dashboard Utama</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Analytics Dashboard Card -->
-                    <a href="{{ route('dashboard.analytics') }}" class="group">
-                        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
-                            <div class="bg-gradient-to-br from-blue-500 to-blue-600 h-24 flex items-center justify-center">
-                                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                                </svg>
+            <!-- Dashboard Utama Section -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2 section-title">🎯 Akses Cepat</h2>
+                <p class="text-gray-600 mb-8 mt-6">Mulai eksplorasi dan bagikan konten meme berkualitas dengan komunitas</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- My Memes -->
+                    <a href="{{ route('home') }}" class="group grid-item">
+                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                            <div class="bg-gradient-to-br from-pink-500 to-rose-600 h-28 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white opacity-10"></div>
+                                <div class="icon-container">
+                                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
                             </div>
                             <div class="p-6">
-                                <h3 class="text-lg font-semibold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">Dashboard Analytics</h3>
-                                <p class="text-gray-600 text-sm mb-4">Lihat statistik dan analytics keseluruhan platform Anda.</p>
-                                <span class="inline-flex items-center text-blue-600 font-semibold text-sm">
-                                    Kunjungi
-                                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-rose-600 transition-colors">Meme Saya</h3>
+                                <p class="text-gray-600 text-sm mb-6">Lihat, kelola, dan pantau performa meme yang telah Anda upload.</p>
+                                <span class="inline-flex items-center text-rose-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                                    Lihat Meme Saya
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                     </svg>
                                 </span>
@@ -27,20 +149,47 @@
                         </div>
                     </a>
 
-                    {{-- Meme Dashboard --}}
-                    <a href="{{ route('dashboard.memes') }}" class="group">
-                        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
-                            <div class="bg-gradient-to-br from-pink-500 to-rose-600 h-24 flex items-center justify-center">
-                                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
+                    <!-- Upload Meme -->
+                    <a href="{{ route('home') }}" class="group grid-item">
+                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                            <div class="bg-gradient-to-br from-blue-500 to-indigo-600 h-28 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white opacity-10"></div>
+                                <div class="icon-container">
+                                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                    </svg>
+                                </div>
                             </div>
                             <div class="p-6">
-                                <h3 class="text-lg font-semibold text-gray-800 mb-2 group-hover:text-rose-600 transition-colors">Dashboard Meme</h3>
-                                <p class="text-gray-600 text-sm mb-4">Kelola dan lihat statistik meme yang telah diunggah.</p>
-                                <span class="inline-flex items-center text-rose-600 font-semibold text-sm">
-                                    Kunjungi
-                                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-indigo-600 transition-colors">Upload Meme</h3>
+                                <p class="text-gray-600 text-sm mb-6">Bagikan meme lucu Anda dan tunjukkan kreativitas kepada komunitas kami.</p>
+                                <span class="inline-flex items-center text-indigo-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                                    Upload Sekarang
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Profile -->
+                    <a href="{{ route('home') }}" class="group grid-item">
+                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                            <div class="bg-gradient-to-br from-purple-500 to-pink-600 h-28 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white opacity-10"></div>
+                                <div class="icon-container">
+                                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-pink-600 transition-colors">Profil Saya</h3>
+                                <p class="text-gray-600 text-sm mb-6">Kelola informasi profil, preferensi, dan pengaturan akun Anda.</p>
+                                <span class="inline-flex items-center text-pink-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                                    Edit Profil
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                     </svg>
                                 </span>
@@ -50,24 +199,149 @@
                 </div>
             </div>
 
-            <!-- Fun Section -->
-            <div class="mb-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6">Hiburan</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Memes Dashboard Card -->
-                    <a href="{{ route('memes') }}" class="group">
-                        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
-                            <div class="bg-gradient-to-br from-pink-500 to-rose-600 h-24 flex items-center justify-center">
-                                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
+            <!-- Entertainment Section -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2 section-title">🎮 Jelajahi & Temukan</h2>
+                <p class="text-gray-600 mb-8 mt-6">Temukan meme seru, trending content, dan komunitas yang aktif</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Memes Gallery -->
+                    <a href="{{ route('home') }}" class="group grid-item">
+                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                            <div class="bg-gradient-to-br from-pink-500 to-rose-600 h-28 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white opacity-10"></div>
+                                <div class="icon-container">
+                                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
                             </div>
                             <div class="p-6">
-                                <h3 class="text-lg font-semibold text-gray-800 mb-2 group-hover:text-rose-600 transition-colors">Gallery Meme</h3>
-                                <p class="text-gray-600 text-sm mb-4">Koleksi meme lucu dari komunitas kami.</p>
-                                <span class="inline-flex items-center text-rose-600 font-semibold text-sm">
-                                    Kunjungi
-                                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-rose-600 transition-colors">Galeri Meme</h3>
+                                <p class="text-gray-600 text-sm mb-6">Browsing koleksi meme terbaik dan terlucu dari seluruh komunitas kami.</p>
+                                <span class="inline-flex items-center text-rose-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                                    Jelajahi Galeri
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Trending Content -->
+                    <a href="{{ route('home') }}" class="group grid-item">
+                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                            <div class="bg-gradient-to-br from-yellow-500 to-orange-600 h-28 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white opacity-10"></div>
+                                <div class="icon-container">
+                                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-yellow-600 transition-colors">Trending Sekarang</h3>
+                                <p class="text-gray-600 text-sm mb-6">Lihat konten yang sedang trending dan paling populer di komunitas saat ini.</p>
+                                <span class="inline-flex items-center text-yellow-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                                    Lihat Trending
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Favorite Memes -->
+                    <a href="{{ route('home') }}" class="group grid-item">
+                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                            <div class="bg-gradient-to-br from-red-500 to-pink-600 h-28 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white opacity-10"></div>
+                                <div class="icon-container">
+                                    <svg class="w-14 h-14 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-colors">Meme Favorit</h3>
+                                <p class="text-gray-600 text-sm mb-6">Kumpulan meme yang telah Anda tandai sebagai favorit untuk akses mudah.</p>
+                                <span class="inline-flex items-center text-red-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                                    Lihat Favorit
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Following Users -->
+                    <a href="{{ route('home') }}" class="group grid-item">
+                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                            <div class="bg-gradient-to-br from-cyan-500 to-blue-500 h-28 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white opacity-10"></div>
+                                <div class="icon-container">
+                                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3a6 6 0 016-6h6a6 6 0 016 6h-12z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-cyan-600 transition-colors">Pengguna yang Diikuti</h3>
+                                <p class="text-gray-600 text-sm mb-6">Lihat update terbaru dan meme dari pengguna yang Anda ikuti.</p>
+                                <span class="inline-flex items-center text-cyan-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                                    Lihat Following
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Notifications -->
+                    <a href="{{ route('home') }}" class="group grid-item">
+                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                            <div class="bg-gradient-to-br from-amber-500 to-orange-600 h-28 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white opacity-10"></div>
+                                <div class="icon-container">
+                                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-amber-600 transition-colors">Notifikasi</h3>
+                                <p class="text-gray-600 text-sm mb-6">Update tentang likes, comments, dan interaksi pada meme Anda.</p>
+                                <span class="inline-flex items-center text-amber-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                                    Lihat Notifikasi
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Messages -->
+                    <a href="{{ route('home') }}" class="group grid-item">
+                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                            <div class="bg-gradient-to-br from-violet-500 to-purple-600 h-28 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white opacity-10"></div>
+                                <div class="icon-container">
+                                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-violet-600 transition-colors">Pesan</h3>
+                                <p class="text-gray-600 text-sm mb-6">Chatting dengan pengguna lain dan bangun koneksi di komunitas.</p>
+                                <span class="inline-flex items-center text-violet-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                                    Buka Pesan
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                     </svg>
                                 </span>
@@ -77,47 +351,67 @@
                 </div>
             </div>
 
-            <!-- Quick Stats -->
-            <div class="mt-12 pt-8 border-t border-gray-200">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6">Ringkasan Cepat</h2>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                    <div class="bg-white rounded-lg p-6 shadow-md">
+            <!-- Quick Stats Section -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2 section-title">📊 Statistik Profil Anda</h2>
+                <p class="text-gray-600 mb-8 mt-6">Ringkasan performa dan aktivitas Anda di komunitas Baricode</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Total Memes Uploaded -->
+                    <div class="group bg-gradient-to-br from-pink-50 to-pink-100 rounded-lg p-6 border-l-4 border-pink-500 transition-all hover:shadow-lg hover:scale-105">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-gray-500 text-sm font-medium mb-1">Total Pertemuan</p>
-                                <p class="text-2xl font-bold text-gray-800">0</p>
+                                <p class="text-gray-600 text-sm font-medium mb-1">📸 Meme Saya</p>
+                                <p class="text-3xl font-bold text-pink-600">0</p>
                             </div>
-                            <div class="bg-blue-100 p-3 rounded-lg">
+                            <div class="bg-pink-200 p-4 rounded-full">
+                                <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Likes -->
+                    <div class="group bg-gradient-to-br from-red-50 to-red-100 rounded-lg p-6 border-l-4 border-red-500 transition-all hover:shadow-lg hover:scale-105">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm font-medium mb-1">❤️ Total Like</p>
+                                <p class="text-3xl font-bold text-red-600">0</p>
+                            </div>
+                            <div class="bg-red-200 p-4 rounded-full">
+                                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Followers -->
+                    <div class="group bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-6 border-l-4 border-blue-500 transition-all hover:shadow-lg hover:scale-105">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm font-medium mb-1">👥 Pengikut</p>
+                                <p class="text-3xl font-bold text-blue-600">0</p>
+                            </div>
+                            <div class="bg-blue-200 p-4 rounded-full">
                                 <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3a6 6 0 016-6h6a6 6 0 016 6h-12z"></path>
                                 </svg>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-lg p-6 shadow-md">
+                    <!-- Badges/Achievements -->
+                    <div class="group bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-lg p-6 border-l-4 border-yellow-500 transition-all hover:shadow-lg hover:scale-105">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-gray-500 text-sm font-medium mb-1">Status Akun</p>
-                                <p class="text-2xl font-bold text-green-600">Aktif</p>
+                                <p class="text-gray-600 text-sm font-medium mb-1">🏆 Badge</p>
+                                <p class="text-3xl font-bold text-yellow-600">0</p>
                             </div>
-                            <div class="bg-green-100 p-3 rounded-lg">
-                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-lg p-6 shadow-md">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-gray-500 text-sm font-medium mb-1">Terakhir Login</p>
-                                <p class="text-lg font-bold text-gray-800">Hari ini</p>
-                            </div>
-                            <div class="bg-purple-100 p-3 rounded-lg">
-                                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <div class="bg-yellow-200 p-4 rounded-full">
+                                <svg class="w-6 h-6 text-yellow-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                                 </svg>
                             </div>
                         </div>
