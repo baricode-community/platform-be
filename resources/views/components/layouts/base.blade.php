@@ -6,6 +6,17 @@
 </head>
 
 <body>
+
+    <!-- Background Code Snippets -->
+    <div class="fixed inset-0 opacity-5 pointer-events-none">
+        <pre class="text-purple-300 text-sm">
+function learn() {
+    const skills = ['HTML', 'CSS', 'JS'];
+    return skills.map(skill => master(skill));
+}
+            </pre>
+    </div>
+    
     {{ $slot }}
 
     <!-- Footer -->

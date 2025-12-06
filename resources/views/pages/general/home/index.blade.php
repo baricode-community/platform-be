@@ -1,16 +1,5 @@
 <x-layouts.base :title="__('Komunitas IT Paling Keren di Indonesia')">
     <div class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 text-white overflow-hidden">
-        
-        <!-- Background Code Snippets -->
-        <div class="fixed inset-0 opacity-5 pointer-events-none">
-            <pre class="text-purple-300 text-sm">
-function learn() {
-    const skills = ['HTML', 'CSS', 'JS'];
-    return skills.map(skill => master(skill));
-}
-            </pre>
-        </div>
-
         <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center px-4 py-20">
             <!-- Floating Memes -->
@@ -25,46 +14,57 @@ function learn() {
             </div>
 
             <div class="max-w-7xl mx-auto text-center z-10">
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent">
-                    Belajar Ngoding Gratis 100%<br/>Bersama Komunitas Aktif di Indonesia
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-8 bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent drop-shadow-lg">
+                    Komunitas IT Terbesar se-Indonesia<br/>
+                    <span class="block text-3xl md:text-5xl font-bold mt-2 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient-x">
+                        Bersama Bertumbuh, Belajar, dan Berbagi
+                    </span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto">
+                <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto font-medium drop-shadow">
                     Bangun proyek bareng, ikut tantangan harian, dan berkembang bersama komunitas developer yang positif.
                 </p>
+                <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto italic">
+                    Kami berbasis komunitas, jadi ada banyak fitur menarik yang tersedia khusus untuk kamu.<br>
+                    <span class="font-semibold text-purple-300">Yuk, eksplorasi dan manfaatkan semua fiturnya!</span>
+                </p>
                 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-                    <a href="{{ route('dashboard') }}" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-3xl font-semibold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105 flex items-center justify-center">
-                        Gabung Gratis
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20">
+                    <a href="{{ route('dashboard') }}" class="px-10 py-4 bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 rounded-full font-bold text-lg shadow-lg hover:shadow-purple-500/40 transition-all transform hover:scale-105 flex items-center justify-center ring-2 ring-purple-400/30 hover:ring-4 hover:ring-indigo-400/40">
+                        🚀 Gabung Gratis
                     </a>
-                    <button class="px-8 py-4 bg-white/10 backdrop-blur-lg rounded-3xl font-semibold text-lg border border-white/20 hover:bg-white/20 transition-all">
-                        Lihat Aktivitas Komunitas
-                    </button>
+                    <a href="#komunitas" class="px-10 py-4 bg-white/10 backdrop-blur-lg rounded-full font-semibold text-lg border border-white/20 hover:bg-white/20 transition-all flex items-center justify-center ring-1 ring-white/10 hover:ring-2 hover:ring-purple-300/30">
+                        👀 Lihat Aktivitas Komunitas
+                    </a>
                 </div>
 
                 <!-- Dashboard Mockup -->
-                <div class="relative max-w-5xl mx-auto">
-                    <div class="bg-gradient-to-br from-purple-500/20 to-indigo-500/20 backdrop-blur-xl rounded-3xl p-8 border border-purple-500/30 shadow-2xl shadow-purple-500/20">
-                        <div class="flex items-center gap-2 mb-4">
-                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <div class="relative max-w-5xl mx-auto group">
+                    <div class="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-purple-400/30 to-indigo-400/10 rounded-full blur-2xl opacity-70 animate-pulse"></div>
+                    <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-indigo-400/30 to-purple-400/10 rounded-full blur-2xl opacity-60 animate-pulse"></div>
+                    <div class="bg-gradient-to-br from-purple-500/30 to-indigo-500/30 backdrop-blur-2xl rounded-3xl p-10 border border-purple-500/40 shadow-2xl shadow-purple-500/20 relative z-10 transition-all group-hover:scale-105 group-hover:shadow-indigo-500/30">
+                        <div class="flex items-center gap-2 mb-6">
+                            <div class="w-3 h-3 rounded-full bg-red-500 shadow"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500 shadow"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500 shadow"></div>
                         </div>
-                        <div class="bg-gray-900/50 rounded-2xl p-6 text-left">
-                            <div class="flex items-center gap-4 mb-4">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500"></div>
+                        <div class="bg-gray-900/60 rounded-2xl p-8 text-left shadow-inner">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-14 h-14 rounded-full bg-gradient-to-r from-purple-500 via-violet-500 to-indigo-500 flex items-center justify-center text-3xl shadow-lg border-4 border-white/10">
+                                    🔥
+                                </div>
                                 <div>
-                                    <div class="font-semibold">Daily Commit Streak</div>
-                                    <div class="text-sm text-gray-400">14 hari berturut-turut 🔥</div>
+                                    <div class="font-bold text-lg text-white">Daily Commit Streak</div>
+                                    <div class="text-sm text-purple-300 font-semibold">14 hari berturut-turut <span class="animate-bounce inline-block">🔥</span></div>
                                 </div>
                             </div>
-                            <div class="grid grid-cols-7 gap-2">
-                                <div class="h-8 bg-purple-600 rounded"></div>
-                                <div class="h-8 bg-purple-600 rounded"></div>
-                                <div class="h-8 bg-purple-600 rounded"></div>
-                                <div class="h-8 bg-indigo-600 rounded"></div>
-                                <div class="h-8 bg-indigo-600 rounded"></div>
-                                <div class="h-8 bg-violet-600 rounded"></div>
-                                <div class="h-8 bg-violet-600 rounded"></div>
+                            <div class="grid grid-cols-7 gap-3">
+                                <div class="h-10 bg-gradient-to-t from-purple-600 to-purple-400 rounded-lg shadow-md animate-pulse"></div>
+                                <div class="h-10 bg-gradient-to-t from-purple-600 to-purple-400 rounded-lg shadow-md animate-pulse delay-100"></div>
+                                <div class="h-10 bg-gradient-to-t from-purple-600 to-violet-500 rounded-lg shadow-md animate-pulse delay-200"></div>
+                                <div class="h-10 bg-gradient-to-t from-indigo-600 to-indigo-400 rounded-lg shadow-md animate-pulse delay-300"></div>
+                                <div class="h-10 bg-gradient-to-t from-indigo-600 to-violet-500 rounded-lg shadow-md animate-pulse delay-400"></div>
+                                <div class="h-10 bg-gradient-to-t from-violet-600 to-purple-500 rounded-lg shadow-md animate-pulse delay-500"></div>
+                                <div class="h-10 bg-gradient-to-t from-violet-600 to-purple-400 rounded-lg shadow-md animate-pulse delay-700"></div>
                             </div>
                         </div>
                     </div>
@@ -365,24 +365,6 @@ function learn() {
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Final CTA -->
-        <section class="py-32 px-4 relative">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-5xl md:text-6xl font-bold mb-6">
-                    Ayo mulai perjalanan ngodingmu.<br/>
-                    <span class="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
-                        Gratis untuk selamanya.
-                    </span>
-                </h2>
-                <p class="text-xl text-gray-300 mb-10">
-                    Bergabunglah dengan ribuan developer yang udah berkembang bareng kami.
-                </p>
-                <button class="px-12 py-5 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-3xl font-bold text-xl hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105">
-                    Daftar Sekarang — Gratis
-                </button>
             </div>
         </section>
     </div>
