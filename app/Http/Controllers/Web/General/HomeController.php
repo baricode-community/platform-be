@@ -13,9 +13,12 @@ class HomeController extends Controller
         return view('pages.general.home.index');
     }
 
-    public function profile(User $user)
+    public function profile(User $user = null)
     {
-        // Logic to retrieve user profile by username can be added here
+        $user = $user ?? auth()->user();
+        if (!$user) {
+            abort(404);
+        }
         return view('pages.general.home.profile', ['user' => $user]);
     }
 }
