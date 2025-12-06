@@ -85,7 +85,7 @@ new class extends Component {
     }
 }; ?>
 
-<div class="dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 bg-gradient-to-br from-gray-50 to-white">
+<div class="dark:bg-gradient-to-br p-4 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 bg-gradient-to-br from-gray-50 to-white">
     <div class="">
         <!-- Header Section -->
         <div class="mb-10">
