@@ -174,7 +174,7 @@
                     </a>
 
                     <!-- Profile -->
-                    <a href="{{ route('home') }}" class="group grid-item">
+                    <a href="{{ route('profile', auth()->user()->username) }}" class="group grid-item">
                         <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
                             <div class="bg-gradient-to-br from-purple-500 to-pink-600 h-28 flex items-center justify-center relative overflow-hidden">
                                 <div class="absolute inset-0 bg-white opacity-10"></div>
