@@ -1,3 +1,23 @@
+<?php
+
+use Livewire\Volt\Component;
+
+new class extends Component {
+    public $isOpen = false;
+
+    public function toggleSidebar()
+    {
+        $this->isOpen = !$this->isOpen;
+    }
+
+    public function closeSidebar()
+    {
+        $this->isOpen = false;
+    }
+}
+?>
+
+
 <div>
     <!-- Mobile Toggle Button -->
     <button wire:click="toggleSidebar"

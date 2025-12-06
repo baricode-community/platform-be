@@ -22,7 +22,7 @@
 <body class="bg-slate-50 dark:bg-slate-950">
     <div class="flex h-screen">
         <!-- Livewire Sidebar Component -->
-        <livewire:sidebar />
+        <livewire:components.system.sidebar />
 
         <!-- Main Content -->
         <main class="flex-1 flex flex-col overflow-hidden">
