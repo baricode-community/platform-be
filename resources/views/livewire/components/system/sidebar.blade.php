@@ -193,7 +193,7 @@ new class extends Component {
                         Keamanan
                     </h3>
                     <div class="space-y-1">
-                        <a href="{{ route('profile.edit') }}" wire:click="closeSidebar"
+                        <a href="{{ route('system.users') }}" wire:click="closeSidebar"
                             class="group relative flex items-center space-x-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200 {{ request()->routeIs('profile.edit') ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400' : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800' }}">
                             <span class="flex h-5 w-5 items-center justify-center flex-shrink-0">
                                 <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -202,7 +202,7 @@ new class extends Component {
                                 </svg>
                             </span>
                             <span class="truncate">Daftar Pengguna</span>
-                            @if(request()->routeIs('profile.edit'))
+                            @if(request()->routeIs('system.users'))
                                 <span class="absolute left-0 top-0 h-full w-1 rounded-r-lg bg-blue-600"></span>
                             @endif
                         </a>
