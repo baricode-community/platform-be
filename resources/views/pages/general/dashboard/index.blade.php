@@ -126,7 +126,7 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- My Memes -->
-                    <a href="{{ route('home') }}" class="group grid-item">
+                    <a href="{{ route('memes.user', Auth::user()->username) }}" class="group grid-item">
                         <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
                             <div class="bg-gradient-to-br from-pink-500 to-rose-600 h-28 flex items-center justify-center relative overflow-hidden">
                                 <div class="absolute inset-0 bg-white opacity-10"></div>
@@ -150,7 +150,7 @@
                     </a>
 
                     <!-- Upload Meme -->
-                    <a href="{{ route('home') }}" class="group grid-item">
+                    <a href="{{ route('memes.create') }}" class="group grid-item">
                         <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
                             <div class="bg-gradient-to-br from-blue-500 to-indigo-600 h-28 flex items-center justify-center relative overflow-hidden">
                                 <div class="absolute inset-0 bg-white opacity-10"></div>
