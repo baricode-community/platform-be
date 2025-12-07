@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\General\Auth\GoogleAuthController;
 use App\Http\Controllers\UserMeetController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
@@ -27,4 +28,9 @@ Route::middleware(['auth'])->group(function () {
             ),
         )
         ->name('two-factor.show');
+});
+
+Route::middleware('guest')->controller(GoogleAuthController::class)->group(function () {
+    Route::get('auth/google', 'redirectToGoogle')->name('auth.google');
+    Route::get('auth/google/callback', 'handleGoogleCallback')->name('auth.google.callback');
 });
