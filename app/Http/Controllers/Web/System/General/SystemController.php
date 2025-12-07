@@ -70,11 +70,6 @@ class SystemController extends Controller
             ->get();
     }
 
-    public function users()
-    {
-        return view('pages.system.general.users');
-    }
-
     public function export()
     {
         

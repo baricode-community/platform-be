@@ -31,5 +31,6 @@ class DatabaseSeeder extends Seeder
 
         Meet::factory(5)->create();
         UserMeet::factory(15)->create();
+        $this->call(SpatieBasicRole::class);
     }
 }

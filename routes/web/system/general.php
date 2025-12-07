@@ -7,9 +7,18 @@ Route::controller(\App\Http\Controllers\Web\System\General\SystemController::cla
     ->middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', 'index')->name('system.index');
-        Route::get('/users', 'users')->name('system.users');
-        Route::get('/export', 'export')->name('system.export');
         Route::get('/import', 'import')->name('system.import');
+        Route::get('/export', 'export')->name('system.export');
+});
+
+Route::controller(\App\Http\Controllers\Web\System\General\UserManagementController::class)
+    ->prefix('/system/user-management')
+    ->middleware(['auth', 'verified'])
+    ->group(function () {
+        Route::get('/', 'index')->name('system.user_management.index');
+        Route::get('/users', 'list')->name('system.user_management.users');
+        Route::get('/export', 'export')->name('system.user_management.export');
+        Route::get('/import', 'import')->name('system.user_management.import');
 });
 
 // Sidebar demo route
