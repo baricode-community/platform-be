@@ -19,6 +19,7 @@ new class extends Component {
             ->when($this->search, function ($query) {
                 $query->where('name', 'like', '%' . $this->search . '%')
                     ->orWhere('email', 'like', '%' . $this->search . '%')
+                    ->orWhere('phone_number', 'like', '%' . $this->search . '%')
                     ->orWhere('username', 'like', '%' . $this->search . '%');
             })
             ->orderBy($this->sortBy, $this->sortDirection)
@@ -66,7 +67,7 @@ new class extends Component {
         <div class="mb-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow">
             <div class="relative">
                 <input wire:model.live="search" type="text"
-                    placeholder="🔍 Cari berdasarkan nama, email, atau username..."
+                    placeholder="🔍 Cari berdasarkan nama, email, atau username, atau nomor..."
                     class="w-full pl-12 pr-6 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-all" />
             </div>
         </div>
@@ -171,9 +172,21 @@ new class extends Component {
                                     </span>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <span class="text-gray-700 dark:text-gray-300 font-medium">
-                                        {{ $user->phone_number ?? '—' }}
-                                    </span>
+                                    <button
+                                        x-data="{ showPhone: false }"
+                                        @click="showPhone = !showPhone"
+                                        class="text-blue-600 dark:text-blue-400 hover:underline font-medium break-all hover:text-blue-800 dark:hover:text-blue-300 transition focus:outline-none"
+                                        type="button"
+                                    >
+                                        @if($user->phone_number)
+                                            <span x-show="!showPhone">Lihat Telepon</span>
+                                            <span x-show="showPhone">
+                                                {{ $user->phone_number }}
+                                            </span>
+                                        @else
+                                            <span class="text-gray-400 dark:text-gray-600 italic">—</span>
+                                        @endif
+                                    </button>
                                 </td>
                                 <td class="px-6 py-4">
                                     <span class="text-gray-700 dark:text-gray-300 font-medium">
