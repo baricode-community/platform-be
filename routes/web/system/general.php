@@ -14,9 +14,9 @@ Route::controller(\App\Http\Controllers\Web\System\General\UserManagementControl
     ->prefix('/system/user-management')
     ->middleware(['auth', 'verified'])
     ->group(function () {
-        Route::get('/', 'index')->name('system.user_management.index');
-        Route::get('/users', 'list')->name('system.user_management.users');
+        Route::get('/', 'index')->name('system.user_management');
         Route::get('/import', 'import')->name('system.user_management.import');
+        Route::get('/export', 'export')->name('system.user_management.export');
 });
 
 // Sidebar demo route
