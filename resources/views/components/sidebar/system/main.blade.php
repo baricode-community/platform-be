@@ -62,9 +62,6 @@
                     <x-sidebar.system.nav-link href="{{ route('system.index') }}" icon="settings">
                         Settings
                     </x-sidebar.system.nav-link>
-                    <x-sidebar.system.nav-link href="{{ route('system.export') }}" icon="download">
-                        Export Data
-                    </x-sidebar.system.nav-link>
                     <x-sidebar.system.nav-link href="{{ route('system.import') }}" icon="upload">
                         Import Data
                     </x-sidebar.system.nav-link>

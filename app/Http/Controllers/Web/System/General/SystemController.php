@@ -70,12 +70,6 @@ class SystemController extends Controller
             ->get();
     }
 
-    public function export()
-    {
-        
-        return view('pages.system.general.export');
-    }
-
     public function import()
     {
         return view('pages.system.general.import');

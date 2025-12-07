@@ -8,7 +8,6 @@ Route::controller(\App\Http\Controllers\Web\System\General\SystemController::cla
     ->group(function () {
         Route::get('/', 'index')->name('system.index');
         Route::get('/import', 'import')->name('system.import');
-        Route::get('/export', 'export')->name('system.export');
 });
 
 Route::controller(\App\Http\Controllers\Web\System\General\UserManagementController::class)
@@ -17,7 +16,6 @@ Route::controller(\App\Http\Controllers\Web\System\General\UserManagementControl
     ->group(function () {
         Route::get('/', 'index')->name('system.user_management.index');
         Route::get('/users', 'list')->name('system.user_management.users');
-        Route::get('/export', 'export')->name('system.user_management.export');
         Route::get('/import', 'import')->name('system.user_management.import');
 });
 

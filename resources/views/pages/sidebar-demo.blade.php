@@ -13,7 +13,6 @@
         ],
         'System' => [
             ['name' => 'Settings', 'route' => 'system.index', 'icon' => 'settings'],
-            ['name' => 'Export Data', 'route' => 'system.export', 'icon' => 'download'],
             ['name' => 'Import Data', 'route' => 'system.import', 'icon' => 'upload'],
         ],
         'Account' => [

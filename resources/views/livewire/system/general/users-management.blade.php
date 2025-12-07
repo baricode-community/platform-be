@@ -39,50 +39,6 @@ new class extends Component {
             $this->sortDirection = 'asc';
         }
     }
-
-    public function exportUsers()
-    {
-        $users = User::query()
-            ->when($this->search, function ($query) {
-                $query->where('name', 'like', '%' . $this->search . '%')
-                    ->orWhere('email', 'like', '%' . $this->search . '%')
-                    ->orWhere('username', 'like', '%' . $this->search . '%');
-            })
-            ->get();
-
-        $filename = 'users_export_' . date('Y-m-d_His') . '.csv';
-        $handle = fopen('php://memory', 'w');
-
-        // Write headers
-        fputcsv($handle, ['Name', 'Email', 'Username', 'Phone Number', 'Bio', 'Created At']);
-
-        // Write data
-        foreach ($users as $user) {
-            fputcsv($handle, [
-                $user->name,
-                $user->email,
-                $user->username,
-                $user->phone_number ?? '-',
-                $user->bio ?? '-',
-                $user->created_at->format('Y-m-d H:i:s'),
-            ]);
-        }
-
-        rewind($handle);
-        $csv = stream_get_contents($handle);
-        fclose($handle);
-
-        return response()->streamDownload(
-            function () use ($csv) {
-                echo $csv;
-            },
-            $filename,
-            [
-                'Content-Type' => 'text/csv',
-                'Content-Disposition' => 'attachment; filename="' . $filename . '"',
-            ],
-        );
-    }
 }; ?>
 
 <div class="dark:bg-gradient-to-br p-4 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 bg-gradient-to-br from-gray-50 to-white">
@@ -103,14 +59,6 @@ new class extends Component {
                         <p class="text-gray-600 dark:text-gray-400 mt-1">Kelola dan lihat semua pengguna terdaftar sistem</p>
                     </div>
                 </div>
-                <button wire:click="exportUsers"
-                    class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-200 whitespace-nowrap">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                    </svg>
-                    Export CSV
-                </button>
             </div>
         </div>
 
