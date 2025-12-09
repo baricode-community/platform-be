@@ -161,7 +161,7 @@
                         <h3 class="text-2xl font-bold mb-3">Meme Zone</h3>
                         <p class="text-gray-300 mb-4">Belajar sambil ketawa. Share meme favoritmu dengan
                             komunitas.</p>
-                        <a href="{{ route('memes') }}"
+                        <a href="{{ route('memes.index') }}"
                             class="inline-block px-6 py-2 bg-purple-600/80 text-white rounded-full font-semibold hover:bg-purple-700 transition-all">
                             Lihat Meme
                         </a>
