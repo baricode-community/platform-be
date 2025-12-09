@@ -12,6 +12,7 @@ Route::controller(\App\Http\Controllers\Web\General\DashboardController::class)
     ->middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', 'index')->name('dashboard');
+        Route::get('/settings', 'settings')->name('dashboard.settings');
         Route::get('/analytics', 'analytics')->name('dashboard.analytics');
         Route::get('/fun', 'fun')->name('dashboard.fun');
         Route::get('/memes', 'memes')->name('dashboard.memes');

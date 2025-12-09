@@ -17,6 +17,11 @@ class DashboardController extends Controller
         return view('pages.general.dashboard.analytics');
     }
 
+    public function settings()
+    {
+        return view('pages.general.dashboard.settings');
+    }
+
     public function fun()
     {
         return view('pages.general.dashboard.fun');

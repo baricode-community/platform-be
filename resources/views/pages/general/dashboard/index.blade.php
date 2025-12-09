@@ -125,6 +125,30 @@
                 <p class="text-gray-600 mb-8 mt-6">Mulai eksplorasi dan bagikan konten meme berkualitas dengan komunitas</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {{-- Pengaturan --}}
+                    <a href="{{ route('dashboard.settings') }}" class="group grid-item">
+                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                            <div class="bg-gradient-to-br from-green-500 to-teal-600 h-28 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white opacity-10"></div>
+                                <div class="icon-container">
+                                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-10V4m0 16v-4m8-8h4m-16 0H4m12.364 12.364l2.828 2.828m-12.728-12.728l2.828 2.828m0 8.486l-2.828 2.828m12.728-12.728l-2.828 2.828"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-teal-600 transition-colors">Pengaturan</h3>
+                                <p class="text-gray-600 text-sm mb-6">Sesuaikan preferensi akun, keamanan, dan pengaturan notifikasi Anda.</p>
+                                <span class="inline-flex items-center text-teal-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                                    Buka Pengaturan
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
                     <!-- My Memes -->
                     <a href="{{ route('memes.user', Auth::user()->username) }}" class="group grid-item">
                         <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
