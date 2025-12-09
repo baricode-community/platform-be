@@ -154,7 +154,7 @@ new class extends Component {
         <!-- Submit Button -->
         <div class="flex gap-4 pt-4">
             <a
-                href="{{ route('memes') }}"
+                href="{{ route('memes.index') }}"
                 wire:navigate
                 class="flex-1 px-6 py-3 bg-gray-300 dark:bg-gray-600/50 border border-gray-400 dark:border-gray-500/50 rounded-xl font-semibold text-lg text-gray-800 dark:text-white hover:bg-gray-400 dark:hover:bg-gray-600/70 transition-all text-center"
             >
