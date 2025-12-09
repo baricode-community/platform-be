@@ -11,6 +11,8 @@ Route::controller(\App\Http\Controllers\Web\Fun\FunController::class)
 Route::controller(\App\Http\Controllers\Web\Fun\MemeController::class)
     ->prefix('/meme')
     ->group(function () {
+        Route::get('/', 'index')->name('memes.index');
+
         Route::get('/create', 'create')
             ->middleware(['auth', 'verified'])
             ->name('memes.create');

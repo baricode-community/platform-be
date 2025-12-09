@@ -173,7 +173,7 @@
             <!-- Back Button -->
             <div class="mt-12">
                 <a 
-                    href="{{ route('memes') }}"
+                    href="{{ route('memes.index') }}"
                     wire:navigate
                     class="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors"
                 >
