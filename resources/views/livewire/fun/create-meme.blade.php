@@ -47,7 +47,7 @@ new class extends Component {
             session()->flash('success', __('Meme berhasil dibuat!'));
             
             // Redirect to memes page
-            return $this->redirect(route('memes'), navigate: true);
+            return $this->redirect(route('memes.index'), navigate: true);
             
         } catch (\Exception $e) {
             dd($e);
