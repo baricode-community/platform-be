@@ -75,7 +75,7 @@ new class extends Component {
         title="{{ __('Suka') }}"
     >
         <span class="text-lg">👍</span>
-        <span class="text-xs font-medium {{ $userVote === 'up' ? 'text-green-300' : 'text-gray-300' }}">{{ $upvotes }}</span>
+        <span class="text-xs font-medium text-dark-1' }}">{{ $upvotes }}</span>
     </button>
 
     <button
@@ -84,6 +84,6 @@ new class extends Component {
         title="{{ __('Tidak Suka') }}"
     >
         <span class="text-lg">👎</span>
-        <span class="text-xs font-medium {{ $userVote === 'down' ? 'text-red-300' : 'text-gray-300' }}">{{ $downvotes }}</span>
+        <span class="text-xs font-medium text-dark-1' }}">{{ $downvotes }}</span>
     </button>
 </div>

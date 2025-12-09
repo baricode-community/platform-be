@@ -17,7 +17,9 @@
         </div>
     </nav>
     
-    {{ $slot }}
+    <div class="min-h-screen bg-gradient-to-br from-yellow-100 via-pink-100 to-green-100 dark:from-gray-900 dark:via-gray-800 dark:to-black transition-colors duration-500">
+        {{ $slot }}
+    </div>
 
     @fluxScripts
 </body>
