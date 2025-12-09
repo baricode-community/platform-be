@@ -198,7 +198,7 @@
 
                     <!-- Back Button -->
                     <a
-                        href="{{ route('memes') }}"
+                        href="{{ route('memes.index') }}"
                         wire:navigate
                         class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:shadow-lg hover:shadow-purple-500/50 text-white py-3 rounded-lg font-semibold transition-all"
                     >
