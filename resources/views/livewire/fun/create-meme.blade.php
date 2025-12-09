@@ -57,25 +57,29 @@ new class extends Component {
         }
     }
 }; ?>
+<div class="bg-gradient-to-br from-purple-500/5 to-indigo-500/5 dark:from-purple-500/10 dark:to-indigo-500/10 backdrop-blur-xl rounded-3xl p-8 border border-purple-500/20 dark:border-purple-500/30">
 
-<div class="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 backdrop-blur-xl rounded-3xl p-8 border border-purple-500/20">
     <!-- Header -->
     <div class="mb-8">
-        <h2 class="text-2xl font-bold text-white mb-2">{{ __('Buat Meme Baru') }}</h2>
-        <p class="text-gray-300">{{ __('Bagikan kreativitasmu dengan komunitas Baricode') }}</p>
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">{{ __('Buat Meme Baru') }}</h2>
+        <p class="text-gray-600 dark:text-gray-300">{{ __('Bagikan kreativitasmu dengan komunitas Baricode') }}</p>
     </div>
 
     <!-- Alert Messages -->
     @if (session('success'))
-        <div class="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-2xl text-green-300 text-sm flex items-center gap-3">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        <div class="mb-6 p-4 bg-green-500/10 dark:bg-green-500/20 border border-green-500/40 rounded-2xl text-green-700 dark:text-green-300 text-sm flex items-center gap-3">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
             {{ session('success') }}
         </div>
     @endif
 
     @if (session('error'))
-        <div class="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-2xl text-red-300 text-sm flex items-center gap-3">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
+        <div class="mb-6 p-4 bg-red-500/10 dark:bg-red-500/20 border border-red-500/40 rounded-2xl text-red-700 dark:text-red-300 text-sm flex items-center gap-3">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+            </svg>
             {{ session('error') }}
         </div>
     @endif
@@ -83,69 +87,68 @@ new class extends Component {
     <form wire:submit="createMeme" class="space-y-6">
         <!-- Image Upload -->
         <div>
-            <label for="image" class="block text-sm font-medium text-gray-300 mb-3">
-                {{ __('Unggah Gambar Meme') }}
-                <span class="text-red-400">*</span>
+            <label for="image" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+                {{ __('Unggah Gambar Meme') }} <span class="text-red-500">*</span>
             </label>
-            
+
             <div class="relative">
                 @if ($this->getPreviewUrl())
-                    <!-- Preview -->
                     <div class="mb-4 rounded-2xl overflow-hidden border border-purple-500/30">
                         <img src="{{ $this->getPreviewUrl() }}" alt="Preview" class="w-full h-auto max-h-96 object-cover">
                     </div>
+
                     <button
                         type="button"
                         wire:click="$set('image', null)"
-                        class="mb-4 px-4 py-2 bg-red-500/20 border border-red-500/50 rounded-xl text-red-300 text-sm hover:bg-red-500/30 transition-colors"
+                        class="mb-4 px-4 py-2 bg-red-500/10 dark:bg-red-500/20 border border-red-500/40 rounded-xl text-red-600 dark:text-red-300 text-sm hover:bg-red-500/20 transition-colors"
                     >
                         {{ __('Hapus Gambar') }}
                     </button>
                 @else
                     <!-- Upload Area -->
-                    <label for="image" class="flex items-center justify-center w-full px-6 py-12 border-2 border-dashed border-purple-500/30 rounded-2xl cursor-pointer hover:border-purple-500/60 transition-colors group">
+                    <label for="image"
+                        class="flex items-center justify-center w-full px-6 py-12 border-2 border-dashed border-purple-500/30 rounded-2xl cursor-pointer hover:border-purple-500/60 transition-colors group">
                         <div class="text-center">
-                            <svg class="mx-auto h-12 w-12 text-purple-400 group-hover:text-purple-300 transition-colors" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-                                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-12l-3.172-3.172a4 4 0 00-5.656 0L28 12M12 32l3.172-3.172a4 4 0 015.656 0L28 32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg class="mx-auto h-12 w-12 text-purple-500 group-hover:text-purple-400 transition-colors"
+                                stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-12l-3.172-3.172a4 4 0 00-5.656 0L28 12M12 32l3.172-3.172a4 4 0 015.656 0L28 32"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <p class="mt-2 text-sm text-gray-300">{{ __('Klik untuk unggah atau drag and drop') }}</p>
-                            <p class="text-xs text-gray-400">{{ __('PNG, JPG, GIF atau WebP (Maks. 5MB)') }}</p>
+                            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">{{ __('Klik untuk unggah atau drag and drop') }}</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">{{ __('PNG, JPG, GIF atau WebP (Maks. 5MB)') }}</p>
                         </div>
                     </label>
                 @endif
-                
-                <input
-                    id="image"
-                    type="file"
-                    wire:model="image"
-                    accept="image/jpeg,image/png,image/gif,image/webp"
-                    class="hidden"
-                />
+
+                <input id="image" type="file" wire:model="image"
+                       accept="image/jpeg,image/png,image/gif,image/webp"
+                       class="hidden" />
             </div>
 
             @error('image')
-                <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                <p class="mt-2 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
             @enderror
         </div>
 
         <!-- Caption -->
         <div>
-            <label for="caption" class="block text-sm font-medium text-gray-300 mb-3">
+            <label for="caption" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                 {{ __('Caption (Opsional)') }}
             </label>
+
             <textarea
                 id="caption"
                 wire:model="caption"
                 placeholder="{{ __('Tambahkan caption untuk meme kamu...') }}"
                 rows="4"
-                class="w-full px-4 py-3 bg-white/5 border border-purple-500/30 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500/60 focus:ring-2 focus:ring-purple-500/20 transition-all resize-none"
+                class="w-full px-4 py-3 bg-white/60 dark:bg-white/5 border border-purple-500/20 dark:border-purple-500/30 rounded-xl text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-purple-500/60 focus:ring-2 focus:ring-purple-500/20 transition-all resize-none"
             ></textarea>
 
             @error('caption')
-                <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                <p class="mt-2 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
             @enderror
-            
-            <p class="mt-1 text-xs text-gray-400">{{ strlen($caption) }}/500 {{ __('karakter') }}</p>
+
+            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">{{ strlen($caption) }}/500 {{ __('karakter') }}</p>
         </div>
 
         <!-- Submit Button -->
@@ -153,19 +156,19 @@ new class extends Component {
             <a
                 href="{{ route('memes') }}"
                 wire:navigate
-                class="flex-1 px-6 py-3 bg-gray-600/50 border border-gray-500/50 rounded-xl font-semibold text-lg hover:bg-gray-600/70 transition-all text-white text-center"
+                class="flex-1 px-6 py-3 bg-gray-300 dark:bg-gray-600/50 border border-gray-400 dark:border-gray-500/50 rounded-xl font-semibold text-lg text-gray-800 dark:text-white hover:bg-gray-400 dark:hover:bg-gray-600/70 transition-all text-center"
             >
                 {{ __('Batal') }}
             </a>
+
             <button
                 type="submit"
                 wire:loading.attr="disabled"
                 wire:loading.class="opacity-50 cursor-not-allowed"
                 class="flex-1 px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105 text-white disabled:hover:scale-100"
             >
-                <span wire:loading.remove>
-                    {{ __('Buat Meme') }}
-                </span>
+                <span wire:loading.remove>{{ __('Buat Meme') }}</span>
+
                 <span wire:loading>
                     <svg class="inline-block w-5 h-5 mr-2 animate-spin" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
