@@ -1,4 +1,4 @@
-<x-layouts.base :title="__('Komunitas IT Paling Keren di Indonesia')">
+<x-layouts.base :title="__('Komunitas IT Keren di Indonesia')">
     <div class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 text-white overflow-hidden">
         <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center px-4 py-20">
@@ -16,7 +16,7 @@
             <div class="max-w-7xl mx-auto text-center z-10">
                 <h1
                     class="text-5xl md:text-7xl font-extrabold mb-8 bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent drop-shadow-lg">
-                    Komunitas IT Terbesar se-Indonesia<br />
+                    Komunitas IT Keren di Indonesia<br />
                     <span
                         class="block text-3xl md:text-5xl font-bold mt-2 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient-x">
                         Bersama Bertumbuh, Belajar, dan Berbagi
