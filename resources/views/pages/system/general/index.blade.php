@@ -104,7 +104,6 @@
                                 </div>
                                 <div>
                                     <p class="text-white font-medium text-sm">{{ $user->name }}</p>
-                                    <p class="text-gray-400 text-xs">{{ $user->email }}</p>
                                 </div>
                             </div>
                             <span class="text-xs text-gray-500">{{ $user->created_at->diffForHumans() }}</span>
