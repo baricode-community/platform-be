@@ -143,6 +143,10 @@
                         <h3 class="text-2xl font-bold mb-3">Daily Commit Tracker</h3>
                         <p class="text-gray-300">Pantau progress belajarmu setiap hari. Bangun kebiasaan coding yang
                             konsisten.</p>
+                        <a href="{{ route('daily-commit-tracker.history') }}"
+                            class="inline-block px-6 py-2 bg-indigo-600/80 text-white rounded-full font-semibold hover:bg-indigo-700 transition-all">
+                            Lihat Tracker
+                        </a>
                     </div>
 
                     <!-- Card 3 -->
