@@ -107,6 +107,9 @@ class DailyCommitTrackerForm extends Component
                     ]);
                     session()->flash('message', 'Daily commit created successfully!');
                 }
+                
+                // Redirect to history after creating/updating
+                return redirect()->route('daily-commit-tracker.history');
             }
 
             $this->resetForm();
