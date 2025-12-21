@@ -102,4 +102,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(MemeVote::class);
     }
+
+    /**
+     * Relasi dengan DailyCommitTracker - setiap user dapat memiliki banyak daily commits
+     */
+    public function dailyCommitTrackers()
+    {
+        return $this->hasMany(DailyCommitTracker::class);
+    }
 }

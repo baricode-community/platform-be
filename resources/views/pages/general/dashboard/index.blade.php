@@ -220,6 +220,30 @@
                             </div>
                         </div>
                     </a>
+
+                    <!-- Daily Commit Tracker -->
+                    <a href="{{ route('daily-commit-tracker.index') }}" class="group grid-item">
+                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                            <div class="bg-gradient-to-br from-orange-500 to-amber-600 h-28 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white opacity-10"></div>
+                                <div class="icon-container">
+                                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-amber-600 transition-colors">Daily Commit Tracker</h3>
+                                <p class="text-gray-600 text-sm mb-6">Pantau progress belajarmu setiap hari. Bangun kebiasaan coding yang konsisten.</p>
+                                <span class="inline-flex items-center text-amber-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                                    Buka Tracker
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
             

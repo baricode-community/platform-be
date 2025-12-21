@@ -17,3 +17,12 @@ Route::controller(\App\Http\Controllers\Web\General\DashboardController::class)
         Route::get('/fun', 'fun')->name('dashboard.fun');
         Route::get('/memes', 'memes')->name('dashboard.memes');
 });
+
+Route::controller(\App\Http\Controllers\DailyCommitTrackerController::class)
+    ->prefix('/daily-commit-tracker')
+    ->middleware(['auth', 'verified'])
+    ->group(function () {
+        Route::get('/', 'index')->name('daily-commit-tracker.index');
+        Route::get('/show/{date?}', 'show')->name('daily-commit-tracker.show');
+        Route::get('/history', 'history')->name('daily-commit-tracker.history');
+    });
