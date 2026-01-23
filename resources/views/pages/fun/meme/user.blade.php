@@ -4,10 +4,8 @@
             <!-- Profile Header Card -->
             <div class="mb-12 mt-12 bg-gradient-to-r from-purple-700 via-indigo-700 to-blue-700 rounded-3xl shadow-2xl">
                 <!-- Decorative Blobs -->
-                <div class="absolute -top-10 -left-10 w-40 h-40 bg-pink-400 opacity-30 rounded-full blur-2xl"></div>
-                <div class="absolute -bottom-10 -right-10 w-52 h-52 bg-blue-400 opacity-20 rounded-full blur-2xl"></div>
                 <div class="px-10 pb-10 relative z-10">
-                    <div class="flex flex-col sm:flex-row sm:items-end sm:space-x-8 -mt-20">
+                    <div class="flex flex-col sm:flex-row sm:items-end sm:space-x-8 -mt-20 pt-6">
                         <!-- Avatar -->
                         <div class="flex-shrink-0 mb-6 sm:mb-0">
                             <div class="w-36 h-36 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 rounded-full flex items-center justify-center shadow-2xl border-4 border-white ring-4 ring-indigo-300">
