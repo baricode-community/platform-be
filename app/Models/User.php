@@ -40,7 +40,6 @@ class User extends Authenticatable implements FilamentUser
      */
     protected $hidden = [
         'id',
-        'email',
         'password',
         'two_factor_secret',
         'two_factor_recovery_codes',
