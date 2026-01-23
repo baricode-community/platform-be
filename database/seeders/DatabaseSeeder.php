@@ -15,9 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(SpatieBasicRoleSeeder::class);
         User::factory(10)->create();
 
-        User::firstOrCreate(
+        $user = User::firstOrCreate(
             ['email' => 'test@example.com'],
             [
                 'name' => 'Test User',
@@ -28,11 +29,11 @@ class DatabaseSeeder extends Seeder
                 'email_verified_at' => now(),
             ]
         );
+        $user->assignRole('admin');
 
         Meet::factory(5)->create();
         UserMeet::factory(15)->create();
         
         $this->call(DailyCommitTrackerSeeder::class);
-        // $this->call(SpatieBasicRole::class);
     }
 }
