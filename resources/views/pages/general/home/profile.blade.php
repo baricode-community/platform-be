@@ -1,25 +1,52 @@
+
 <x-layouts.base :title="__('Profile Pengguna')">
-    <div class="container mx-auto px-4 py-12">
-        <div class="bg-white dark:bg-gray-900 shadow-lg rounded-2xl p-8">
-            <div class="flex items-center space-x-8 mb-8">
-                <img class="w-28 h-28 rounded-full object-cover border-4 border-indigo-200 dark:border-indigo-700 shadow"
-                    src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}">
-                <div>
-                    <h2 class="text-3xl font-bold text-indigo-700 dark:text-indigo-300">{{ $user->name }}</h2>
-                    <p class="text-gray-500 dark:text-gray-400 text-lg">{{ '@' . $user->username }}</p>
+    {{-- Navbar --}}
+    <nav class="bg-white dark:bg-gray-900 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <a href="{{ route('home') }}" class="flex items-center">
+                        <span class="ml-2 text-xl font-bold text-indigo-600 dark:text-indigo-300">Baricoder</span>
+                    </a>
+                </div>
+                <div class="flex items-center">
+                    @auth
+                        <a href="{{ route('dashboard') }}"
+                        class="text-gray-800 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 rounded-md text-sm font-medium">
+                        {{ __('Dashboard') }}
+                    </a>
+                    @endauth
+                    @guest
+                        <a href="{{ route('login') }}"
+                        class="text-gray-800 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 rounded-md text-sm font-medium">
+                        {{ __('Masuk') }}
+                    </a>
+                    @endguest
                 </div>
             </div>
-            <div class="mb-6">
-                <h3 class="text-xl font-semibold text-indigo-600 dark:text-indigo-300 mb-2">Tentang Saya</h3>
-                <p class="text-gray-800 dark:text-gray-200 leading-relaxed">
-                    {{ $user->bio ?? 'Belum ada bio tersedia.' }}</p>
+        </div>
+    </nav>
+
+    <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 px-2">
+        <div class="max-w-xl w-full bg-white dark:bg-gray-900 shadow-2xl rounded-3xl p-10 transition-transform duration-300 hover:scale-105 hover:shadow-indigo-300/40">
+            <div class="flex flex-col sm:flex-row items-center sm:space-x-8 mb-8">
+                <div class="mt-6 sm:mt-0 text-center sm:text-left">
+                    <h2 class="text-4xl font-extrabold text-indigo-700 dark:text-indigo-300 mb-2">{{ $user->name }}</h2>
+                    <p class="text-gray-500 dark:text-gray-400 text-lg mb-2">{{ '@' . $user->username }}</p>
+                </div>
+            </div>
+            <div class="mb-8">
+                <h3 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300 mb-3">Tentang Saya</h3>
+                <p class="text-gray-800 dark:text-gray-200 leading-relaxed text-lg">
+                    {{ $user->bio ?? 'Belum ada bio tersedia.' }}
+                </p>
             </div>
             @auth
                 @if (auth()->user()->id === $user->id)
-                    <form method="POST" action="{{ route('logout') }}">
+                    <form method="POST" action="{{ route('logout') }}" class="flex justify-end">
                         @csrf
                         <button type="submit"
-                            class="mt-4 px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
+                            class="px-8 py-3 bg-gradient-to-r from-pink-500 via-indigo-500 to-purple-500 text-white font-bold rounded-xl shadow-lg hover:from-indigo-600 hover:to-pink-600 transition-all duration-300">
                             {{ __('Keluar') }}
                         </button>
                     </form>
