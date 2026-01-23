@@ -9,8 +9,6 @@ use Livewire\Volt\Volt;
 require __DIR__.'/web/general.php';
 require __DIR__.'/web/fun.php';
 
-require __DIR__.'/web/system/general.php';
-
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 
