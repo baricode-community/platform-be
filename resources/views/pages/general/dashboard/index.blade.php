@@ -108,7 +108,7 @@
             <!-- Dashboard Utama Section -->
             <div class="mb-16">
                 <h2 class="text-3xl font-bold text-gray-800 mb-2 section-title">🎯 Akses Cepat</h2>
-                <p class="text-gray-600 mb-8 mt-6">Mulai eksplorasi dan bagikan konten meme berkualitas dengan komunitas</p>
+                <p class="text-gray-600 mb-8 mt-6">Mulai eksplorasi dengan berkualitas dengan komunitas</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {{-- Pengaturan --}}
@@ -127,54 +127,6 @@
                                 <p class="text-gray-600 text-sm mb-6">Sesuaikan preferensi akun, keamanan, dan pengaturan notifikasi Anda.</p>
                                 <span class="inline-flex items-center text-teal-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
                                     Buka Pengaturan
-                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- My Memes -->
-                    <a href="{{ route('memes.user', Auth::user()->username) }}" class="group grid-item">
-                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
-                            <div class="bg-gradient-to-br from-pink-500 to-rose-600 h-28 flex items-center justify-center relative overflow-hidden">
-                                <div class="absolute inset-0 bg-white opacity-10"></div>
-                                <div class="icon-container">
-                                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-rose-600 transition-colors">Meme Saya</h3>
-                                <p class="text-gray-600 text-sm mb-6">Lihat, kelola, dan pantau performa meme yang telah Anda upload.</p>
-                                <span class="inline-flex items-center text-rose-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
-                                    Lihat Meme Saya
-                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Upload Meme -->
-                    <a href="{{ route('memes.create') }}" class="group grid-item">
-                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
-                            <div class="bg-gradient-to-br from-blue-500 to-indigo-600 h-28 flex items-center justify-center relative overflow-hidden">
-                                <div class="absolute inset-0 bg-white opacity-10"></div>
-                                <div class="icon-container">
-                                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-indigo-600 transition-colors">Upload Meme</h3>
-                                <p class="text-gray-600 text-sm mb-6">Bagikan meme lucu Anda dan tunjukkan kreativitas kepada komunitas kami.</p>
-                                <span class="inline-flex items-center text-indigo-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
-                                    Upload Sekarang
                                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                     </svg>
