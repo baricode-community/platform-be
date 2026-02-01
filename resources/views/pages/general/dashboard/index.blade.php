@@ -101,21 +101,7 @@
         .grid-item:nth-child(5) { animation-delay: 0.5s; }
         .grid-item:nth-child(6) { animation-delay: 0.6s; }
     </style>
-
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16 px-6">
-        <div class="container mx-auto">
-            <div class="text-center">
-                <h1 class="text-5xl font-bold text-white mb-4 animate-fadeInUp">
-                    Halo, {{ Auth::user()->name ?? 'Member' }}! 👋
-                </h1>
-                <p class="text-xl text-gray-300 animate-fadeInUp" style="animation-delay: 0.1s;">
-                    Selamat datang kembali di Baricode - komunitas IT terbaik dan paling seru!
-                </p>
-            </div>
-        </div>
-    </section>
-
+    
     <!-- Main Content -->
     <section class="py-12 bg-gray-50 min-h-screen">
         <div class="container mx-auto px-6">
@@ -244,74 +230,6 @@
                             </div>
                         </div>
                     </a>
-                </div>
-            </div>
-            
-            <!-- Quick Stats Section -->
-            <div class="bg-white rounded-xl shadow-lg p-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-2 section-title">📊 Statistik Profil Anda</h2>
-                <p class="text-gray-600 mb-8 mt-6">Ringkasan performa dan aktivitas Anda di komunitas Baricode</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Total Memes Uploaded -->
-                    <div class="group bg-gradient-to-br from-pink-50 to-pink-100 rounded-lg p-6 border-l-4 border-pink-500 transition-all hover:shadow-lg hover:scale-105">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-gray-600 text-sm font-medium mb-1">📸 Meme Saya</p>
-                                <p class="text-3xl font-bold text-pink-600">0</p>
-                            </div>
-                            <div class="bg-pink-200 p-4 rounded-full">
-                                <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Total Likes -->
-                    <div class="group bg-gradient-to-br from-red-50 to-red-100 rounded-lg p-6 border-l-4 border-red-500 transition-all hover:shadow-lg hover:scale-105">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-gray-600 text-sm font-medium mb-1">❤️ Total Like</p>
-                                <p class="text-3xl font-bold text-red-600">0</p>
-                            </div>
-                            <div class="bg-red-200 p-4 rounded-full">
-                                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Followers -->
-                    <div class="group bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-6 border-l-4 border-blue-500 transition-all hover:shadow-lg hover:scale-105">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-gray-600 text-sm font-medium mb-1">👥 Pengikut</p>
-                                <p class="text-3xl font-bold text-blue-600">0</p>
-                            </div>
-                            <div class="bg-blue-200 p-4 rounded-full">
-                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3a6 6 0 016-6h6a6 6 0 016 6h-12z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Badges/Achievements -->
-                    <div class="group bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-lg p-6 border-l-4 border-yellow-500 transition-all hover:shadow-lg hover:scale-105">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-gray-600 text-sm font-medium mb-1">🏆 Badge</p>
-                                <p class="text-3xl font-bold text-yellow-600">0</p>
-                            </div>
-                            <div class="bg-yellow-200 p-4 rounded-full">
-                                <svg class="w-6 h-6 text-yellow-600" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
