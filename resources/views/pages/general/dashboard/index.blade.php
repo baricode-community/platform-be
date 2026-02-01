@@ -159,6 +159,30 @@
                         </div>
                     </a>
 
+                    {{-- Menuju LMS --}}
+                    <a href="https://lms.baricode.org" class="group grid-item">
+                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                            <div class="bg-gradient-to-br from-blue-500 to-indigo-600 h-28 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white opacity-10"></div>
+                                <div class="icon-container">
+                                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20l9-5-9-5-9 5 9 5zm0 0v-6l9-5M12 14l-9-5m9 5v6l-9-5"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-indigo-600 transition-colors">LMS Baricode</h3>
+                                <p class="text-gray-600 text-sm mb-6">Akses kursus, materi pembelajaran, dan sumber daya edukatif lainnya.</p>
+                                <span class="inline-flex items-center text-indigo-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                                    Kunjungi LMS
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                    
                     <!-- Daily Commit Tracker -->
                     {{-- <a href="{{ route('daily-commit-tracker.index') }}" class="group grid-item">
                         <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
