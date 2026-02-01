@@ -9,6 +9,7 @@ class LMSController extends Controller
 {
     public function index()
     {
-        return view('pages.lms.index');
+        $user = auth()->user();
+        return view('pages.lms.index', compact('user'));
     }
 }
