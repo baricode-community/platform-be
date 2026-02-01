@@ -137,7 +137,7 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div
+                    {{-- <div
                         class="bg-gradient-to-br from-indigo-500/10 to-transparent backdrop-blur-lg rounded-3xl p-8 border border-indigo-500/20 hover:border-indigo-500/50 transition-all hover:shadow-xl hover:shadow-indigo-500/20">
                         <div class="text-5xl mb-4">📊</div>
                         <h3 class="text-2xl font-bold mb-3">Daily Commit Tracker</h3>
@@ -147,7 +147,7 @@
                             class="inline-block px-6 py-2 bg-indigo-600/80 text-white rounded-full font-semibold hover:bg-indigo-700 transition-all">
                             Lihat Tracker
                         </a>
-                    </div>
+                    </div> --}}
 
                     <!-- Card 3 -->
                     <div

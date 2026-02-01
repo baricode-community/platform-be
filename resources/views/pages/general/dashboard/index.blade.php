@@ -160,7 +160,7 @@
                     </a>
 
                     <!-- Daily Commit Tracker -->
-                    <a href="{{ route('daily-commit-tracker.index') }}" class="group grid-item">
+                    {{-- <a href="{{ route('daily-commit-tracker.index') }}" class="group grid-item">
                         <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
                             <div class="bg-gradient-to-br from-orange-500 to-amber-600 h-28 flex items-center justify-center relative overflow-hidden">
                                 <div class="absolute inset-0 bg-white opacity-10"></div>
@@ -181,7 +181,7 @@
                                 </span>
                             </div>
                         </div>
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </div>
