@@ -1,5 +1,5 @@
 <x-layouts.dashboard :title="__('Pengaturan Platform')">
-    <section class="mt-6 container mx-auto px-4 py-10 space-y-10 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <section class="container mx-auto p-6 space-y-8">
         <div>
             <h1 class="text-3xl font-bold tracking-tight mb-6 text-gray-900 dark:text-gray-100">Pengaturan Platform</h1>
         </div>
@@ -28,7 +28,7 @@
                 </flux:radio.group>
             </div>
 
-            {{-- Sigt Out --}}
+            {{-- Sign Out --}}
             <div
                 class="rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:shadow-xl transition duration-200">
                 <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">Keluar</h2>
