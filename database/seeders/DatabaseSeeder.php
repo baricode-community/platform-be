@@ -6,6 +6,8 @@ use App\Models\Meet;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\UserMeet;
+use Database\Factories\LMS\CourseFactory;
+use Database\Seeders\LMS\CourseSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -34,6 +36,9 @@ class DatabaseSeeder extends Seeder
         Meet::factory(5)->create();
         UserMeet::factory(15)->create();
         
-        $this->call(DailyCommitTrackerSeeder::class);
+        $this->call([
+            DailyCommitTrackerSeeder::class,
+            CourseSeeder::class,
+        ]);
     }
 }

@@ -165,80 +165,29 @@
         <!-- All Available Courses -->
         <div>
             <div class="flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Semua Kursus Tersedia</h2>
-                <div class="flex gap-2">
-                    <input type="text" placeholder="Cari kursus..." class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white px-4 py-2 rounded-lg placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-blue-500" />
-                </div>
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Beberapa Kursus Tersedia</h2>
+                <a href="#" class="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 text-sm">Jelajahi Semua Kursus →</a>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Course Item 1 -->
-                <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:border-blue-500 dark:hover:border-blue-500 transition group cursor-pointer">
-                    <div class="h-40 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-600 dark:to-blue-800 flex items-center justify-center">
-                        <svg class="w-16 h-16 text-blue-600 dark:text-blue-200" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM16.243 15.657a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM10 18a1 1 0 011-1h1a1 1 0 110 2h-1a1 1 0 01-1-1zM5.757 16.243a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM5 10a1 1 0 01-1-1V8a1 1 0 012 0v1a1 1 0 01-1 1zM5.757 5.757a1 1 0 000-1.414L5.05 3.636a1 1 0 10-1.414 1.414l.707.707z"></path>
-                        </svg>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition mb-2">Kotlin Basics</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Belajar Kotlin untuk Android development</p>
-                        <div class="flex items-center justify-between text-xs text-gray-600 dark:text-gray-400">
-                            <span>8 Modul</span>
-                            <span class="text-blue-600 dark:text-blue-400">Gratis</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Course Item 2 -->
-                <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:border-green-500 dark:hover:border-green-500 transition group cursor-pointer">
+                @foreach ($courses as $course)
+                    
+                <a href="{{ route('lms.course', $course->slug) }}" class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:border-green-500 dark:hover:border-green-500 transition group cursor-pointer block">
                     <div class="h-40 bg-gradient-to-br from-green-100 to-green-200 dark:from-green-600 dark:to-green-800 flex items-center justify-center">
                         <svg class="w-16 h-16 text-green-600 dark:text-green-200" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                         </svg>
                     </div>
                     <div class="p-4">
-                        <h3 class="font-bold text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition mb-2">C++ Intermediate</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Konsep lanjut dalam pemrograman C++</p>
+                        <h3 class="font-bold text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition mb-2">{{ $course->title }}</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">{{ $course->description }}</p>
                         <div class="flex items-center justify-between text-xs text-gray-600 dark:text-gray-400">
                             <span>10 Modul</span>
                             <span class="text-green-600 dark:text-green-400">Gratis</span>
                         </div>
                     </div>
-                </div>
-
-                <!-- Course Item 3 -->
-                <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:border-yellow-500 dark:hover:border-yellow-500 transition group cursor-pointer">
-                    <div class="h-40 bg-gradient-to-br from-yellow-100 to-yellow-200 dark:from-yellow-600 dark:to-yellow-800 flex items-center justify-center">
-                        <svg class="w-16 h-16 text-yellow-600 dark:text-yellow-200" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z"></path>
-                        </svg>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-bold text-gray-900 dark:text-white group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition mb-2">Vue.js Essentials</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Framework JavaScript untuk UI modern</p>
-                        <div class="flex items-center justify-between text-xs text-gray-600 dark:text-gray-400">
-                            <span>12 Modul</span>
-                            <span class="text-yellow-600 dark:text-yellow-400">Gratis</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Course Item 4 -->
-                <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:border-purple-500 dark:hover:border-purple-500 transition group cursor-pointer">
-                    <div class="h-40 bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-600 dark:to-purple-800 flex items-center justify-center">
-                        <svg class="w-16 h-16 text-purple-600 dark:text-purple-200" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M7 3a1 1 0 000 2h6a1 1 0 000-2H7zM4 7a1 1 0 011-1h10a1 1 0 011 1v10a2 2 0 01-2 2H6a2 2 0 01-2-2V7zm5 4a1 1 0 10-2 0v3a1 1 0 102 0v-3zm3-1a1 1 0 10-2 0v4a1 1 0 102 0V9z"></path>
-                        </svg>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition mb-2">Go Programming</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Belajar Go lang untuk backend</p>
-                        <div class="flex items-center justify-between text-xs text-gray-600 dark:text-gray-400">
-                            <span>9 Modul</span>
-                            <span class="text-purple-600 dark:text-purple-400">Gratis</span>
-                        </div>
-                    </div>
-                </div>
+                </a>
+                @endforeach
             </div>
         </div>
     </div>
