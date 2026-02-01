@@ -112,7 +112,7 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {{-- Pengaturan --}}
-                    {{-- <a href="{{ route('dashboard.settings') }}" class="group grid-item">
+                    <a href="{{ route('dashboard.settings') }}" class="group grid-item">
                         <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
                             <div class="bg-gradient-to-br from-green-500 to-teal-600 h-28 flex items-center justify-center relative overflow-hidden">
                                 <div class="absolute inset-0 bg-white opacity-10"></div>
@@ -133,7 +133,7 @@
                                 </span>
                             </div>
                         </div>
-                    </a> --}}
+                    </a>
 
                     <!-- Profile -->
                     <a href="{{ route('profile', auth()->user()->username) }}" class="group grid-item">
@@ -160,7 +160,7 @@
                     </a>
 
                     {{-- Menuju LMS --}}
-                    <a href="https://lms.baricode.org" class="group grid-item">
+                    <a href="{{ route('lms.index') }}" class="group grid-item">
                         <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
                             <div class="bg-gradient-to-br from-blue-500 to-indigo-600 h-28 flex items-center justify-center relative overflow-hidden">
                                 <div class="absolute inset-0 bg-white opacity-10"></div>

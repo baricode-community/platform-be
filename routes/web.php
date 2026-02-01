@@ -7,6 +7,7 @@ use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
 
 require __DIR__.'/web/general.php';
+require __DIR__.'/web/lms.php';
 require __DIR__.'/web/fun.php';
 
 Route::middleware(['auth'])->group(function () {
