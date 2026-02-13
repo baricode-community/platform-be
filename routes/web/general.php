@@ -7,6 +7,14 @@ Route::controller(\App\Http\Controllers\Web\General\HomeController::class)->grou
     Route::get('/profile/{user:username?}', 'profile')->name('profile');
 });
 
+Route::controller(\App\Http\Controllers\Web\General\TimelineController::class)
+    ->prefix('/timelines')
+    ->group(function () {
+        Route::get('/', 'index')->name('timelines.index');
+        Route::get('/{timeline}', 'show')->name('timelines.show');
+});
+
+
 Route::controller(\App\Http\Controllers\Web\General\DashboardController::class)
     ->prefix('/dashboard')
     ->middleware(['auth', 'verified'])
