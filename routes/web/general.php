@@ -7,6 +7,8 @@ Route::controller(\App\Http\Controllers\Web\General\HomeController::class)->grou
     Route::get('/profile/{user:username?}', 'profile')->name('profile');
 });
 
+Route::redirect('/timeline', '/timelines');
+
 Route::controller(\App\Http\Controllers\Web\General\TimelineController::class)
     ->prefix('/timelines')
     ->group(function () {
