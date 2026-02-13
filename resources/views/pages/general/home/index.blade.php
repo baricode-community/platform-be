@@ -32,11 +32,11 @@
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20">
-                    <a href="{{ route('dashboard') }}"
+                    <a href="{{ route('dashboard') }}" wire:navigate
                         class="px-10 py-4 bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 rounded-full font-bold text-lg shadow-lg hover:shadow-purple-500/40 transition-all transform hover:scale-105 flex items-center justify-center ring-2 ring-purple-400/30 hover:ring-4 hover:ring-indigo-400/40">
                         🚀 Gabung Gratis
                     </a>
-                    <a href="#komunitas"
+                    <a href="{{ route('timelines.index') }}" wire:navigate
                         class="px-10 py-4 bg-white/10 backdrop-blur-lg rounded-full font-semibold text-lg border border-white/20 hover:bg-white/20 transition-all flex items-center justify-center ring-1 ring-white/10 hover:ring-2 hover:ring-purple-300/30">
                         👀 Lihat Aktivitas Komunitas
                     </a>
@@ -186,6 +186,18 @@
                         <div class="text-5xl mb-4">💬</div>
                         <h3 class="text-2xl font-bold mb-3">Komunitas Aktif</h3>
                         <p class="text-gray-300">Tanya jawab kapan aja. Ada yang siap bantu kamu saat waktu luang.</p>
+                    </div>
+
+                    <!-- Card 7 -->
+                    <div
+                        class="bg-gradient-to-br from-pink-500/10 to-transparent backdrop-blur-lg rounded-3xl p-8 border border-pink-500/20 hover:border-pink-500/50 transition-all hover:shadow-xl hover:shadow-pink-500/20">
+                        <div class="text-5xl mb-4">📅</div>
+                        <h3 class="text-2xl font-bold mb-3">Timeline Komunitas</h3>
+                        <p class="text-gray-300 mb-4">Track milestone dan perjalanan komunitas Baricode dari awal hingga sekarang.</p>
+                        <a href="{{ route('timelines.index') }}"
+                            class="inline-block px-6 py-2 bg-pink-600/80 text-white rounded-full font-semibold hover:bg-pink-700 transition-all">
+                            Lihat Timeline
+                        </a>
                     </div>
                 </div>
             </div>
