@@ -67,7 +67,7 @@
                             </div>
                             <p class="text-gray-300 mb-6">Proyek dan fitur yang sedang dikerjakan oleh tim dan komunitas</p>
                             <div class="bg-blue-500/20 rounded-lg p-4">
-                                <p class="text-blue-200 font-semibold">+{{ $timelines['ongoing'] }} Proyek Aktif</p>
+                                <p class="text-blue-200 font-semibold">{{ $timelines['ongoing'] }} Proyek Aktif</p>
                                 <p class="text-sm text-blue-300 mt-2">Platform terus berkembang sesuai kebutuhan komunitas</p>
                             </div>
                         </div>
