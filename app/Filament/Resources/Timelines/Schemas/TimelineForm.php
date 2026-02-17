@@ -36,6 +36,7 @@ class TimelineForm
                         Select::make('status')
                             ->label('Status')
                             ->options([
+                                'planned' => 'Direncanakan',
                                 'pending' => 'Tertunda',
                                 'ongoing' => 'Berlangsung',
                                 'completed' => 'Selesai',

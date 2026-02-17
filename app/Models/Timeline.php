@@ -29,6 +29,7 @@ class Timeline extends Model
     public function getStatusLabelAttribute(): string
     {
         return match($this->status) {
+            'planned' => 'Direncanakan',
             'pending' => 'Tertunda',
             'ongoing' => 'Berlangsung',
             'completed' => 'Selesai',
@@ -40,6 +41,7 @@ class Timeline extends Model
     public function getStatusColorAttribute(): string
     {
         return match($this->status) {
+            'planned' => 'primary',
             'pending' => 'warning',
             'ongoing' => 'info',
             'completed' => 'success',

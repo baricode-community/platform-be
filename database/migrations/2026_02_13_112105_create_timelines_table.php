@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->enum('status', ['pending', 'ongoing', 'completed', 'cancelled'])->default('pending');
+            $table->enum('status', ['planned', 'pending', 'ongoing', 'completed', 'cancelled'])->default('planned');
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->integer('progress')->default(0)->comment('Progress percentage 0-100');
