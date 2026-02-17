@@ -41,6 +41,78 @@
                         👀 Lihat Aktivitas Komunitas
                     </a>
                 </div>
+            </div>
+        </section>
+
+        <!-- Community Commitment Section -->
+        <section class="py-10 px-4 relative">
+            <div class="max-w-6xl mx-auto">
+                <div class="bg-gradient-to-r from-purple-600/30 via-violet-600/30 to-indigo-600/30 backdrop-blur-xl rounded-3xl p-12 border border-purple-500/30">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Kami Berkomitmen</h2>
+                        <p class="text-xl md:text-2xl text-gray-100 font-semibold mb-4">
+                            Mengembangkan Komunitas dengan Mewujudkan Transparansi Progress Komunitas
+                        </p>
+                        <p class="text-lg text-purple-200 italic">
+                            Kami menampilkan dengan jelas status setiap proyek dan inisiatif komunitas
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Dalam Proses -->
+                        <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/30 hover:border-blue-500/60 transition-all hover:shadow-xl hover:shadow-blue-500/20">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-2xl">⚙️</div>
+                                <h3 class="text-2xl font-bold">Dalam Proses</h3>
+                            </div>
+                            <p class="text-gray-300 mb-6">Proyek dan fitur yang sedang dikerjakan oleh tim dan komunitas</p>
+                            <div class="bg-blue-500/20 rounded-lg p-4">
+                                <p class="text-blue-200 font-semibold">+12 Proyek Aktif</p>
+                                <p class="text-sm text-blue-300 mt-2">Platform terus berkembang sesuai kebutuhan komunitas</p>
+                            </div>
+                        </div>
+
+                        <!-- Ditunda -->
+                        <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-yellow-500/30 hover:border-yellow-500/60 transition-all hover:shadow-xl hover:shadow-yellow-500/20">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 flex items-center justify-center text-2xl">⏸️</div>
+                                <h3 class="text-2xl font-bold">Ditunda</h3>
+                            </div>
+                            <p class="text-gray-300 mb-6">Fitur atau proyek yang sementara dihentikan dengan alasan tertentu</p>
+                            <div class="bg-yellow-500/20 rounded-lg p-4">
+                                <p class="text-yellow-200 font-semibold">3 Item Ditunda</p>
+                                <p class="text-sm text-yellow-300 mt-2">Akan dilanjutkan ketika kondisi memungkinkan</p>
+                            </div>
+                        </div>
+
+                        <!-- Selesai -->
+                        <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-green-500/30 hover:border-green-500/60 transition-all hover:shadow-xl hover:shadow-green-500/20">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center text-2xl">✅</div>
+                                <h3 class="text-2xl font-bold">Selesai</h3>
+                            </div>
+                            <p class="text-gray-300 mb-6">Fitur dan proyek yang telah berhasil dikerjakan dan diluncurkan</p>
+                            <div class="bg-green-500/20 rounded-lg p-4">
+                                <p class="text-green-200 font-semibold">28 Selesai</p>
+                                <p class="text-sm text-green-300 mt-2">Terus berkembang dan berinovasi untuk komunitas</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 text-center">
+                        <p class="text-gray-200 mb-6">
+                            Dengan transparansi ini, kami membuktikan bahwa <span class="text-purple-300 font-bold">Kami Aktif!</span> dan terus bergerak maju untuk memberikan yang terbaik bagi komunitas.
+                        </p>
+                        <a href="{{ route('timelines.index') }}" wire:navigate
+                            class="inline-block px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full font-bold text-lg shadow-lg hover:shadow-purple-500/40 transition-all transform hover:scale-105 ring-2 ring-purple-400/30 hover:ring-4 hover:ring-indigo-400/40">
+                            📊 Lihat Transparansi Lengkap
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
 
                 <!-- Dashboard Mockup -->
                 <div class="relative max-w-5xl mx-auto group">
@@ -95,8 +167,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
         <!-- Feature Highlight Section -->
         <section class="py-20 px-4 relative">
