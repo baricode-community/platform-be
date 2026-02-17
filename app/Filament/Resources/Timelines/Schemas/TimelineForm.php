@@ -2,12 +2,12 @@
 
 namespace App\Filament\Resources\Timelines\Schemas;
 
-use Filament\Schemas\Components\DatePicker;
-use Filament\Schemas\Components\Repeater;
+use Filament\Forms\Components\DatePicker;
+
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Select;
-use Filament\Schemas\Components\Textarea;
-use Filament\Schemas\Components\TextInput;
 use Filament\Schemas\Schema;
 
 class TimelineForm
@@ -47,8 +47,6 @@ class TimelineForm
                         TextInput::make('progress')
                             ->label('Progress (%)')
                             ->numeric()
-                            ->min(0)
-                            ->max(100)
                             ->default(0)
                             ->suffix('%'),
                     ]),
