@@ -44,6 +44,29 @@
             </div>
         </section>
 
+        <!-- Feature Highlight Section -->
+        <section class="py-10 px-4 relative">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="mb-8">
+                    <span
+                        class="inline-block px-6 py-2 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-semibold rounded-full text-lg shadow">
+                        {{ \Carbon\Carbon::now()->translatedFormat('l, d F Y') }}
+                    </span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-8">Jangan Biarkan Waktumu Tanpa Berkomunitas</h2>
+                <p class="text-xl text-gray-200 mb-6 font-medium">
+                    Karena ibarat lidi pada sapu, jika sendiri maka rapuh namun jika bersama maka sangat kuat.
+                </p>
+                <p class="text-lg text-purple-300 font-semibold mb-10">
+                    Mari gabung ke komunitas terkece, keren, dan terbesar (secara bertahap) se-Indonesia!
+                </p>
+                <a href="{{ route('dashboard') }}"
+                    class="px-10 py-4 bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 rounded-full font-bold text-lg shadow-lg hover:shadow-purple-500/40 transition-all transform hover:scale-105 flex items-center justify-center ring-2 ring-purple-400/30 hover:ring-4 hover:ring-indigo-400/40">
+                    🚀 Gabung Sekarang
+                </a>
+            </div>
+        </section>
+
         <!-- Community Commitment Section -->
         <section class="py-10 px-4 relative">
             <div class="max-w-6xl mx-auto">
@@ -109,85 +132,6 @@
                         </a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-
-
-                <!-- Dashboard Mockup -->
-                <div class="relative max-w-5xl mx-auto group">
-                    <div
-                        class="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-purple-400/30 to-indigo-400/10 rounded-full blur-2xl opacity-70 animate-pulse">
-                    </div>
-                    <div
-                        class="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-indigo-400/30 to-purple-400/10 rounded-full blur-2xl opacity-60 animate-pulse">
-                    </div>
-                    <div
-                        class="bg-gradient-to-br from-purple-500/30 to-indigo-500/30 backdrop-blur-2xl rounded-3xl p-10 border border-purple-500/40 shadow-2xl shadow-purple-500/20 relative z-10 transition-all group-hover:scale-105 group-hover:shadow-indigo-500/30">
-                        <div class="flex items-center gap-2 mb-6">
-                            <div class="w-3 h-3 rounded-full bg-red-500 shadow"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500 shadow"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500 shadow"></div>
-                        </div>
-                        <div class="bg-gray-900/60 rounded-2xl p-8 text-left shadow-inner">
-                            <div class="flex items-center gap-4 mb-6">
-                                <div
-                                    class="w-14 h-14 rounded-full bg-gradient-to-r from-purple-500 via-violet-500 to-indigo-500 flex items-center justify-center text-3xl shadow-lg border-4 border-white/10">
-                                    🔥
-                                </div>
-                                <div>
-                                    <div class="font-bold text-lg text-white">Daily Commit Streak</div>
-                                    <div class="text-sm text-purple-300 font-semibold">14 hari berturut-turut <span
-                                            class="animate-bounce inline-block">🔥</span></div>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-7 gap-3">
-                                <div
-                                    class="h-10 bg-gradient-to-t from-purple-600 to-purple-400 rounded-lg shadow-md animate-pulse">
-                                </div>
-                                <div
-                                    class="h-10 bg-gradient-to-t from-purple-600 to-purple-400 rounded-lg shadow-md animate-pulse delay-100">
-                                </div>
-                                <div
-                                    class="h-10 bg-gradient-to-t from-purple-600 to-violet-500 rounded-lg shadow-md animate-pulse delay-200">
-                                </div>
-                                <div
-                                    class="h-10 bg-gradient-to-t from-indigo-600 to-indigo-400 rounded-lg shadow-md animate-pulse delay-300">
-                                </div>
-                                <div
-                                    class="h-10 bg-gradient-to-t from-indigo-600 to-violet-500 rounded-lg shadow-md animate-pulse delay-400">
-                                </div>
-                                <div
-                                    class="h-10 bg-gradient-to-t from-violet-600 to-purple-500 rounded-lg shadow-md animate-pulse delay-500">
-                                </div>
-                                <div
-                                    class="h-10 bg-gradient-to-t from-violet-600 to-purple-400 rounded-lg shadow-md animate-pulse delay-700">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-        <!-- Feature Highlight Section -->
-        <section class="py-20 px-4 relative">
-            <div class="max-w-3xl mx-auto text-center">
-                <div class="mb-8">
-                    <span
-                        class="inline-block px-6 py-2 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-semibold rounded-full text-lg shadow">
-                        {{ \Carbon\Carbon::now()->translatedFormat('l, d F Y') }}
-                    </span>
-                </div>
-                <h2 class="text-4xl md:text-5xl font-bold mb-8">Jangan Biarkan Waktumu Tanpa Berkomunitas</h2>
-                <p class="text-xl text-gray-200 mb-6 font-medium">
-                    Karena ibarat lidi pada sapu, jika sendiri maka rapuh namun jika bersama maka sangat kuat.
-                </p>
-                <p class="text-lg text-purple-300 font-semibold mb-10">
-                    Mari gabung ke komunitas terkece, keren, dan terbesar (secara bertahap) se-Indonesia!
-                </p>
-                <a href="{{ route('dashboard') }}"
-                    class="px-10 py-4 bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 rounded-full font-bold text-lg shadow-lg hover:shadow-purple-500/40 transition-all transform hover:scale-105 flex items-center justify-center ring-2 ring-purple-400/30 hover:ring-4 hover:ring-indigo-400/40">
-                    🚀 Gabung Sekarang
-                </a>
             </div>
         </section>
 
@@ -273,61 +217,8 @@
             </div>
         </section>
 
-        <!-- Community Activity Feed -->
-        <section class="py-20 px-4 relative">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">Aktivitas Komunitas Real-time</h2>
-
-                <div class="flex justify-center mb-8">
-                    <span
-                        class="inline-block px-6 py-2 bg-yellow-400/20 text-yellow-300 font-semibold rounded-full text-lg border border-yellow-400/30 shadow">
-                        Segera Hadir
-                    </span>
-                </div>
-
-                <div
-                    class="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 backdrop-blur-xl rounded-3xl p-8 border border-purple-500/20">
-                    <div class="space-y-4">
-                        <!-- Activity 1 -->
-                        <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"></div>
-                                <div class="flex-1">
-                                    <p class="font-semibold">Budi menyelesaikan tantangan Day 14 🎉</p>
-                                    <p class="text-sm text-gray-400">2 menit yang lalu</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Activity 2 -->
-                        <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500 to-blue-500"></div>
-                                <div class="flex-1">
-                                    <p class="font-semibold">Siti share meme: "Debugging be like..." 😂</p>
-                                    <p class="text-sm text-gray-400">5 menit yang lalu</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Activity 3 -->
-                        <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-violet-500 to-purple-500">
-                                </div>
-                                <div class="flex-1">
-                                    <p class="font-semibold">Ahmad mencapai streak 30 hari! 🔥</p>
-                                    <p class="text-sm text-gray-400">15 menit yang lalu</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Project Showcase -->
-        <section class="py-20 px-4 relative">
+        {{-- <section class="py-20 px-4 relative">
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">Proyek dari Komunitas</h2>
 
@@ -431,10 +322,10 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         <!-- Testimonials -->
-        <section class="py-20 px-4 relative">
+        {{-- <section class="py-20 px-4 relative">
             <div class="max-w-6xl mx-auto">
                 <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">Kata Mereka</h2>
 
@@ -492,6 +383,56 @@
                             </div>
                             <p class="text-gray-300">"Hackathon mini-nya seru banget! Jadi ajang buat praktik skill
                                 baru sambil dapet feedback dari senior."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> --}}
+
+        <!-- Telegram Channel Section -->
+        <section class="py-20 px-4 relative">
+            <div class="max-w-6xl mx-auto">
+                <div class="bg-gradient-to-r from-cyan-600/40 via-sky-600/40 to-blue-600/40 backdrop-blur-xl rounded-3xl p-12 border border-cyan-500/30 overflow-hidden relative">
+                    <!-- Animated background elements -->
+                    <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/20 to-transparent rounded-full blur-3xl -mr-48 -mt-48"></div>
+                    <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-full blur-3xl -ml-48 -mb-48"></div>
+
+                    <div class="relative z-10">
+                        <div class="text-center mb-12">
+                            <div class="inline-block mb-6">
+                                <div class="text-7xl animate-bounce">📱</div>
+                            </div>
+                            <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Jangan Ketinggalan Update Terbaru!</h2>
+                            <p class="text-xl md:text-2xl text-gray-100 font-semibold mb-4">
+                                Bergabunglah dengan Telegram Channel Baricode
+                            </p>
+                            <p class="text-lg text-cyan-200 max-w-3xl mx-auto">
+                                Dapatkan update terbaru tentang fitur baru, challenge menarik, event komunitas, dan tips & trik coding langsung ke Telegram kamu. Jadilah yang pertama tahu setiap perkembangan!
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                            <!-- Benefit 1 -->
+                            <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-cyan-500/20 text-center hover:bg-white/10 transition-all">
+                                <div class="text-4xl mb-3">⚡</div>
+                                <h3 class="font-bold mb-2">Update Real-time</h3>
+                                <p class="text-sm text-gray-300">Notifikasi langsung untuk fitur baru dan event penting</p>
+                            </div>
+
+                            <!-- Benefit 2 -->
+                            <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-cyan-500/20 text-center hover:bg-white/10 transition-all">
+                                <div class="text-4xl mb-3">💡</div>
+                                <h3 class="font-bold mb-2">Tips & Tricks</h3>
+                                <p class="text-sm text-gray-300">Pelajari cara maksimalkan semua fitur Baricode</p>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <a href="https://t.me/baricode_org" target="_blank" rel="noopener noreferrer"
+                                class="inline-block px-10 py-4 bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-500 rounded-full font-bold text-lg shadow-lg hover:shadow-cyan-500/40 transition-all transform hover:scale-105 ring-2 ring-cyan-400/30 hover:ring-4 hover:ring-blue-400/40">
+                                🚀 Bergabung di Telegram Sekarang
+                            </a>
+                            <p class="text-sm text-gray-400 mt-4">Gratis • Tanpa biaya tersembunyi • Bisa keluar kapan saja</p>
                         </div>
                     </div>
                 </div>
