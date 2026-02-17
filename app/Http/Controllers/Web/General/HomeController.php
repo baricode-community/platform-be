@@ -11,10 +11,14 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $planned = Timeline::where(['status' => 'planned'])->orderBy('start_date', 'asc')->get();
-        $ongoing = Timeline::where(['status' => 'ongoing'])->orderBy('start_date', 'asc')->get();
-        $completed = Timeline::where(['status' => 'completed'])->orderBy('end_date', 'desc')->get();
-        $timelines = $planned->concat($ongoing)->concat($completed);
+        $planned = Timeline::where(['status' => 'planned'])->orderBy('start_date', 'asc')->count();
+        $ongoing = Timeline::where(['status' => 'ongoing'])->orderBy('start_date', 'asc')->count();
+        $completed = Timeline::where(['status' => 'completed'])->orderBy('end_date', 'desc')->count();
+        $timelines = [
+            'planned' => $planned,
+            'ongoing' => $ongoing,
+            'completed' => $completed,
+        ];
 
         return view('pages.general.home.index', [
             'timelines' => $timelines,

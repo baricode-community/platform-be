@@ -67,7 +67,7 @@
                             </div>
                             <p class="text-gray-300 mb-6">Proyek dan fitur yang sedang dikerjakan oleh tim dan komunitas</p>
                             <div class="bg-blue-500/20 rounded-lg p-4">
-                                <p class="text-blue-200 font-semibold">+12 Proyek Aktif</p>
+                                <p class="text-blue-200 font-semibold">+{{ $timelines['ongoing'] }} Proyek Aktif</p>
                                 <p class="text-sm text-blue-300 mt-2">Platform terus berkembang sesuai kebutuhan komunitas</p>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                             </div>
                             <p class="text-gray-300 mb-6">Fitur atau proyek yang sementara dihentikan dengan alasan tertentu</p>
                             <div class="bg-yellow-500/20 rounded-lg p-4">
-                                <p class="text-yellow-200 font-semibold">3 Item Ditunda</p>
+                                <p class="text-yellow-200 font-semibold">{{ $timelines['planned'] }} Item Ditunda</p>
                                 <p class="text-sm text-yellow-300 mt-2">Akan dilanjutkan ketika kondisi memungkinkan</p>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
                             </div>
                             <p class="text-gray-300 mb-6">Fitur dan proyek yang telah berhasil dikerjakan dan diluncurkan</p>
                             <div class="bg-green-500/20 rounded-lg p-4">
-                                <p class="text-green-200 font-semibold">28 Selesai</p>
+                                <p class="text-green-200 font-semibold">{{ $timelines['completed'] }} Selesai</p>
                                 <p class="text-sm text-green-300 mt-2">Terus berkembang dan berinovasi untuk komunitas</p>
                             </div>
                         </div>
