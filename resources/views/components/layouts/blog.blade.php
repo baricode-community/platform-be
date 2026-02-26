@@ -5,13 +5,13 @@
     @include('partials.head')
     <style>
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
             min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .blog-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 50%, #1e3a8a 100%);
             color: white;
             padding: 3rem 0;
             clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), 0 100%);
@@ -24,12 +24,13 @@
         }
 
         .blog-nav {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 20px rgba(37, 99, 235, 0.15);
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.2);
         }
 
         .blog-nav-content {
@@ -42,7 +43,7 @@
         .blog-logo {
             font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -58,7 +59,7 @@
         }
 
         .blog-nav-link {
-            color: #333;
+            color: #cbd5e1;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -66,7 +67,7 @@
         }
 
         .blog-nav-link:hover {
-            color: #667eea;
+            color: #3b82f6;
         }
 
         .blog-nav-link::after {
@@ -76,7 +77,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             transition: width 0.3s ease;
         }
 
@@ -90,39 +91,69 @@
         }
 
         .blog-article {
-            background: white;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 1px rgba(37, 99, 235, 0.5);
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(37, 99, 235, 0.2);
         }
 
         .blog-article:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(37, 99, 235, 0.3), 0 0 1px rgba(37, 99, 235, 0.8);
+            border-color: rgba(37, 99, 235, 0.3);
         }
 
         .blog-article-header {
             padding: 2rem;
         }
 
+        .blog-article-featured {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .blog-article-featured img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .blog-article-title {
             font-size: 1.75rem;
             font-weight: 700;
-            color: #1f2937;
+            color: #f1f5f9;
             margin: 0 0 1rem 0;
             line-height: 1.4;
         }
 
         .blog-article-title a {
-            color: #1f2937;
+            color: #f1f5f9;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .blog-article-title a:hover {
-            color: #667eea;
+            color: #3b82f6;
+        }
+
+        .blog-badge {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-right: 0.5rem;
         }
 
         .blog-meta {
@@ -130,9 +161,10 @@
             flex-wrap: wrap;
             gap: 1.5rem;
             font-size: 0.95rem;
-            color: #6b7280;
-            border-bottom: 2px solid #f3f4f6;
+            color: #cbd5e1;
+            border-bottom: 2px solid rgba(37, 99, 235, 0.2);
             padding-bottom: 1rem;
+            margin-bottom: 1rem;
         }
 
         .blog-meta-item {
@@ -144,11 +176,11 @@
         .blog-meta-item svg {
             width: 18px;
             height: 18px;
-            color: #667eea;
+            color: #2563eb;
         }
 
         .blog-excerpt {
-            color: #4b5563;
+            color: #cbd5e1;
             line-height: 1.8;
             font-size: 1rem;
             margin: 1.5rem 0;
@@ -158,27 +190,28 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: #667eea;
+            color: #2563eb;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
             padding: 0.5rem 1rem;
             border-radius: 8px;
+            border: 2px solid transparent;
         }
 
         .blog-read-more:hover {
-            background: #667eea;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
             color: white;
             transform: translateX(5px);
         }
 
         .blog-footer {
-            background: white;
-            color: #6b7280;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #94a3b8;
             padding: 3rem 1.5rem;
             margin-top: 3rem;
             text-align: center;
-            border-top: 1px solid #e5e7eb;
+            border-top: 1px solid rgba(37, 99, 235, 0.2);
         }
 
         .blog-footer-content {
@@ -203,20 +236,20 @@
         }
 
         .blog-pagination span {
-            background: #667eea;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
             color: white;
             font-weight: 600;
         }
 
         .blog-pagination a {
-            background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
+            background: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+            border: 2px solid #2563eb;
             text-decoration: none;
         }
 
         .blog-pagination a:hover {
-            background: #667eea;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
             color: white;
             transform: translateY(-2px);
         }
@@ -237,12 +270,6 @@
             }
         }
 
-        /* Smooth transitions */
-        * {
-            transition: background-color 0.2s ease;
-        }
-
-        /* Loading animation */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -267,6 +294,7 @@
             <a href="{{ route('blog.index') }}" class="blog-logo">Blog Baricode</a>
             <ul class="blog-nav-links">
                 <li><a href="{{ route('blog.index') }}" class="blog-nav-link">Beranda</a></li>
+                <li><a href="{{ route('dashboard') }}" class="blog-nav-link">Dashboard</a></li>
             </ul>
         </div>
     </nav>
