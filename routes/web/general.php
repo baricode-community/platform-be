@@ -28,6 +28,13 @@ Route::controller(\App\Http\Controllers\Web\General\DashboardController::class)
         Route::get('/memes', 'memes')->name('dashboard.memes');
 });
 
+Route::controller(\App\Http\Controllers\Web\General\BlogController::class)
+    ->prefix('/blog')
+    ->group(function () {
+        Route::get('/', 'index')->name('blog.index');
+        Route::get('/{slug}', 'show')->name('blog.show');
+    });
+
 Route::controller(\App\Http\Controllers\DailyCommitTrackerController::class)
     ->prefix('/daily-commit-tracker')
     ->middleware(['auth', 'verified'])
