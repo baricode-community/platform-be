@@ -156,12 +156,16 @@
                         <!-- Related Lessons -->
                         <h4 class="text-white font-semibold mb-3">Lessons in this Category</h4>
                         <div class="space-y-2">
-                            @foreach($category->lessons()->where('is_published', true)->orderBy('order')->get() as $relatedLesson)
-                                <a href="{{ route('lms.lesson', $relatedLesson) }}" 
-                                    class="block p-2 rounded {{ $relatedLesson->id === $lesson->id ? 'bg-blue-600/20 border border-blue-500 text-blue-300' : 'bg-gray-800 hover:bg-gray-700 text-gray-300' }} transition text-sm">
-                                    {{ $relatedLesson->title }}
-                                </a>
-                            @endforeach
+                            <ol class="list-decimal list-inside space-y-2">
+                                @foreach($category->lessons()->where('is_published', true)->orderBy('order')->get() as $relatedLesson)
+                                    <li>
+                                        <a href="{{ route('lms.lesson', $relatedLesson) }}" 
+                                            class="{{ $relatedLesson->id === $lesson->id ? 'text-blue-300 font-semibold' : 'text-gray-300 hover:text-white' }} transition text-sm">
+                                            {{ $relatedLesson->title }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ol>
                         </div>
                     </div>
                 </div>
