@@ -9,4 +9,5 @@ Route::controller(LMSController::class)
     ->group(function () {
         Route::get('/', 'index')->name('lms.index');
         Route::get('/course/{course:slug}', 'course')->name('lms.course');
+        Route::get('/lesson/{lesson}', 'lesson')->name('lms.lesson');
 });

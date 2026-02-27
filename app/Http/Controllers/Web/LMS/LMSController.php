@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\LMS;
 
 use App\Http\Controllers\Controller;
 use App\Models\LMS\Course;
+use App\Models\LMS\Lesson;
 use Illuminate\Http\Request;
 
 class LMSController extends Controller
@@ -34,5 +35,32 @@ class LMSController extends Controller
             ->get();
         
         return view('pages.lms.course', compact('user', 'course', 'categories'));
+    }
+
+    public function lesson(Lesson $lesson)
+    {
+        // Check if lesson is published
+        if (!$lesson->is_published) {
+            abort(404);
+        }
+
+        $user = auth()->user();
+        $category = $lesson->category;
+        $course = $category->course;
+        
+        // Get previous and next lessons
+        $prevLesson = Lesson::where('category_id', $lesson->category_id)
+            ->where('order', '<', $lesson->order)
+            ->where('is_published', true)
+            ->orderBy('order', 'desc')
+            ->first();
+            
+        $nextLesson = Lesson::where('category_id', $lesson->category_id)
+            ->where('order', '>', $lesson->order)
+            ->where('is_published', true)
+            ->orderBy('order')
+            ->first();
+
+        return view('pages.lms.lesson', compact('user', 'lesson', 'category', 'course', 'prevLesson', 'nextLesson'));
     }
 }
