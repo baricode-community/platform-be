@@ -12,7 +12,20 @@ class ListLessons extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            \Filament\Actions\CreateAction::make(),
+            \Filament\Actions\CreateAction::make()
+                ->url(fn () => $this->getCreateUrl()),
         ];
+    }
+
+    private function getCreateUrl(): string
+    {
+        $url = static::$resource::getUrl('create');
+        $categoryId = request()->query('category');
+        
+        if ($categoryId) {
+            $url .= '?category=' . $categoryId;
+        }
+        
+        return $url;
     }
 }

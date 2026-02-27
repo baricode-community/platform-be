@@ -12,7 +12,20 @@ class ListCategories extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            \Filament\Actions\CreateAction::make(),
+            \Filament\Actions\CreateAction::make()
+                ->url(fn () => $this->getCreateUrl()),
         ];
+    }
+
+    private function getCreateUrl(): string
+    {
+        $url = static::$resource::getUrl('create');
+        $courseId = request()->query('course');
+        
+        if ($courseId) {
+            $url .= '?course=' . $courseId;
+        }
+        
+        return $url;
     }
 }
