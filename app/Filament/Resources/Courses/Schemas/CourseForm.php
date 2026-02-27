@@ -19,10 +19,6 @@ class CourseForm
                     ->columnSpanFull(),
                 TextInput::make('slug')
                     ->required(),
-                TextInput::make('duration')
-                    ->required()
-                    ->numeric()
-                    ->default(0),
                 Toggle::make('is_published')
                     ->required(),
             ]);

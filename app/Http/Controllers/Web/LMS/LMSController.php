@@ -11,7 +11,14 @@ class LMSController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $courses = Course::take(5)->inRandomOrder()->get();
+        $courses = Course::with(['categories.lessons' => function ($query) {
+            $query->where('is_published', true)->orderBy('order');
+        }])
+            ->where('is_published', true)
+            ->take(5)
+            ->inRandomOrder()
+            ->get();
+        
         return view('pages.lms.index', compact('user', 'courses'));
     }
 

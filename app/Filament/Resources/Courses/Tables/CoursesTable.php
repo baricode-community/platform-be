@@ -19,9 +19,6 @@ class CoursesTable
                     ->searchable(),
                 TextColumn::make('slug')
                     ->searchable(),
-                TextColumn::make('duration')
-                    ->numeric()
-                    ->sortable(),
                 IconColumn::make('is_published')
                     ->boolean(),
                 TextColumn::make('created_at')

@@ -61,103 +61,60 @@
             <!-- Continue Learning -->
             <div class="lg:col-span-2">
                 <div class="flex items-center justify-between mb-6">
-                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Lanjutkan Belajar</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Kursus Tersedia</h2>
                     <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm">Lihat Semua →</a>
                 </div>
 
                 <div class="space-y-4">
-                    <!-- Course Card 1 -->
+                    @forelse ($courses->slice(0, 2) as $course)
                     <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:border-blue-500 dark:hover:border-blue-500 transition cursor-pointer group">
                         <div class="flex items-start justify-between mb-4">
                             <div class="flex-1">
-                                <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">PHP untuk Pemula</h3>
-                                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">Pelajari dasar-dasar PHP dengan praktik langsung</p>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">{{ $course->title }}</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">{{ $course->description }}</p>
                             </div>
-                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 text-xs px-3 py-1 rounded-full">Sedang</span>
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 text-xs px-3 py-1 rounded-full">{{ $course->categories->count() }} Modul</span>
                         </div>
                         <div class="flex items-center justify-between">
                             <div class="flex-1 mr-4">
                                 <div class="bg-gray-300 dark:bg-gray-700 rounded-full h-2">
-                                    <div class="bg-blue-500 h-2 rounded-full" style="width: 65%"></div>
+                                    <div class="bg-blue-500 h-2 rounded-full" style="width: 0%"></div>
                                 </div>
-                                <p class="text-gray-600 dark:text-gray-400 text-xs mt-2">65% Selesai - 7 dari 10 Modul</p>
+                                <p class="text-gray-600 dark:text-gray-400 text-xs mt-2">0% Selesai</p>
                             </div>
-                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition">
-                                Lanjutkan
-                            </button>
+                            <a href="{{ route('lms.course', $course->slug) }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition">
+                                Mulai
+                            </a>
                         </div>
                     </div>
-
-                    <!-- Course Card 2 -->
-                    <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:border-purple-500 dark:hover:border-purple-500 transition cursor-pointer group">
-                        <div class="flex items-start justify-between mb-4">
-                            <div class="flex-1">
-                                <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition">JavaScript ES6+</h3>
-                                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">Penguasaan JavaScript modern dengan konsep advance</p>
-                            </div>
-                            <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-300 text-xs px-3 py-1 rounded-full">Sedang</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex-1 mr-4">
-                                <div class="bg-gray-300 dark:bg-gray-700 rounded-full h-2">
-                                    <div class="bg-purple-500 h-2 rounded-full" style="width: 45%"></div>
-                                </div>
-                                <p class="text-gray-600 dark:text-gray-400 text-xs mt-2">45% Selesai - 9 dari 20 Modul</p>
-                            </div>
-                            <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm transition">
-                                Lanjutkan
-                            </button>
-                        </div>
+                    @empty
+                    <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6 text-center text-gray-600 dark:text-gray-400">
+                        Belum ada kursus tersedia
                     </div>
+                    @endforelse
                 </div>
             </div>
 
             <!-- Recommended Courses -->
             <div>
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Rekomendasi untuk Kamu</h2>
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Rekomendasi Kursus Lainnya</h2>
 
                 <div class="space-y-4">
-                    <!-- Recommended Course 1 -->
-                    <div class="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900 dark:to-green-800 rounded-lg p-4 hover:shadow-lg hover:shadow-green-500/50 transition cursor-pointer group">
+                    @forelse ($courses->slice(2) as $course)
+                    <a href="{{ route('lms.course', $course->slug) }}" class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 rounded-lg p-4 hover:shadow-lg hover:shadow-blue-500/50 transition cursor-pointer group block">
                         <div class="flex items-start justify-between mb-3">
-                            <h3 class="font-bold text-green-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-300 transition">Python Dasar</h3>
-                            <svg class="w-5 h-5 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                            <h3 class="font-bold text-blue-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-300 transition">{{ $course->title }}</h3>
+                            <svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                             </svg>
                         </div>
-                        <p class="text-green-800 dark:text-green-100 text-xs mb-3">12 Modul • 8 Jam</p>
-                        <button class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg text-sm transition">
-                            Daftar
-                        </button>
+                        <p class="text-blue-800 dark:text-blue-100 text-xs mb-3">{{ $course->categories->count() }} Modul • {{ $course->categories->sum(fn($cat) => $cat->lessons->sum('duration')) }} Jam</p>
+                    </a>
+                    @empty
+                    <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 text-center text-gray-600 dark:text-gray-400 text-sm">
+                        Tidak ada rekomendasi lain
                     </div>
-
-                    <!-- Recommended Course 2 -->
-                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900 dark:to-orange-800 rounded-lg p-4 hover:shadow-lg hover:shadow-orange-500/50 transition cursor-pointer group">
-                        <div class="flex items-start justify-between mb-3">
-                            <h3 class="font-bold text-orange-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-300 transition">React.js</h3>
-                            <svg class="w-5 h-5 text-orange-600 dark:text-orange-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                            </svg>
-                        </div>
-                        <p class="text-orange-800 dark:text-orange-100 text-xs mb-3">15 Modul • 10 Jam</p>
-                        <button class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 rounded-lg text-sm transition">
-                            Daftar
-                        </button>
-                    </div>
-
-                    <!-- Recommended Course 3 -->
-                    <div class="bg-gradient-to-br from-pink-50 to-pink-100 dark:from-pink-900 dark:to-pink-800 rounded-lg p-4 hover:shadow-lg hover:shadow-pink-500/50 transition cursor-pointer group">
-                        <div class="flex items-start justify-between mb-3">
-                            <h3 class="font-bold text-pink-900 dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-300 transition">SQL & Database</h3>
-                            <svg class="w-5 h-5 text-pink-600 dark:text-pink-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                            </svg>
-                        </div>
-                        <p class="text-pink-800 dark:text-pink-100 text-xs mb-3">10 Modul • 6 Jam</p>
-                        <button class="w-full bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-lg text-sm transition">
-                            Daftar
-                        </button>
-                    </div>
+                    @endforelse
                 </div>
             </div>
         </div>
@@ -182,7 +139,7 @@
                         <h3 class="font-bold text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition mb-2">{{ $course->title }}</h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">{{ $course->description }}</p>
                         <div class="flex items-center justify-between text-xs text-gray-600 dark:text-gray-400">
-                            <span>10 Modul</span>
+                            <span>{{ $course->categories->count() }} Modul</span>
                             <span class="text-green-600 dark:text-green-400">Gratis</span>
                         </div>
                     </div>

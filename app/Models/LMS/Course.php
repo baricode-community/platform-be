@@ -15,7 +15,6 @@ class Course extends Model
         'title',
         'description',
         'slug',
-        'duration',
         'is_published',
     ];
 
@@ -23,7 +22,6 @@ class Course extends Model
         'title' => 'string',
         'description' => 'string',
         'slug' => 'string',
-        'duration' => 'integer',
         'is_published' => 'boolean',
     ];
 

@@ -20,7 +20,6 @@ class CourseFactory extends Factory
             'title' => $this->faker->sentence(3),
             'description' => $this->faker->paragraph(),
             'slug' => $this->faker->slug(),
-            'duration' => $this->faker->numberBetween(1, 100),
         ];
     }
 }
