@@ -17,35 +17,90 @@
                 <div class="lg:col-span-2">
                     <!-- Videos Section -->
                     @if($youtubeVideos->count() > 0)
-                        <div class="space-y-6 mb-6">
-                            @foreach($youtubeVideos as $index => $video)
-                                <div class="bg-gray-900 rounded-lg border border-white/10 overflow-hidden">
-                                    <!-- Video Player -->
-                                    <div class="relative w-full aspect-video bg-gray-800">
-                                        <iframe 
-                                            class="w-full h-full"
-                                            src="{{ collect(explode('?', str_replace(['youtube.com/watch?v=', 'youtu.be/'], ['youtube.com/embed/', 'youtube.com/embed/'], $video->youtube_url)))->first() }}?fs=1&showinfo=0&rel=0"
-                                            frameborder="0" 
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
-                                            allowfullscreen
-                                            title="{{ $video->title }}">
-                                        </iframe>
-                                    </div>
+                        <div class="mb-6">
+                            <!-- Main Video Player -->
+                            <div class="bg-gray-900 rounded-lg border border-white/10 overflow-hidden mb-4" x-data="videoPlayer()" x-init="init()">
+                                <div class="relative w-full aspect-video bg-gray-800">
+                                    <iframe 
+                                        class="w-full h-full"
+                                        :src="getEmbedUrl(currentVideo.youtube_url)"
+                                        frameborder="0" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
+                                        allowfullscreen
+                                        :title="currentVideo.title">
+                                    </iframe>
+                                </div>
 
-                                    <!-- Video Info -->
-                                    <div class="p-6">
-                                        <div class="flex items-start justify-between mb-3">
+                                <!-- Video Title -->
+                                <div class="p-4 border-b border-white/10">
+                                    <h3 class="text-lg font-bold text-white" x-text="currentVideo.title"></h3>
+                                </div>
+
+                                <!-- Video Description -->
+                                <template x-if="currentVideo.description">
+                                    <div class="p-4 bg-gray-800/50 text-gray-300 text-sm" x-text="currentVideo.description"></div>
+                                </template>
+
+                                <!-- Video Alternatives Selector -->
+                                @if($youtubeVideos->count() > 1)
+                                    <div class="p-4 bg-gradient-to-r from-blue-900/20 to-purple-900/20 border-t border-white/10">
+                                        <div class="flex items-start gap-3 mb-4">
+                                            <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
+                                            </svg>
                                             <div>
-                                                <h3 class="text-lg font-bold text-white">{{ $video->title }}</h3>
-                                                <p class="text-gray-400 text-sm mt-1">Video {{ $index + 1 }} of {{ $youtubeVideos->count() }}</p>
+                                                <p class="text-sm text-gray-200 font-semibold">Pilihan Video Pembelajaran</p>
+                                                <p class="text-xs text-gray-400 mt-1">Tersedia {{ $youtubeVideos->count() }} video. Silahkan pilih salah satu untuk memulai pembelajaran (atau sesuai arahan yang disediakan).</p>
                                             </div>
                                         </div>
-                                        @if($video->description)
-                                            <p class="text-gray-300">{{ $video->description }}</p>
-                                        @endif
+                                        
+                                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                                            @foreach($youtubeVideos as $index => $video)
+                                                <button
+                                                    @click="selectVideo({{ $index }})"
+                                                    :class="activeIndex === {{ $index }} ? 'bg-blue-600 border-blue-400 ring-2 ring-blue-400/50' : 'bg-gray-800 border-gray-700 hover:bg-gray-700 hover:border-gray-600'"
+                                                    class="px-3 py-2 rounded-lg border transition text-xs text-gray-300 hover:text-white truncate font-medium"
+                                                    :title="videos[{{ $index }}].title"
+                                                >
+                                                    <span class="inline-block w-4 text-center">{{ $index + 1 }}</span>
+                                                </button>
+                                            @endforeach
+                                        </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endif
+
+                                <script>
+                                    function videoPlayer() {
+                                        return {
+                                            activeIndex: 0,
+                                            videos: {!! json_encode($youtubeVideos->map(fn($v) => [
+                                                'title' => $v->title,
+                                                'description' => $v->description,
+                                                'youtube_url' => $v->youtube_url
+                                            ])->values()) !!},
+                                            get currentVideo() {
+                                                return this.videos[this.activeIndex] || {};
+                                            },
+                                            init() {
+                                                // Initialize with first video
+                                                this.activeIndex = 0;
+                                            },
+                                            selectVideo(index) {
+                                                this.activeIndex = index;
+                                            },
+                                            getEmbedUrl(url) {
+                                                if (!url) return '';
+                                                // Convert youtube URL to embed URL
+                                                let embedUrl = url
+                                                    .replace(/youtube\.com\/watch\?v=/, 'youtube.com/embed/')
+                                                    .replace(/youtu\.be\//, 'youtube.com/embed/')
+                                                    .split('?')[0];
+                                                return embedUrl + '?fs=1&showinfo=0&rel=0';
+                                            }
+                                        }
+                                    }
+                                </script>
+                            </div>
                         </div>
                     @else
                         <div class="bg-gray-900 rounded-lg border border-white/10 px-6 py-12 text-center mb-6">
