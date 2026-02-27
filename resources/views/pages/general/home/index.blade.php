@@ -36,9 +36,9 @@
                         class="px-10 py-4 bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 rounded-full font-bold text-lg shadow-lg hover:shadow-purple-500/40 transition-all transform hover:scale-105 flex items-center justify-center ring-2 ring-purple-400/30 hover:ring-4 hover:ring-indigo-400/40">
                         🚀 Gabung Gratis
                     </a>
-                    <a href="{{ route('timelines.index') }}" wire:navigate
+                    <a href="{{ route('lms.all-courses') }}" wire:navigate
                         class="px-10 py-4 bg-white/10 backdrop-blur-lg rounded-full font-semibold text-lg border border-white/20 hover:bg-white/20 transition-all flex items-center justify-center ring-1 ring-white/10 hover:ring-2 hover:ring-purple-300/30">
-                        👀 Lihat Aktivitas Komunitas
+                        👀 Dapatkan Kursus Gratis
                     </a>
                 </div>
             </div>
