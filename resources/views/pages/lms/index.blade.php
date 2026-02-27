@@ -16,7 +16,7 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-gray-600 dark:text-gray-400 text-sm">Total Poin</p>
-                        <p class="text-3xl font-bold text-gray-900 dark:text-white">2,450</p>
+                        <p class="text-3xl font-bold text-gray-900 dark:text-white">x</p>
                     </div>
                     <div class="bg-blue-100 dark:bg-blue-900 rounded-full p-3">
                         <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20">
@@ -30,7 +30,7 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-gray-600 dark:text-gray-400 text-sm">Kursus Selesai</p>
-                        <p class="text-3xl font-bold text-gray-900 dark:text-white">4</p>
+                        <p class="text-3xl font-bold text-gray-900 dark:text-white">x</p>
                     </div>
                     <div class="bg-green-100 dark:bg-green-900 rounded-full p-3">
                         <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
@@ -44,7 +44,7 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-gray-600 dark:text-gray-400 text-sm">Sedang Belajar</p>
-                        <p class="text-3xl font-bold text-gray-900 dark:text-white">2</p>
+                        <p class="text-3xl font-bold text-gray-900 dark:text-white">x</p>
                     </div>
                     <div class="bg-yellow-100 dark:bg-yellow-900 rounded-full p-3">
                         <svg class="w-6 h-6 text-yellow-600 dark:text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -62,7 +62,7 @@
             <div class="lg:col-span-2">
                 <div class="flex items-center justify-between mb-6">
                     <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Kursus Tersedia</h2>
-                    <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm">Lihat Semua →</a>
+                    <a href="{{ route('lms.all-courses') }}" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm">Lihat Semua →</a>
                 </div>
 
                 <div class="space-y-4">
@@ -123,7 +123,7 @@
         <div>
             <div class="flex items-center justify-between mb-6">
                 <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Beberapa Kursus Tersedia</h2>
-                <a href="#" class="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 text-sm">Jelajahi Semua Kursus →</a>
+                <a href="{{ route('lms.all-courses') }}" class="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 text-sm">Jelajahi Semua Kursus →</a>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -69,4 +69,27 @@ class LMSController extends Controller
 
         return view('pages.lms.lesson', compact('user', 'lesson', 'category', 'course', 'youtubeVideos', 'prevLesson', 'nextLesson'));
     }
+
+    public function allCourses(Request $request)
+    {
+        $user = auth()->user();
+        $search = $request->get('search', '');
+        
+        $coursesQuery = Course::with(['categories.lessons' => function ($query) {
+            $query->where('is_published', true)->orderBy('order');
+        }])->where('is_published', true);
+        
+        // Search functionality
+        if ($search) {
+            $coursesQuery->where(function ($query) use ($search) {
+                $query->where('title', 'like', "%{$search}%")
+                    ->orWhere('description', 'like', "%{$search}%");
+            });
+        }
+        
+        // Pagination with 12 courses per page
+        $courses = $coursesQuery->paginate(12);
+        
+        return view('pages.lms.all-courses', compact('user', 'courses', 'search'));
+    }
 }
