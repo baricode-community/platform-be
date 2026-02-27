@@ -204,6 +204,7 @@
                                 </div>
                                 <span class="text-sm text-gray-300">45%</span>
                             </div>
+                            <p class="text-xs text-gray-500 mt-2 italic">Segera hadir fitur progress ini</p>
                         </div>
 
                         <!-- Related Lessons -->
