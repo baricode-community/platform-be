@@ -2,6 +2,9 @@
 
 namespace App\Filament\Resources\Courses\CategoryResource\Tables;
 
+use App\Filament\Resources\Courses\CourseResource;
+use App\Filament\Resources\Courses\LessonResource;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -37,6 +40,18 @@ class CategoryTable
                 //
             ])
             ->recordActions([
+                Action::make('view_course')
+                    ->label('Course')
+                    ->icon('heroicon-o-book-open')
+                    ->url(function ($record) {
+                        return CourseResource::getUrl('edit', ['record' => $record->course_id]);
+                    }),
+                Action::make('view_lessons')
+                    ->label('Lessons')
+                    ->icon('heroicon-o-rectangle-stack')
+                    ->url(function ($record) {
+                        return LessonResource::getUrl('index', ['category' => $record->id]);
+                    }),
                 EditAction::make(),
             ])
             ->toolbarActions([

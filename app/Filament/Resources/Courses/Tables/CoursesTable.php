@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Courses\Tables;
 
+use App\Filament\Resources\Courses\CategoryResource;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -34,6 +36,12 @@ class CoursesTable
                 //
             ])
             ->recordActions([
+                Action::make('view_categories')
+                    ->label('Categories')
+                    ->icon('heroicon-o-list-bullet')
+                    ->url(function ($record) {
+                        return CategoryResource::getUrl('index', ['course' => $record->id]);
+                    }),
                 EditAction::make(),
             ])
             ->toolbarActions([

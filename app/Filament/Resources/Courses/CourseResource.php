@@ -12,10 +12,20 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use BackedEnum;
+use UnitEnum;
 
 class CourseResource extends Resource
 {
     protected static ?string $model = Course::class;
+
+    protected static ?string $slug = 'courses';
+
+    protected static BackedEnum|string|null $navigationIcon = Heroicon::OutlinedBookOpen;
+
+    protected static UnitEnum|string|null $navigationGroup = 'Learning Management System';
+
+    protected static ?int $navigationSort = 1;
 
     public static function form(Schema $schema): Schema
     {
