@@ -5,6 +5,7 @@ namespace App\Models\LMS;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Lesson extends Model
 {
@@ -16,7 +17,6 @@ class Lesson extends Model
         'title',
         'description',
         'content',
-        'video_url',
         'order',
         'duration',
         'is_published',
@@ -26,7 +26,6 @@ class Lesson extends Model
         'title' => 'string',
         'description' => 'string',
         'content' => 'string',
-        'video_url' => 'string',
         'order' => 'integer',
         'duration' => 'integer',
         'is_published' => 'boolean',
@@ -38,5 +37,13 @@ class Lesson extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(CourseCategory::class, 'category_id');
+    }
+
+    /**
+     * Get the youtube videos for this lesson.
+     */
+    public function youtubeVideos(): HasMany
+    {
+        return $this->hasMany(YoutubeList::class, 'lesson_id')->orderBy('order');
     }
 }

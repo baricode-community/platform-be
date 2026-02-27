@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Courses;
 use App\Filament\Resources\Courses\LessonResource\Pages\CreateLesson;
 use App\Filament\Resources\Courses\LessonResource\Pages\EditLesson;
 use App\Filament\Resources\Courses\LessonResource\Pages\ListLessons;
+use App\Filament\Resources\Courses\LessonResource\RelationManagers\YoutubeVideosRelationManager;
 use App\Filament\Resources\Courses\LessonResource\Schemas\LessonForm;
 use App\Filament\Resources\Courses\LessonResource\Tables\LessonTable;
 use App\Models\LMS\Lesson;
@@ -40,7 +41,7 @@ class LessonResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            YoutubeVideosRelationManager::class,
         ];
     }
 

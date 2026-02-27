@@ -26,10 +26,6 @@ class LessonForm
                     ->maxLength(65535),
                 RichEditor::make('content')
                     ->columnSpanFull(),
-                TextInput::make('video_url')
-                    ->url()
-                    ->maxLength(255)
-                    ->placeholder('https://example.com/video'),
                 TextInput::make('duration')
                     ->numeric()
                     ->default(0)

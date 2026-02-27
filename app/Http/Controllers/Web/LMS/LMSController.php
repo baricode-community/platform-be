@@ -48,6 +48,12 @@ class LMSController extends Controller
         $category = $lesson->category;
         $course = $category->course;
         
+        // Get youtube videos for this lesson
+        $youtubeVideos = $lesson->youtubeVideos()
+            ->where('is_published', true)
+            ->orderBy('order')
+            ->get();
+        
         // Get previous and next lessons
         $prevLesson = Lesson::where('category_id', $lesson->category_id)
             ->where('order', '<', $lesson->order)
@@ -61,6 +67,6 @@ class LMSController extends Controller
             ->orderBy('order')
             ->first();
 
-        return view('pages.lms.lesson', compact('user', 'lesson', 'category', 'course', 'prevLesson', 'nextLesson'));
+        return view('pages.lms.lesson', compact('user', 'lesson', 'category', 'course', 'youtubeVideos', 'prevLesson', 'nextLesson'));
     }
 }
