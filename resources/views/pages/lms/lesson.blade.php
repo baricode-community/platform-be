@@ -7,8 +7,6 @@
                 <span class="mx-2">/</span>
                 <a href="{{ route('lms.course', $course->slug) }}" class="hover:text-white transition">{{ $course->title }}</a>
                 <span class="mx-2">/</span>
-                <span class="text-gray-300">{{ $category->title }}</span>
-                <span class="mx-2">/</span>
                 <span class="text-blue-400">{{ $lesson->title }}</span>
             </div>
 
