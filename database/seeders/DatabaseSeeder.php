@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             DailyCommitTrackerSeeder::class,
             CourseSeeder::class,
+            \Database\Seeders\LMS\CourseCategorySeeder::class,
             TimelineSeeder::class,
         ]);
     }

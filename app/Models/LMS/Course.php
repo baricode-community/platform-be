@@ -4,6 +4,7 @@ namespace App\Models\LMS;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Course extends Model
 {   
@@ -25,4 +26,12 @@ class Course extends Model
         'duration' => 'integer',
         'is_published' => 'boolean',
     ];
+
+    /**
+     * Get the categories that belong to this course.
+     */
+    public function categories(): HasMany
+    {
+        return $this->hasMany(CourseCategory::class, 'course_id')->orderBy('order');
+    }
 }
