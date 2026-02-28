@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
 class CourseCategory extends Model
 {
@@ -17,6 +18,7 @@ class CourseCategory extends Model
     protected $fillable = [
         'course_id',
         'title',
+        'slug',
         'description',
         'order',
         'is_published',
@@ -38,10 +40,38 @@ class CourseCategory extends Model
     }
 
     /**
-     * Get the lessons that belong to this category.
+     * Get lessons that belong to this category.
      */
     public function lessons(): HasMany
     {
         return $this->hasMany(Lesson::class, 'category_id')->orderBy('order');
+    }
+
+    /**
+     * Get the route key for model binding.
+     */
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
+    /**
+     * Boot the model.
+     */
+    protected static function boot(): void
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            if (!$model->slug) {
+                $model->slug = Str::slug($model->title);
+            }
+        });
+
+        static::updating(function ($model) {
+            if ($model->isDirty('title')) {
+                $model->slug = Str::slug($model->title);
+            }
+        });
     }
 }

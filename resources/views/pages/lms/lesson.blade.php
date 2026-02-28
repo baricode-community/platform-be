@@ -3,11 +3,11 @@
         <div class="max-w-6xl mx-auto px-4 py-8">
             <!-- Breadcrumb -->
             <div class="mb-6 flex items-center text-sm text-gray-400">
-                <a href="{{ route('lms.index') }}" class="hover:text-white transition">LMS</a>
+                <a href="{{ route('lms.course', $course->slug) }}" class="text-blue-400 hover:text-blue-300 transition">{{ $course->title }}</a>
                 <span class="mx-2">/</span>
-                <a href="{{ route('lms.course', $course->slug) }}" class="hover:text-white transition">{{ $course->title }}</a>
+                <a href="{{ route('lms.category', $category->slug) }}" class="text-blue-400 hover:text-blue-300 transition">{{ $category->title }}</a>
                 <span class="mx-2">/</span>
-                <span class="text-blue-400">{{ $lesson->title }}</span>
+                <span class="text-gray-400">{{ $lesson->title }}</span>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">

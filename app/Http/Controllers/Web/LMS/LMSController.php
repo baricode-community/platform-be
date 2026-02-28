@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\LMS;
 
 use App\Http\Controllers\Controller;
 use App\Models\LMS\Course;
+use App\Models\LMS\CourseCategory;
 use App\Models\LMS\Lesson;
 use Illuminate\Http\Request;
 
@@ -35,6 +36,25 @@ class LMSController extends Controller
             ->get();
         
         return view('pages.lms.course', compact('user', 'course', 'categories'));
+    }
+
+    public function category(CourseCategory $category)
+    {
+        // Check if category is published
+        if (!$category->is_published) {
+            abort(404);
+        }
+
+        $user = auth()->user();
+        $course = $category->course;
+        
+        // Get lessons for this category
+        $lessons = $category->lessons()
+            ->where('is_published', true)
+            ->orderBy('order')
+            ->get();
+
+        return view('pages.lms.category', compact('user', 'category', 'course', 'lessons'));
     }
 
     public function lesson(Lesson $lesson)
