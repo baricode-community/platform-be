@@ -14,13 +14,17 @@ class CourseForm
         return $schema
             ->components([
                 TextInput::make('title')
-                    ->required(),
-                Textarea::make('description')
-                    ->columnSpanFull(),
+                    ->required()
+                    ->label('Course Title'),
                 TextInput::make('slug')
-                    ->required(),
+                    ->required()
+                    ->label('Course Slug'),
+                Textarea::make('description')
+                    ->columnSpanFull()
+                    ->label('Description'),
                 Toggle::make('is_published')
-                    ->required(),
+                    ->required()
+                    ->label('Published'),
             ]);
     }
 }

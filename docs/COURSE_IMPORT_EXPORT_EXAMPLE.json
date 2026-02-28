@@ -1,0 +1,92 @@
+{
+  "title": "Laravel Fundamentals",
+  "description": "Learn the basics of Laravel framework including routing, controllers, models, and more.",
+  "slug": "laravel-fundamentals",
+  "is_published": true,
+  "categories": [
+    {
+      "title": "Getting Started",
+      "description": "Introduction to Laravel and setup",
+      "order": 1,
+      "is_published": true,
+      "lessons": [
+        {
+          "title": "Introduction to Laravel",
+          "description": "Understand what Laravel is and why you should use it",
+          "content": "Laravel is a popular PHP web framework that makes building web applications easier and faster.",
+          "order": 1,
+          "duration": 600,
+          "is_published": true,
+          "youtube_list": [
+            {
+              "youtube_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+              "title": "Laravel Introduction",
+              "description": "Complete introduction to Laravel framework",
+              "order": 1,
+              "is_published": true
+            }
+          ]
+        },
+        {
+          "title": "Installation and Setup",
+          "description": "How to install Laravel and set up your development environment",
+          "content": "Learn how to install Laravel using Composer and configure your environment.",
+          "order": 2,
+          "duration": 900,
+          "is_published": true,
+          "youtube_list": [
+            {
+              "youtube_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+              "title": "Laravel Installation Guide",
+              "description": "Step-by-step guide to install Laravel",
+              "order": 1,
+              "is_published": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Core Concepts",
+      "description": "Learn the core concepts of Laravel",
+      "order": 2,
+      "is_published": true,
+      "lessons": [
+        {
+          "title": "Routing",
+          "description": "Understanding Laravel routing system",
+          "content": "Routes are the entry points to your application. Learn how to define and manage routes.",
+          "order": 1,
+          "duration": 1200,
+          "is_published": true,
+          "youtube_list": [
+            {
+              "youtube_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+              "title": "Laravel Routing Tutorial",
+              "description": "Complete guide to routing in Laravel",
+              "order": 1,
+              "is_published": true
+            }
+          ]
+        },
+        {
+          "title": "Controllers",
+          "description": "Creating and using controllers in Laravel",
+          "content": "Controllers handle the logic of your application and process requests.",
+          "order": 2,
+          "duration": 1500,
+          "is_published": true,
+          "youtube_list": [
+            {
+              "youtube_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+              "title": "Laravel Controllers Guide",
+              "description": "Learn how to create and use controllers",
+              "order": 1,
+              "is_published": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
