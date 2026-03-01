@@ -31,7 +31,7 @@
 
     <!-- Main Content -->
 
-    <div class="max-w-5xl mx-auto px-4 md:px-8">
+    <div class="">
         <!-- Header Section -->
         <div class="mb-16 md:mb-20">
             <div class="mb-4">
