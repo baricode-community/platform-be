@@ -17,8 +17,8 @@ class LMSController extends Controller
             $query->where('is_published', true)->orderBy('order');
         }])
             ->where('is_published', true)
-            ->take(5)
-            ->inRandomOrder()
+            ->take(25)
+            // ->inRandomOrder()
             ->get();
         
         return view('pages.lms.index', compact('user', 'courses'));
