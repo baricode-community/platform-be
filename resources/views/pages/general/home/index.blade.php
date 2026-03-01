@@ -3,13 +3,13 @@
         <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center px-4 py-20">
             <!-- Floating Memes -->
-            <div class="absolute top-20 left-10 animate-bounce delay-100">
+            <div class="hidden md:absolute md:block top-20 left-10 animate-bounce delay-100">
                 <div class="bg-purple-500/20 backdrop-blur-lg rounded-3xl p-4 text-4xl">😎</div>
             </div>
-            <div class="absolute top-40 right-20 animate-bounce delay-300">
+            <div class="hidden md:absolute md:block top-40 right-20 animate-bounce delay-300">
                 <div class="bg-indigo-500/20 backdrop-blur-lg rounded-3xl p-4 text-4xl">🚀</div>
             </div>
-            <div class="absolute bottom-40 left-20 animate-bounce delay-500">
+            <div class="hidden md:absolute md:block bottom-40 left-20 animate-bounce delay-500">
                 <div class="bg-violet-500/20 backdrop-blur-lg rounded-3xl p-4 text-4xl">💻</div>
             </div>
 
