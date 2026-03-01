@@ -1,33 +1,13 @@
 <x-layouts.dashboard :title="__('Baricode Dashboard')">
     <style>
-        @keyframes fadeInUp {
+        @keyframes slideIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-            }
-            50% {
-                box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
             }
         }
 
@@ -36,177 +16,107 @@
                 transform: translateY(0px);
             }
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-8px);
             }
         }
 
-        .animate-fadeInUp {
-            animation: fadeInUp 0.6s ease-out forwards;
+        .animate-slideIn {
+            animation: slideIn 0.6s ease-out forwards;
         }
 
-        .animate-slideInLeft {
-            animation: slideInLeft 0.6s ease-out forwards;
+        .animate-slideInHero {
+            animation: slideIn 0.7s ease-out;
         }
 
-        .dashboard-card {
-            animation: fadeInUp 0.6s ease-out;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .dashboard-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .dashboard-card .icon-container {
+        .animate-float {
             animation: float 3s ease-in-out infinite;
         }
 
-        .dashboard-card:hover .icon-container {
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
-
-        .section-title {
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(to right, #3b82f6, #8b5cf6);
-            border-radius: 2px;
-        }
-
-        .hero-text {
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: fadeInUp 0.8s ease-out;
         }
 
-        .grid-item {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .grid-item:nth-child(1) { animation-delay: 0.1s; }
-        .grid-item:nth-child(2) { animation-delay: 0.2s; }
-        .grid-item:nth-child(3) { animation-delay: 0.3s; }
-        .grid-item:nth-child(4) { animation-delay: 0.4s; }
-        .grid-item:nth-child(5) { animation-delay: 0.5s; }
-        .grid-item:nth-child(6) { animation-delay: 0.6s; }
+        .card-item:nth-child(1) { animation-delay: 0.1s; }
+        .card-item:nth-child(2) { animation-delay: 0.2s; }
+        .card-item:nth-child(3) { animation-delay: 0.3s; }
     </style>
-    
+
     <!-- Main Content -->
-    <section class="py-12 bg-gray-50 min-h-screen">
-        <div class="container mx-auto px-6">
-            <!-- Dashboard Utama Section -->
-            <div class="mb-16">
-                <h2 class="text-3xl font-bold text-gray-800 mb-2 section-title">🎯 Akses Cepat</h2>
-                <p class="text-gray-600 mb-8 mt-6">Mulai eksplorasi dengan berkualitas dengan komunitas</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {{-- Pengaturan --}}
-                    <a href="{{ route('dashboard.settings') }}" class="group grid-item">
-                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
-                            <div class="bg-gradient-to-br from-green-500 to-teal-600 h-28 flex items-center justify-center relative overflow-hidden">
-                                <div class="absolute inset-0 bg-white opacity-10"></div>
-                                <div class="icon-container">
-                                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-10V4m0 16v-4m8-8h4m-16 0H4m12.364 12.364l2.828 2.828m-12.728-12.728l2.828 2.828m0 8.486l-2.828 2.828m12.728-12.728l-2.828 2.828"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-teal-600 transition-colors">Pengaturan</h3>
-                                <p class="text-gray-600 text-sm mb-6">Sesuaikan preferensi akun, keamanan, dan pengaturan notifikasi Anda.</p>
-                                <span class="inline-flex items-center text-teal-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
-                                    Buka Pengaturan
-                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Profile -->
-                    <a href="{{ route('profile', auth()->user()->username) }}" class="group grid-item">
-                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
-                            <div class="bg-gradient-to-br from-purple-500 to-pink-600 h-28 flex items-center justify-center relative overflow-hidden">
-                                <div class="absolute inset-0 bg-white opacity-10"></div>
-                                <div class="icon-container">
-                                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-pink-600 transition-colors">Profil Saya</h3>
-                                <p class="text-gray-600 text-sm mb-6">Kelola informasi profil, preferensi, dan pengaturan akun Anda.</p>
-                                <span class="inline-flex items-center text-pink-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
-                                    Edit Profil
-                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-
-                    {{-- Menuju LMS --}}
-                    <a href="{{ route('lms.index') }}" class="group grid-item">
-                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
-                            <div class="bg-gradient-to-br from-blue-500 to-indigo-600 h-28 flex items-center justify-center relative overflow-hidden">
-                                <div class="absolute inset-0 bg-white opacity-10"></div>
-                                <div class="icon-container">
-                                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20l9-5-9-5-9 5 9 5zm0 0v-6l9-5M12 14l-9-5m9 5v6l-9-5"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-indigo-600 transition-colors">LMS Baricode</h3>
-                                <p class="text-gray-600 text-sm mb-6">Akses kursus, materi pembelajaran, dan sumber daya edukatif lainnya.</p>
-                                <span class="inline-flex items-center text-indigo-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
-                                    Kunjungi LMS
-                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    
-                    <!-- Daily Commit Tracker -->
-                    {{-- <a href="{{ route('daily-commit-tracker.index') }}" class="group grid-item">
-                        <div class="dashboard-card bg-white rounded-xl overflow-hidden shadow-lg h-full">
-                            <div class="bg-gradient-to-br from-orange-500 to-amber-600 h-28 flex items-center justify-center relative overflow-hidden">
-                                <div class="absolute inset-0 bg-white opacity-10"></div>
-                                <div class="icon-container">
-                                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-amber-600 transition-colors">Daily Commit Tracker</h3>
-                                <p class="text-gray-600 text-sm mb-6">Pantau progress belajarmu setiap hari. Bangun kebiasaan coding yang konsisten.</p>
-                                <span class="inline-flex items-center text-amber-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
-                                    Buka Tracker
-                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                    </a> --}}
+    <section class="bg-white dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-800 min-h-screen py-8 md:py-12">
+        <div class="max-w-6xl mx-auto px-4 md:px-8">
+            <!-- Hero Section -->
+            <div class="animate-slideInHero mb-16 md:mb-24">
+                <div class="mb-8">
+                    <p class="text-slate-500 dark:text-slate-400 text-sm md:text-base font-medium uppercase tracking-wider mb-4">
+                        🚀 Selamat Datang
+                    </p>
+                    <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white leading-tight mb-4">
+                        Mulai Perjalanan Belajarmu di <span class="gradient-text">Baricode</span>
+                    </h1>
+                    <p class="text-slate-600 dark:text-slate-300 text-lg md:text-xl max-w-2xl leading-relaxed">
+                        Platform pembelajaran baru yang dirancang khusus untuk membantumu berkembang. Akses kursus, kelola profil, dan atur preferensi kamu dengan mudah.
+                    </p>
                 </div>
+            </div>
+
+            <!-- Main Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <!-- LMS Card -->
+                <a href="{{ route('lms.index') }}" class="group card-item animate-slideIn">
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-8 h-full hover:shadow-lg dark:hover:shadow-lg hover:shadow-slate-200 dark:hover:shadow-slate-900/50 transition-all duration-300 hover:-translate-y-1">
+                        <div class="mb-6">
+                            <div class="animate-float inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 text-white shadow-lg">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C6.5 6.253 2 10.998 2 17s4.5 10.747 10 10.747c5.5 0 10-4.998 10-10.747 0-6.002-4.5-10.747-10-10.747z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h2 class="text-slate-900 dark:text-white text-2xl font-bold mb-3">Pelajari Kursus</h2>
+                        <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed mb-6">
+                            Jelajahi berbagai kursus pembelajaran interaktif dan kembangkan skill baru dengan materi berkualitas tinggi.
+                        </p>
+                        <div class="inline-flex items-center group-hover:translate-x-1 transition-transform duration-300">
+                            <span class="text-blue-600 dark:text-blue-400 font-semibold text-sm">Buka LMS</span>
+                            <svg class="w-4 h-4 ml-2 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Settings Card -->
+                <a href="{{ route('dashboard.settings') }}" class="group card-item animate-slideIn">
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-8 h-full hover:shadow-lg dark:hover:shadow-lg hover:shadow-slate-200 dark:hover:shadow-slate-900/50 transition-all duration-300 hover:-translate-y-1">
+                        <div class="mb-6">
+                            <div class="animate-float inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-lg">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h2 class="text-slate-900 dark:text-white text-2xl font-bold mb-3">Pengaturan</h2>
+                        <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed mb-6">
+                            Sesuaikan preferensi akun, atur keamanan, dan kelola notifikasi sesuai kebutuhan dan gaya kerjamu.
+                        </p>
+                        <div class="inline-flex items-center group-hover:translate-x-1 transition-transform duration-300">
+                            <span class="text-amber-600 dark:text-amber-400 font-semibold text-sm">Buka Pengaturan</span>
+                            <svg class="w-4 h-4 ml-2 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Bottom Info -->
+            <div class="mt-20 pt-12 border-t border-slate-200 dark:border-slate-700">
+                <p class="text-slate-600 dark:text-slate-400 text-center text-sm md:text-base">
+                    ✨ Ini adalah awal dari perjalanan pembelajaran Anda di Baricode. Platform kami terus berkembang dengan fitur-fitur baru yang menarik.
+                </p>
             </div>
         </div>
     </section>
