@@ -35,8 +35,7 @@
         <!-- Header Section -->
         <div class="mb-16 md:mb-20">
             <div class="mb-4">
-                <span class="text-slate-500 dark:text-slate-400 text-sm font-semibold uppercase tracking-wider">⚙️
-                    Konfigurasi</span>
+                <span class="inline-block px-6 py-2 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-semibold rounded-full text-sm shadow">⚙️ Konfigurasi</span>
             </div>
             <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white leading-tight mb-4">
                 Pengaturan Platform
@@ -53,8 +52,8 @@
             <div class="animate-slideIn">
                 <div class="flex items-center gap-2 mb-6">
                     <div
-                        class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30">
-                        <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor"
+                        class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01">
@@ -64,7 +63,7 @@
                     <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Tampilan & Tema</h2>
                 </div>
 
-                <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-8">
+                <div class="bg-gradient-to-br from-purple-500/10 to-transparent backdrop-blur-lg rounded-2xl border border-purple-500/20 hover:border-purple-500/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
                     <p class="text-slate-600 dark:text-slate-300 mb-8">
                         Pilih tema tampilan yang paling nyaman untuk Anda. Tema akan menyesuaikan dengan preferensi
                         sistem atau pilihan Anda secara manual.
@@ -80,8 +79,8 @@
                     </div>
 
                     <div
-                        class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
-                        <p class="text-sm text-blue-900 dark:text-blue-200">
+                        class="mt-6 p-4 bg-purple-500/20 backdrop-blur-lg rounded-lg border border-purple-500/30">
+                        <p class="text-sm text-purple-900 dark:text-purple-200">
                             💡 <strong>Tips:</strong> Pilih "Sistem" untuk mengikuti preferensi perangkat Anda secara
                             otomatis.
                         </p>
@@ -93,8 +92,8 @@
             <div class="animate-slideIn" style="animation-delay: 0.1s;">
                 <div class="flex items-center gap-2 mb-6">
                     <div
-                        class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/30">
-                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor"
+                        class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-violet-500 to-indigo-500 text-white shadow-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -103,7 +102,7 @@
                     <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Informasi Akun</h2>
                 </div>
 
-                <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-8">
+                <div class="bg-gradient-to-br from-violet-500/10 to-transparent backdrop-blur-lg rounded-2xl border border-violet-500/20 hover:border-violet-500/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/20">
                     <p class="text-slate-600 dark:text-slate-300 mb-8">
                         Lihat dan kelola informasi akun Anda. Untuk mengubah profil atau keamanan akun, kunjungi halaman
                         profil.
@@ -111,11 +110,11 @@
 
                     <div class="space-y-4">
                         <a href="{{ route('profile', auth()->user()->username) }}"
-                            class="flex items-center justify-between p-6 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-200 dark:border-slate-600 hover:border-purple-400 dark:hover:border-purple-500 transition-all duration-300 group">
+                            class="flex items-center justify-between p-6 bg-white/5 backdrop-blur-lg rounded-xl border border-violet-500/20 hover:border-violet-500/60 transition-all hover:shadow-xl hover:shadow-violet-500/20 group">
                             <div class="flex items-center gap-4">
                                 <div
-                                    class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 group-hover:bg-purple-200 dark:group-hover:bg-purple-900/50 transition-colors">
-                                    <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none"
+                                    class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-r from-violet-500 to-indigo-500 text-white group-hover:shadow-lg transition-all">
+                                    <svg class="w-6 h-6" fill="none"
                                         stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
@@ -128,7 +127,7 @@
                                         foto profil</p>
                                 </div>
                             </div>
-                            <svg class="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
+                            <svg class="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
                                 </path>
@@ -137,8 +136,8 @@
                     </div>
 
                     <div
-                        class="mt-6 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
-                        <p class="text-sm text-purple-900 dark:text-purple-200">
+                        class="mt-6 p-4 bg-violet-500/20 backdrop-blur-lg rounded-lg border border-violet-500/30">
+                        <p class="text-sm text-violet-900 dark:text-violet-200">
                             👤 <strong>Informasi Akun:</strong> Anda masuk sebagai <span
                                 class="font-semibold">{{ auth()->user()->name }}</span>
                         </p>
@@ -150,8 +149,8 @@
             <div class="animate-slideIn" style="animation-delay: 0.2s;">
                 <div class="flex items-center gap-2 mb-6">
                     <div
-                        class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-900/30">
-                        <svg class="w-6 h-6 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor"
+                        class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
@@ -161,7 +160,7 @@
                     <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Keamanan & Privasi</h2>
                 </div>
 
-                <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-8">
+                <div class="bg-gradient-to-br from-pink-500/10 to-transparent backdrop-blur-lg rounded-2xl border border-pink-500/20 hover:border-pink-500/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-pink-500/20">
                     <p class="text-slate-600 dark:text-slate-300 mb-8">
                         Jaga keamanan akun Anda dengan mengelola sesi dan keluar dari perangkat lain.
                     </p>
@@ -174,8 +173,8 @@
                     </form>
 
                     <div
-                        class="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 dark:border-amber-800">
-                        <p class="text-sm text-amber-900 dark:text-amber-200">
+                        class="mt-6 p-4 bg-pink-500/20 backdrop-blur-lg rounded-lg border border-pink-500/30">
+                        <p class="text-sm text-pink-900 dark:text-pink-200">
                             🔒 <strong>Catatan:</strong> Anda akan keluar dari sesi ini. Untuk alasan keamanan, Anda
                             mungkin perlu login kembali.
                         </p>
@@ -187,8 +186,8 @@
             <div class="animate-slideIn" style="animation-delay: 0.3s;">
                 <div class="flex items-center gap-2 mb-6">
                     <div
-                        class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-green-100 dark:bg-green-900/30">
-                        <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor"
+                        class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
@@ -198,14 +197,14 @@
                     <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Pengaturan Sistem</h2>
                 </div>
 
-                <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-8">
+                <div class="bg-gradient-to-br from-indigo-500/10 to-transparent backdrop-blur-lg rounded-2xl border border-indigo-500/20 hover:border-indigo-500/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/20">
                     <p class="text-slate-600 dark:text-slate-300 mb-8">
                         Informasi sistem dan konfigurasi teknis platform.
                     </p>
 
                     <div
-                        class="mt-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
-                        <p class="text-sm text-green-900 dark:text-green-200">
+                        class="mt-6 p-4 bg-indigo-500/20 backdrop-blur-lg rounded-lg border border-indigo-500/30">
+                        <p class="text-sm text-indigo-900 dark:text-indigo-200">
                             ✨ <strong>Update:</strong> Fitur sistem akan segera tersedia di versi mendatang.
                         </p>
                     </div>
