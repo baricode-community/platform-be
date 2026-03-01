@@ -17,7 +17,9 @@
 
     
     
-    {{ $slot }}
+    <div class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 text-white overflow-hidden">
+        {{ $slot }}
+    </div>
 
     @fluxScripts
 </body>

@@ -1,5 +1,5 @@
 <x-layouts.base :title="__('Komunitas IT Keren di Indonesia')">
-    <div class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 text-white overflow-hidden">
+    <div class="">
         <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center px-4 py-20">
             <!-- Floating Memes -->
