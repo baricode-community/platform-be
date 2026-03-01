@@ -160,10 +160,7 @@
                     @if($nextLesson)
                         <a href="{{ route('lms.lesson', $nextLesson) }}"
                             class="flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition">
-                            Selanjutnya: {{ $nextLesson->title }}
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
+                            Selanjutnya
                         </a>
                     @else
                         <button disabled class="flex items-center px-4 py-2 bg-white/5 text-purple-700 rounded-lg opacity-50 cursor-not-allowed">
