@@ -59,11 +59,10 @@
     <!-- Main Content -->
     <div class="max-w-6xl mx-auto px-4 py-4 md:px-8">
 
-
-        <div class="mb-10 pb-6 border-b border-slate-200 dark:border-slate-700">
-            <p class="text-slate-500 dark:text-slate-400 text-center text-sm md:text-base">
-            ✨ Ini adalah awal dari perjalanan pembelajaran Anda di Baricode. Platform kami terus berkembang dengan
-            fitur-fitur baru yang menarik.
+        <div class="mb-10 pb-6 border-b border-purple-700">
+            <p class="text-purple-200 text-center text-sm md:text-base">
+                ✨ Ini adalah awal dari perjalanan pembelajaran Anda di Baricode. Platform kami terus berkembang dengan
+                fitur-fitur baru yang menarik.
             </p>
         </div>
 
@@ -72,7 +71,7 @@
             <!-- LMS Card -->
             <a href="{{ route('lms.index') }}" class="group card-item animate-slideIn">
                 <div
-                    class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-8 h-full hover:shadow-lg dark:hover:shadow-lg hover:shadow-slate-200 dark:hover:shadow-slate-900/50 transition-all duration-300 hover:-translate-y-1">
+                    class="bg-white/5 backdrop-blur-lg rounded-2xl border border-purple-500/20 hover:border-purple-500/50 p-8 h-full hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 hover:-translate-y-1">
                     <div class="mb-6">
                         <div
                             class="animate-float inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 text-white shadow-lg">
@@ -83,14 +82,14 @@
                             </svg>
                         </div>
                     </div>
-                    <h2 class="text-slate-900 dark:text-white text-2xl font-bold mb-3">Pelajari Kursus</h2>
-                    <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed mb-6">
+                    <h2 class="text-white text-2xl font-bold mb-3">Pelajari Kursus</h2>
+                    <p class="text-purple-200 text-base leading-relaxed mb-6">
                         Jelajahi berbagai kursus pembelajaran interaktif dan kembangkan skill baru dengan materi
                         berkualitas tinggi.
                     </p>
                     <div class="inline-flex items-center group-hover:translate-x-1 transition-transform duration-300">
-                        <span class="text-blue-600 dark:text-blue-400 font-semibold text-sm">Buka LMS</span>
-                        <svg class="w-4 h-4 ml-2 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor"
+                        <span class="text-blue-400 font-semibold text-sm">Buka LMS</span>
+                        <svg class="w-4 h-4 ml-2 text-blue-400" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
                             </path>
@@ -102,7 +101,7 @@
             <!-- Settings Card -->
             <a href="{{ route('dashboard.settings') }}" class="group card-item animate-slideIn">
                 <div
-                    class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-8 h-full hover:shadow-lg dark:hover:shadow-lg hover:shadow-slate-200 dark:hover:shadow-slate-900/50 transition-all duration-300 hover:-translate-y-1">
+                    class="bg-white/5 backdrop-blur-lg rounded-2xl border border-purple-500/20 hover:border-purple-500/50 p-8 h-full hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 hover:-translate-y-1">
                     <div class="mb-6">
                         <div
                             class="animate-float inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-lg">
@@ -115,14 +114,14 @@
                             </svg>
                         </div>
                     </div>
-                    <h2 class="text-slate-900 dark:text-white text-2xl font-bold mb-3">Pengaturan</h2>
-                    <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed mb-6">
+                    <h2 class="text-white text-2xl font-bold mb-3">Pengaturan</h2>
+                    <p class="text-purple-200 text-base leading-relaxed mb-6">
                         Sesuaikan preferensi akun, atur keamanan, dan kelola notifikasi sesuai kebutuhan dan gaya
                         kerjamu.
                     </p>
                     <div class="inline-flex items-center group-hover:translate-x-1 transition-transform duration-300">
-                        <span class="text-amber-600 dark:text-amber-400 font-semibold text-sm">Buka Pengaturan</span>
-                        <svg class="w-4 h-4 ml-2 text-amber-600 dark:text-amber-400" fill="none"
+                        <span class="text-amber-400 font-semibold text-sm">Buka Pengaturan</span>
+                        <svg class="w-4 h-4 ml-2 text-amber-400" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
                             </path>
