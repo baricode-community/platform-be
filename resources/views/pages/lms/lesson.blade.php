@@ -5,8 +5,6 @@
             <a href="{{ route('lms.course', $course->slug) }}" class="text-purple-300 hover:text-white transition">{{ $course->title }}</a>
             <span class="mx-2">/</span>
             <a href="{{ route('lms.category', $category->slug) }}" class="text-purple-300 hover:text-white transition">{{ $category->title }}</a>
-            <span class="mx-2">/</span>
-            <span class="text-purple-500">{{ $lesson->title }}</span>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
