@@ -138,7 +138,7 @@
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                             </svg>
-                            Sebelumnya: {{ $prevLesson->title }}
+                            Sebelumnya
                         </a>
                     @else
                         <button disabled class="flex items-center px-4 py-2 bg-white/5 text-purple-700 rounded-lg opacity-50 cursor-not-allowed">
@@ -148,14 +148,6 @@
                             Sebelumnya
                         </button>
                     @endif
-
-                    <a href="{{ route('lms.course', $course->slug) }}"
-                        class="flex-1 flex items-center justify-center px-4 py-2 bg-white/5 border border-purple-500/20 hover:bg-purple-500/20 text-white rounded-lg transition">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                        Kembali ke Kursus
-                    </a>
 
                     @if($nextLesson)
                         <a href="{{ route('lms.lesson', $nextLesson) }}"
