@@ -17,11 +17,6 @@
                             <h1 class="text-3xl font-bold text-white">{{ $lesson->title }}</h1>
                             <p class="text-purple-300 mt-2">{{ $lesson->description }}</p>
                         </div>
-                        @if($lesson->duration)
-                            <div class="px-4 py-2 bg-purple-500/20 border border-purple-500/30 rounded-lg">
-                                <p class="text-purple-300 font-semibold">{{ $lesson->duration }} menit</p>
-                            </div>
-                        @endif
                     </div>
                 </div>
 
@@ -129,7 +124,7 @@
                 @endif
 
                 <!-- Tombol Navigasi -->
-                <div class="flex gap-4">
+                <div class="flex gap-2 justify-center">
                     @if($prevLesson)
                         <a href="{{ route('lms.lesson', $prevLesson) }}"
                             class="flex items-center px-4 py-2 bg-white/5 border border-purple-500/20 hover:bg-purple-500/20 text-white rounded-lg transition">
@@ -182,14 +177,14 @@
                     </div>
 
                     <div class="mb-4 pb-4 border-b border-purple-500/20">
-                        <p class="text-sm text-purple-400 mb-1">Progres</p>
-                        <div class="flex items-center gap-2">
-                            <div class="flex-1 bg-purple-900/50 rounded-full h-2">
-                                <div class="bg-purple-500 h-2 rounded-full" style="width: 45%"></div>
-                            </div>
-                            <span class="text-sm text-purple-300">45%</span>
-                        </div>
-                        <p class="text-xs text-purple-500 mt-2 italic">Fitur progres akan segera hadir</p>
+                        <p class="text-sm text-purple-400 mb-1">Durasi Pelajaran</p>
+                        <p class="text-white font-semibold">
+                            @if($lesson->duration)
+                                {{ $lesson->duration }} menit
+                            @else
+                                -
+                            @endif
+                        </p>
                     </div>
 
                     <!-- Pelajaran Terkait -->
