@@ -11,6 +11,6 @@ Route::get('/user', function (Request $request) {
 Route::controller(App\Http\Controllers\Api\General\TimelineController::class)
     ->prefix('timelines')
     ->group(function () {
-        Route::get('/', 'index')->name('timelines.index');
-        Route::get('/{timeline}', 'show')->name('timelines.show');
+        Route::get('/', 'index');
+        Route::get('/{timeline}', 'show');
     });
