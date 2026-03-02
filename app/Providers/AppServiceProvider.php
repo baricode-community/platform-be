@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\ProgressJournal;
+use App\Observers\ProgressJournalObserver;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\ServiceProvider;
@@ -24,5 +26,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app['events']->listen(Login::class, \App\Listeners\General\Security\LogUserLogin::class);
         $this->app['events']->listen(Logout::class, \App\Listeners\General\Security\LogUserLogout::class);
 
+        // Register observers
+        ProgressJournal::observe(ProgressJournalObserver::class);
     }
 }

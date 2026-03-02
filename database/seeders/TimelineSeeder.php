@@ -147,6 +147,11 @@ class TimelineSeeder extends Seeder
                 'timeline_id' => $timeline->id,
             ]);
         });
+
+        // Recalculate progress for all timelines based on their journals
+        Timeline::all()->each(function ($timeline) {
+            $timeline->updateProgressFromJournals();
+        });
     }
 }
 

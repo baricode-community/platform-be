@@ -44,12 +44,6 @@ class TimelineForm
                             ])
                             ->required()
                             ->native(false),
-
-                        TextInput::make('progress')
-                            ->label('Progress (%)')
-                            ->numeric()
-                            ->default(0)
-                            ->suffix('%'),
                     ]),
 
                 Section::make('Jadwal')
