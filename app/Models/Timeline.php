@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Timeline extends Model
 {
@@ -25,6 +26,11 @@ class Timeline extends Model
         'end_date' => 'date',
         'progress' => 'integer',
     ];
+
+    public function progressJournals(): HasMany
+    {
+        return $this->hasMany(ProgressJournal::class);
+    }
 
     public function getStatusLabelAttribute(): string
     {

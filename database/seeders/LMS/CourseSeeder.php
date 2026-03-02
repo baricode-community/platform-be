@@ -25,7 +25,6 @@ class CourseSeeder extends Seeder
                     'title' => "Course Title " . Str::random(5),
                     'description' => "This is a description for course " . Str::random(5),
                     'slug' => Str::slug("course-title-" . Str::random(5)) . '-' . Str::random(5),
-                    'duration' => rand(1, 100),
                     'is_published' => (bool)rand(0, 1),
                 ]);
             }

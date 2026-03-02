@@ -13,7 +13,7 @@ class TimelineController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Timeline::query();
+        $query = Timeline::query()->with('progressJournals');
 
         // Filter by status if provided
         if ($request->filled('status')) {
@@ -32,6 +32,7 @@ class TimelineController extends Controller
      */
     public function show(Timeline $timeline)
     {
+        $timeline->load('progressJournals');
         return response()->json($timeline);
     }
 }

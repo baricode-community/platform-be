@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Timelines;
 use App\Filament\Resources\Timelines\Pages\CreateTimeline;
 use App\Filament\Resources\Timelines\Pages\EditTimeline;
 use App\Filament\Resources\Timelines\Pages\ListTimelines;
+use App\Filament\Resources\Timelines\RelationManagers\ProgressJournalsRelationManager;
 use App\Filament\Resources\Timelines\Schemas\TimelineForm;
 use App\Filament\Resources\Timelines\Tables\TimelinesTable;
 use App\Models\Timeline;
@@ -41,7 +42,7 @@ class TimelineResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            ProgressJournalsRelationManager::class,
         ];
     }
 

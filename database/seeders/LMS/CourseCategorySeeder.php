@@ -38,9 +38,7 @@ class CourseCategorySeeder extends Seeder
                         'title' => "Lesson {$j}: " . ucwords(str_replace('-', ' ', fake()->slug(3))),
                         'description' => fake()->sentence(),
                         'content' => fake()->paragraphs(3, true),
-                        'video_url' => fake()->optional(0.6)->url(),
                         'order' => $j,
-                        'duration' => rand(5, 120),
                         'is_published' => true,
                     ]);
                 }

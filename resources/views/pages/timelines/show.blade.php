@@ -111,6 +111,37 @@
                             </div>
                         </section>
                     @endif
+
+                    {{-- Progress Journals --}}
+                    @if ($timeline->progressJournals->count() > 0)
+                        <section>
+                            <h2 class="text-sm font-bold text-purple-400 uppercase tracking-widest mb-6">Progress Journal</h2>
+                            <div class="space-y-4">
+                                @foreach ($timeline->progressJournals->sortByDesc('created_at') as $journal)
+                                    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-indigo-500/20 hover:border-indigo-500/40 transition-all duration-300 group">
+                                        <div class="flex justify-between items-start mb-3">
+                                            <div class="flex-1">
+                                                <p class="text-purple-100 leading-relaxed mb-3">
+                                                    {{ $journal->description }}
+                                                </p>
+                                                @if ($journal->progress_percentage !== null)
+                                                    <div class="flex items-center gap-2">
+                                                        <span class="text-xs font-semibold text-indigo-300">Progress:</span>
+                                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-500/30 text-indigo-200 border border-indigo-500/50">
+                                                            {{ $journal->progress_percentage }}%
+                                                        </span>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <p class="text-[11px] text-purple-400/60">
+                                            {{ $journal->created_at->translatedFormat('d F Y \p\u\k\u\l H:i') }}
+                                        </p>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </section>
+                    @endif
                 </div>
 
                 <aside class="space-y-6">
