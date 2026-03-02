@@ -1,140 +1,187 @@
-@php
-    $getBorderColor = function($status) {
-        return match($status) {
-            'pending' => 'border-l-yellow-500',
-            'ongoing' => 'border-l-blue-500',
-            'completed' => 'border-l-green-500',
-            'cancelled' => 'border-l-red-500',
-            default => 'border-l-gray-500',
-        };
-    };
-
-    $getStatusBadgeClass = function($status) {
-        return match($status) {
-            'pending' => 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200',
-            'ongoing' => 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
-            'completed' => 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-            'cancelled' => 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200',
-            default => 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200',
-        };
-    };
-@endphp
-
-@extends('layouts.timeline')
-
-@section('title', $timeline->title)
-
-@section('content')
-<div class="">
-    <div class="m-6 p-3 dark:bg-gray-900">
-        <!-- Back Button -->
+<x-layouts.timeline title="{{ $timeline->title }}">
+    <div class="">
         <a href="{{ route('timelines.index') }}"
-            class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 mb-8 font-medium">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            class="group inline-flex items-center text-purple-400 hover:text-white mb-8 font-medium transition-all duration-200">
+            <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
             Kembali ke Timeline
         </a>
 
-        <!-- Main Card -->
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 border-l-4 {{ $getBorderColor($timeline->status) }}">
-            <!-- Header -->
-            <div class="mb-8">
-                <div class="flex items-start justify-between mb-4">
-                    <div>
-                        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-3">{{ $timeline->title }}</h1>
-                        <span class="inline-block px-4 py-2 rounded-full text-sm font-semibold {{ $getStatusBadgeClass($timeline->status) }}">
+        @php
+            $statusColors = match ($timeline->status) {
+                'pending' => [
+                    'border' => 'border-l-yellow-500',
+                    'badge' => 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30',
+                ],
+                'ongoing' => [
+                    'border' => 'border-l-blue-500',
+                    'badge' => 'bg-blue-500/20 text-blue-300 border-blue-500/30',
+                ],
+                'completed' => [
+                    'border' => 'border-l-green-500',
+                    'badge' => 'bg-green-500/20 text-green-300 border-green-500/30',
+                ],
+                'cancelled' => [
+                    'border' => 'border-l-red-500',
+                    'badge' => 'bg-red-500/20 text-red-300 border-red-500/30',
+                ],
+                default => [
+                    'border' => 'border-l-purple-500',
+                    'badge' => 'bg-purple-500/20 text-purple-300 border-purple-500/30',
+                ],
+            };
+        @endphp
+
+        <article @class([
+            'bg-white/5 backdrop-blur-xl rounded-2xl border border-purple-500/20 p-6 md:p-10 border-l-4 shadow-2xl shadow-purple-950/20',
+            $statusColors['border'],
+        ])>
+
+            <header class="mb-10">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="space-y-3">
+                        <h1
+                            class="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-200 leading-tight">
+                            {{ $timeline->title }}
+                        </h1>
+                        <span @class([
+                            'inline-flex items-center px-4 py-1.5 rounded-full text-sm font-bold border tracking-wide uppercase',
+                            $statusColors['badge'],
+                        ])>
+                            <span class="w-2 h-2 rounded-full bg-current mr-2 animate-pulse"></span>
                             {{ $timeline->status_label }}
                         </span>
                     </div>
                 </div>
-            </div>
+            </header>
 
-            <!-- Description -->
-            @if($timeline->description)
-                <div class="mb-8 pb-8 border-b dark:border-gray-700">
-                    <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Deskripsi</h2>
-                    <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">{{ $timeline->description }}</p>
-                </div>
-            @endif
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-2 space-y-10">
 
-            <!-- Progress Section -->
-            <div class="mb-8 pb-8 border-b dark:border-gray-700">
-                <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Progress</h2>
-                <div class="space-y-3">
-                    <div class="flex justify-between items-center">
-                        <span class="text-gray-600 dark:text-gray-400 font-medium">Persentase Penyelesaian:</span>
-                        <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">{{ $timeline->progress }}%</span>
-                    </div>
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4">
-                        <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-4 rounded-full transition-all"
-                            style="width: {{ $timeline->progress }}%">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Timeline Details -->
-            <div class="mb-8 pb-8 border-b dark:border-gray-700">
-                <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Detail Timeline</h2>
-                <div class="grid grid-cols-2 gap-6">
-                    @if($timeline->start_date)
-                        <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
-                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-1">Tanggal Mulai</p>
-                            <p class="text-gray-900 dark:text-white font-semibold text-lg">{{ $timeline->start_date->format('d M Y') }}</p>
-                            <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">
-                                Kurang lebih {{ $timeline->start_date->diffForHumans(now(), true) }} yang lalu
+                    {{-- Description --}}
+                    @if ($timeline->description)
+                        <section>
+                            <h2 class="text-sm font-bold text-purple-400 uppercase tracking-widest mb-4">Deskripsi
+                                Project</h2>
+                            <p class="text-purple-100 text-lg leading-relaxed antialiased">
+                                {{ $timeline->description }}
                             </p>
-                        </div>
+                        </section>
                     @endif
 
-                    @if($timeline->end_date)
-                        <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
-                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-1">Tanggal Selesai</p>
-                            <p class="text-gray-900 dark:text-white font-semibold text-lg">{{ $timeline->end_date->format('d M Y') }}</p>
-                            <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">
-                                {{ $timeline->end_date > now() ? $timeline->end_date->diffForHumans(now()) : 'Sudah berakhir' }}
-                            </p>
+                    {{-- Progress Section --}}
+                    <section class="bg-purple-900/10 rounded-xl p-6 border border-purple-500/10">
+                        <div class="flex justify-between items-end mb-4">
+                            <h2 class="text-sm font-bold text-purple-400 uppercase tracking-widest">Progress Saat Ini
+                            </h2>
+                            <span class="text-3xl font-black text-white">{{ $timeline->progress }}<span
+                                    class="text-purple-400 text-lg">%</span></span>
                         </div>
+                        <div class="relative w-full bg-purple-900/40 rounded-full h-4 overflow-hidden shadow-inner">
+                            <div class="absolute top-0 left-0 bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-400 h-full rounded-full transition-all duration-1000 ease-out"
+                                style="width: {{ $timeline->progress }}%">
+                                <div
+                                    class="w-full h-full opacity-30 bg-[linear-gradient(45deg,rgba(255,255,255,.15)_25%,transparent_25%,transparent_50%,rgba(255,255,255,.15)_50%,rgba(255,255,255,.15)_75%,transparent_75%,transparent)] bg-[length:1rem_1rem] animate-[stripe_1s_linear_infinite]">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {{-- Notes --}}
+                    @if ($timeline->notes)
+                        <section>
+                            <h2 class="text-sm font-bold text-purple-400 uppercase tracking-widest mb-4">Catatan
+                                Internal</h2>
+                            <div
+                                class="relative overflow-hidden bg-amber-500/5 border border-amber-500/20 p-6 rounded-xl group">
+                                <div
+                                    class="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform">
+                                    <svg class="w-12 h-12 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                                        <path fill-rule="evenodd"
+                                            d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <p class="text-amber-200/90 whitespace-pre-line leading-relaxed italic">
+                                    "{{ $timeline->notes }}"</p>
+                            </div>
+                        </section>
                     @endif
                 </div>
 
-                @if($timeline->start_date && $timeline->end_date)
-                    <div class="mt-4 bg-blue-50 dark:bg-blue-900 border-l-4 border-blue-500 dark:border-blue-400 p-4 rounded">
-                        <p class="text-blue-900 dark:text-blue-200 text-sm">
-                            <span class="font-semibold">Durasi:</span>
-                            {{ $timeline->start_date->diffInDays($timeline->end_date) }} hari
-                        </p>
-                    </div>
-                @endif
-            </div>
+                <aside class="space-y-6">
+                    <div class="bg-white/5 rounded-2xl p-6 border border-purple-500/10 space-y-6">
+                        <h2 class="text-sm font-bold text-purple-400 uppercase tracking-widest">Timeline Detail</h2>
 
-            <!-- Notes -->
-            @if($timeline->notes)
-                <div class="mb-8 pb-8 border-b dark:border-gray-700">
-                    <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Catatan Tambahan</h2>
-                    <div class="bg-yellow-50 dark:bg-yellow-900 border-l-4 border-yellow-400 dark:border-yellow-600 p-4 rounded">
-                        <p class="text-gray-700 dark:text-yellow-100 whitespace-pre-line">{{ $timeline->notes }}</p>
-                    </div>
-                </div>
-            @endif
+                        {{-- Dates --}}
+                        <div class="space-y-4">
+                            @if ($timeline->start_date)
+                                <div>
+                                    <label class="block text-xs text-purple-500 uppercase font-semibold mb-1">Dimulai
+                                        Pada</label>
+                                    <p class="text-white font-medium">
+                                        {{ $timeline->start_date->translatedFormat('d F Y') }}</p>
+                                    <p class="text-[10px] text-purple-400 mt-1 italic opacity-70">
+                                        {{ $timeline->start_date->diffForHumans() }}
+                                    </p>
+                                </div>
+                            @endif
 
-            <!-- Metadata -->
-            <div class="text-sm text-gray-500 dark:text-gray-400">
-                <p class="mb-2">
-                    <span class="font-semibold text-gray-700 dark:text-gray-300">Dibuat:</span>
-                    {{ $timeline->created_at->format('d M Y H:i') }}
-                    ({{ $timeline->created_at->diffForHumans(now()) }})
-                </p>
-                @if($timeline->updated_at->ne($timeline->created_at))
-                    <p>
-                        <span class="font-semibold text-gray-700 dark:text-gray-300">Terakhir Diperbarui:</span>
-                        {{ $timeline->updated_at->format('d M Y H:i') }}
-                        ({{ $timeline->updated_at->diffForHumans(now()) }})
-                    </p>
-                @endif
+                            @if ($timeline->end_date)
+                                <div>
+                                    <label class="block text-xs text-purple-500 uppercase font-semibold mb-1">Target
+                                        Selesai</label>
+                                    <p class="text-white font-medium">
+                                        {{ $timeline->end_date->translatedFormat('d F Y') }}</p>
+                                    <p @class([
+                                        'text-[10px] mt-1 italic font-medium',
+                                        'text-green-400' => $timeline->end_date > now(),
+                                        'text-red-400' => $timeline->end_date <= now(),
+                                    ])>
+                                        {{ $timeline->end_date > now() ? 'Berakhir ' . $timeline->end_date->diffForHumans() : 'Tenggat Waktu Berakhir' }}
+                                    </p>
+                                </div>
+                            @endif
+
+                            @if ($timeline->start_date && $timeline->end_date)
+                                <div class="pt-4 border-t border-purple-500/10">
+                                    <div class="flex justify-between items-center text-xs">
+                                        <span class="text-purple-500">Estimasi Durasi:</span>
+                                        <span
+                                            class="text-blue-300 font-bold">{{ $timeline->start_date->diffInDays($timeline->end_date) }}
+                                            Hari</span>
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+
+                    {{-- Metadata --}}
+                    <div class="px-6 py-4 text-[11px] text-purple-500/60 leading-tight space-y-2">
+                        <p>Dibuat: {{ $timeline->created_at->translatedFormat('d/m/Y H:i') }}</p>
+                        @if ($timeline->updated_at->ne($timeline->created_at))
+                            <p>Update: {{ $timeline->updated_at->diffForHumans() }}</p>
+                        @endif
+                    </div>
+                </aside>
             </div>
-        </div>
+        </article>
     </div>
-</div>
-@endsection
+
+
+    <style>
+        @keyframes stripe {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 1rem 0;
+            }
+        }
+    </style>
+</x-layouts.timeline>
