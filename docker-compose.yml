@@ -1,12 +1,12 @@
 services:
-  baricode_redis:
+  redis:
     image: redis
     container_name: baricode_redis
     ports:
       - "6379:6379"
     volumes:
-      - baricode_redis:/data
-  baricode_mysql:
+      - redis:/data
+  mysql:
     image: mysql
     container_name: baricode_mysql
     environment:
@@ -17,20 +17,20 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - baricode_mysql:/var/lib/mysql
-  baricode_app:
-      build: .
-      container_name: baricode_app
-      ports:
-        - "8000:80"
-      env_file:
-        - .env
-      depends_on:
-        - baricode_redis
-        - baricode_mysql
+      - mysql:/var/lib/mysql
+  # baricode_app:
+  #     build: .
+  #     container_name: baricode_app
+  #     ports:
+  #       - "8000:80"
+  #     env_file:
+  #       - .env
+  #     depends_on:
+  #       - redis
+  #       - mysql
 
 volumes:
-  baricode_redis:
+  redis:
     driver: local
-  baricode_mysql:
+  mysql:
     driver: local
