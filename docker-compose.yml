@@ -1,10 +1,12 @@
 services:
-  redis:
+  baricode_redis:
     image: redis
     container_name: baricode_redis
     ports:
       - "6379:6379"
-  mysql:
+    volumes:
+      - baricode_redis:/data
+  baricode_mysql:
     image: mysql
     container_name: baricode_mysql
     environment:
@@ -14,3 +16,11 @@ services:
       MYSQL_PASSWORD: userpassword
     ports:
       - "3306:3306"
+    volumes:
+      - baricode_mysql:/var/lib/mysql
+
+volumes:
+  baricode_redis:
+    driver: local
+  baricode_mysql:
+    driver: local
