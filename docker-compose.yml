@@ -18,6 +18,16 @@ services:
       - "3306:3306"
     volumes:
       - baricode_mysql:/var/lib/mysql
+  baricode_app:
+      build: .
+      container_name: baricode_app
+      ports:
+        - "8000:80"
+      env_file:
+        - .env
+      depends_on:
+        - baricode_redis
+        - baricode_mysql
 
 volumes:
   baricode_redis:
