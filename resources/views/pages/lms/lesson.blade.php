@@ -104,14 +104,6 @@
                             </script>
                         </div>
                     </div>
-                @else
-                    <div class="bg-white/5 backdrop-blur-lg rounded-lg border border-purple-500/20 px-6 py-12 text-center mb-6">
-                        <svg class="w-16 h-16 mx-auto text-purple-700 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <p class="text-purple-400">Belum ada video untuk pelajaran ini.</p>
-                    </div>
                 @endif
 
                 <!-- Konten Pelajaran -->
