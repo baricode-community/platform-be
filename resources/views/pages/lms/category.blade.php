@@ -1,4 +1,4 @@
-<x-layouts.lms :title="__('Baricode LMS - ' . $category->title)">
+<x-layouts.dashboard :title="__('Baricode LMS - ' . $category->title)">
     <div class="min-h-screen bg-gray-950">
         <div class="max-w-7xl mx-auto px-4 py-8">
             <!-- Breadcrumb -->
@@ -88,4 +88,4 @@
             </div>
         </div>
     </div>
-</x-layouts.lms>
+</x-layouts.dashboard>

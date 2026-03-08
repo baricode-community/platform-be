@@ -1,4 +1,4 @@
-<x-layouts.lms :title="__('Baricode LMS - ' . $lesson->title)">
+<x-layouts.dashboard :title="__('Baricode LMS - ' . $lesson->title)">
     <div class="p-2">
         <!-- Breadcrumb -->
         <div class="mb-6 flex items-center text-sm text-purple-400">
@@ -197,4 +197,4 @@
             </div>
         </div>
     </div>
-</x-layouts.lms>
+</x-layouts.dashboard>

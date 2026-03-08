@@ -1,4 +1,4 @@
-<x-layouts.lms :title="__('Baricode LMS - ' . $course->title)">
+<x-layouts.dashboard :title="__('Baricode LMS - ' . $course->title)">
     <div class="max-w-7xl mx-auto px-4 py-8">
         <!-- Course Header -->
         <div class="mb-8">
@@ -55,4 +55,4 @@
             @endforelse
         </div>
     </div>
-</x-layouts.lms>
+</x-layouts.dashboard>

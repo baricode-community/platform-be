@@ -1,4 +1,4 @@
-<x-layouts.lms :title="__('Semua Kursus - Baricode LMS')">
+<x-layouts.dashboard :title="__('Semua Kursus - Baricode LMS')">
     <!-- Header Section -->
     <div class="bg-gradient-to-r from-purple-800 to-indigo-800 text-white py-12 border-b border-purple-600">
         <div class="max-w-7xl mx-auto px-4">
@@ -186,4 +186,4 @@
             animation: float 3s ease-in-out infinite;
         }
     </style>
-</x-layouts.lms>
+</x-layouts.dashboard>
