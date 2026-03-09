@@ -60,7 +60,7 @@ class LessonTable
                     ->label('Category')
                     ->icon('heroicon-o-tag')
                     ->url(function ($record) {
-                        return CategoryResource::getUrl('edit', ['record' => $record->category_id]);
+                        return CategoryResource::getUrl('edit', ['record' => $record->category->slug]);
                     }),
                 EditAction::make(),
             ])
