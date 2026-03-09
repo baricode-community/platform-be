@@ -21,11 +21,13 @@ class LessonTable
                 TextColumn::make('category.course.title')
                     ->label('Course')
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('category.title')
                     ->label('Category')
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('title')
                     ->searchable()
                     ->sortable(),

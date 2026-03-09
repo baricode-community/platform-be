@@ -3,7 +3,9 @@
 namespace App\Filament\AdminLms\Resources\CourseResource\Pages;
 
 use App\Filament\AdminLms\Resources\CourseResource;
+use App\Filament\AdminLms\Resources\CategoryResource;
 use App\Filament\AdminLms\Resources\CourseResource\Actions\ExportCourseAction;
+use Filament\Actions\Action;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Contracts\Support\Htmlable;
@@ -20,6 +22,11 @@ class EditCourse extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
+            Action::make('view_categories')
+                ->label('Categories')
+                ->icon('heroicon-o-list-bullet')
+                ->url(CategoryResource::getUrl('index', ['course' => $this->record->id]))
+                ->color('info'),
             ExportCourseAction::make('export'),
             DeleteAction::make(),
         ];

@@ -2,8 +2,20 @@
     <div class="max-w-7xl mx-auto px-4 py-8">
         <!-- Course Header -->
         <div class="mb-8">
-            <h1 class="text-4xl font-bold text-white mb-2">{{ $course->title }}</h1>
-            <p class="text-purple-300">{{ $course->description }}</p>
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h1 class="text-4xl font-bold text-white mb-2">{{ $course->title }}</h1>
+                    <p class="text-purple-300">{{ $course->description }}</p>
+                </div>
+                @auth
+                    <a href="/admin-lms/courses/{{ $course->id }}/edit" class="inline-flex items-center px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition font-medium">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                        Edit
+                    </a>
+                @endauth
+            </div>
         </div>
 
         <!-- Categories and Lessons -->
