@@ -110,7 +110,7 @@
                 @if($lesson->content)
                     <div class="bg-white/5 backdrop-blur-lg rounded-lg border border-purple-500/20 p-6 mb-6">
                         <div class="prose prose-invert max-w-none">
-                            {!! $lesson->content !!}
+                            {!! Str::markdown($lesson->content) !!}
                         </div>
                     </div>
                 @endif
