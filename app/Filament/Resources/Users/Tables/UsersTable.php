@@ -23,6 +23,10 @@ class UsersTable
                     ->searchable(),
                 TextColumn::make('phone_number')
                     ->searchable(),
+                TextColumn::make('roles.name')
+                    ->label('Roles')
+                    ->badge()
+                    ->separator(','),
                 TextColumn::make('email_verified_at')
                     ->dateTime()
                     ->sortable()
