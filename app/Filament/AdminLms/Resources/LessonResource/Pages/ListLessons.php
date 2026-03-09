@@ -4,6 +4,7 @@ namespace App\Filament\AdminLms\Resources\LessonResource\Pages;
 
 use App\Filament\AdminLms\Resources\LessonResource;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Database\Eloquent\Builder;
 
 class ListLessons extends ListRecords
 {
@@ -15,6 +16,18 @@ class ListLessons extends ListRecords
             \Filament\Actions\CreateAction::make()
                 ->url(fn () => $this->getCreateUrl()),
         ];
+    }
+
+    protected function getTableQuery(): Builder
+    {
+        $query = parent::getTableQuery();
+        $categoryId = request()->query('category');
+        
+        if ($categoryId) {
+            $query->where('category_id', $categoryId);
+        }
+        
+        return $query;
     }
 
     private function getCreateUrl(): string
