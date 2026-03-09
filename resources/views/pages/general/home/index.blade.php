@@ -14,6 +14,7 @@
             </div>
 
             <div class="max-w-7xl mx-auto text-center z-10">
+                <div data-pusher-button></div>
                 <h1
                     class="text-5xl md:text-7xl font-extrabold mb-8 bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent drop-shadow-lg">
                     Komunitas IT Keren di Indonesia<br />
@@ -30,8 +31,6 @@
                     Kami berbasis komunitas, jadi ada banyak fitur menarik yang tersedia khusus untuk kamu.<br>
                     <span class="font-semibold text-purple-300">Yuk, eksplorasi dan manfaatkan semua fiturnya!</span>
                 </p>
-                
-                <div data-pusher-button></div>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20">
                     <a href="{{ route('dashboard') }}" wire:navigate
