@@ -30,6 +30,7 @@ class AdminLmsPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
+            ->topNavigation()
             ->discoverResources(in: app_path('Filament/AdminLms/Resources'), for: 'App\Filament\AdminLms\Resources')
             ->discoverPages(in: app_path('Filament/AdminLms/Pages'), for: 'App\Filament\AdminLms\Pages')
             ->pages([
