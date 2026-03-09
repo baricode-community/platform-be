@@ -30,6 +30,8 @@
                     Kami berbasis komunitas, jadi ada banyak fitur menarik yang tersedia khusus untuk kamu.<br>
                     <span class="font-semibold text-purple-300">Yuk, eksplorasi dan manfaatkan semua fiturnya!</span>
                 </p>
+                
+                <div data-pusher-button></div>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20">
                     <a href="{{ route('dashboard') }}" wire:navigate
