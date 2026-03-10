@@ -48,30 +48,54 @@
         <!-- TikTok Section -->
         <section class="py-20 px-4 relative">
             <div class="max-w-6xl mx-auto">
-                <div class="bg-gradient-to-r from-black/40 via-slate-900/40 to-black/40 backdrop-blur-xl rounded-3xl p-12 border border-slate-700/30 overflow-hidden relative">
+                <div
+                    class="bg-gradient-to-r from-black/40 via-slate-900/40 to-black/40 backdrop-blur-xl rounded-3xl p-12 border border-slate-700/30 overflow-hidden relative">
                     <!-- Animated background elements -->
-                    <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-pink-500/20 to-transparent rounded-full blur-3xl -mr-48 -mt-48"></div>
-                    <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-purple-500/20 to-transparent rounded-full blur-3xl -ml-48 -mb-48"></div>
+                    <div
+                        class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-pink-500/20 to-transparent rounded-full blur-3xl -mr-48 -mt-48">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-purple-500/20 to-transparent rounded-full blur-3xl -ml-48 -mb-48">
+                    </div>
 
                     <div class="relative z-10">
                         <div class="text-center mb-12">
                             <div class="inline-block mb-6">
                                 <div class="text-7xl animate-bounce">🎵</div>
                             </div>
-                            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Ikuti Baricode di TikTok!</h2>
+                            <h2
+                                class="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                                Ikuti Baricode di TikTok!</h2>
                             <p class="text-xl md:text-2xl text-gray-100 font-semibold mb-4">
                                 Konten Coding yang Seru dan Menghibur
                             </p>
                             <p class="text-lg text-gray-300 max-w-3xl mx-auto">
-                                Tutorial coding dengan gaya yang fun dan engaging. Dari tips & trik programming, project walkthroughs, hingga meme tentang developer. Semua ada di TikTok Baricode!
+                                Tutorial coding dengan gaya yang fun dan engaging. Dari tips & trik programming, project
+                                walkthroughs, hingga meme tentang developer. Semua ada di TikTok Baricode!
                             </p>
                         </div>
 
                         <div class="mb-10">
                             <div class="flex justify-center">
-                                <div class="w-full max-w-md bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden border border-pink-500/20 hover:border-pink-500/40 transition-all hover:shadow-xl hover:shadow-pink-500/20">
-                                    <iframe src="https://www.tiktok.com/embed/v2/7615595451449904404" width="100%" height="600" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                                </div>
+                                <blockquote class="tiktok-embed"
+                                    cite="https://www.tiktok.com/@baricode_org/video/7615595451449904404"
+                                    data-video-id="7615595451449904404" style="max-width: 605px;min-width: 325px;">
+                                    <section> <a target="_blank" title="@baricode_org"
+                                            href="https://www.tiktok.com/@baricode_org?refer=embed">@baricode_org</a>
+                                        Mau belajar coding, tapi suka bingung karena GK ada pembingbing? Mari bergabung
+                                        dan belajar bareng dengan BARICODE <a title="fypdong" target="_blank"
+                                            href="https://www.tiktok.com/tag/fypdong?refer=embed">#fypdong</a> <a
+                                            title="coding" target="_blank"
+                                            href="https://www.tiktok.com/tag/coding?refer=embed">#coding</a> <a
+                                            title="viralvideotiktok" target="_blank"
+                                            href="https://www.tiktok.com/tag/viralvideotiktok?refer=embed">#viralvideotiktok</a>
+                                        <a title="codingtips" target="_blank"
+                                            href="https://www.tiktok.com/tag/codingtips?refer=embed">#codingtips</a> <a
+                                            target="_blank" title="♬ suara asli  - Baricode Community"
+                                            href="https://www.tiktok.com/music/suara-asli-Baricode-Community-7615595509167688469?refer=embed">♬
+                                            suara asli - Baricode Community</a> </section>
+                                </blockquote>
+                                <script async src="https://www.tiktok.com/embed.js"></script>
                             </div>
                         </div>
 
@@ -80,7 +104,8 @@
                                 class="inline-block px-10 py-4 bg-gradient-to-r from-pink-600 via-purple-600 to-pink-600 rounded-full font-bold text-lg shadow-lg hover:shadow-pink-500/40 transition-all transform hover:scale-105 ring-2 ring-pink-400/30 hover:ring-4 hover:ring-purple-400/40">
                                 🎵 Follow Baricode di TikTok
                             </a>
-                            <p class="text-sm text-gray-400 mt-4">Konten baru setiap hari • Jangan ketinggalan updates terbaru!</p>
+                            <p class="text-sm text-gray-400 mt-4">Konten baru setiap hari • Jangan ketinggalan updates
+                                terbaru!</p>
                         </div>
                     </div>
                 </div>
@@ -113,7 +138,8 @@
         <!-- Community Commitment Section -->
         <section class="py-10 px-4 relative">
             <div class="max-w-6xl mx-auto">
-                <div class="bg-gradient-to-r from-purple-600/30 via-violet-600/30 to-indigo-600/30 backdrop-blur-xl rounded-3xl p-12 border border-purple-500/30">
+                <div
+                    class="bg-gradient-to-r from-purple-600/30 via-violet-600/30 to-indigo-600/30 backdrop-blur-xl rounded-3xl p-12 border border-purple-500/30">
                     <div class="text-center mb-16">
                         <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Kami Berkomitmen</h2>
                         <p class="text-xl md:text-2xl text-gray-100 font-semibold mb-4">
@@ -126,25 +152,34 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <!-- Dalam Proses -->
-                        <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/30 hover:border-blue-500/60 transition-all hover:shadow-xl hover:shadow-blue-500/20">
+                        <div
+                            class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/30 hover:border-blue-500/60 transition-all hover:shadow-xl hover:shadow-blue-500/20">
                             <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-2xl">⚙️</div>
+                                <div
+                                    class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-2xl">
+                                    ⚙️</div>
                                 <h3 class="text-2xl font-bold">Dalam Proses</h3>
                             </div>
-                            <p class="text-gray-300 mb-6">Proyek dan fitur yang sedang dikerjakan oleh tim dan komunitas</p>
+                            <p class="text-gray-300 mb-6">Proyek dan fitur yang sedang dikerjakan oleh tim dan komunitas
+                            </p>
                             <div class="bg-blue-500/20 rounded-lg p-4">
                                 <p class="text-blue-200 font-semibold">{{ $timelines['ongoing'] }} Proyek Aktif</p>
-                                <p class="text-sm text-blue-300 mt-2">Platform terus berkembang sesuai kebutuhan komunitas</p>
+                                <p class="text-sm text-blue-300 mt-2">Platform terus berkembang sesuai kebutuhan
+                                    komunitas</p>
                             </div>
                         </div>
 
                         <!-- Ditunda -->
-                        <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-yellow-500/30 hover:border-yellow-500/60 transition-all hover:shadow-xl hover:shadow-yellow-500/20">
+                        <div
+                            class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-yellow-500/30 hover:border-yellow-500/60 transition-all hover:shadow-xl hover:shadow-yellow-500/20">
                             <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 flex items-center justify-center text-2xl">⏸️</div>
+                                <div
+                                    class="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 flex items-center justify-center text-2xl">
+                                    ⏸️</div>
                                 <h3 class="text-2xl font-bold">Ditunda</h3>
                             </div>
-                            <p class="text-gray-300 mb-6">Fitur atau proyek yang sementara dihentikan dengan alasan tertentu</p>
+                            <p class="text-gray-300 mb-6">Fitur atau proyek yang sementara dihentikan dengan alasan
+                                tertentu</p>
                             <div class="bg-yellow-500/20 rounded-lg p-4">
                                 <p class="text-yellow-200 font-semibold">{{ $timelines['planned'] }} Item Ditunda</p>
                                 <p class="text-sm text-yellow-300 mt-2">Akan dilanjutkan ketika kondisi memungkinkan</p>
@@ -152,22 +187,29 @@
                         </div>
 
                         <!-- Selesai -->
-                        <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-green-500/30 hover:border-green-500/60 transition-all hover:shadow-xl hover:shadow-green-500/20">
+                        <div
+                            class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-green-500/30 hover:border-green-500/60 transition-all hover:shadow-xl hover:shadow-green-500/20">
                             <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center text-2xl">✅</div>
+                                <div
+                                    class="w-12 h-12 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center text-2xl">
+                                    ✅</div>
                                 <h3 class="text-2xl font-bold">Selesai</h3>
                             </div>
-                            <p class="text-gray-300 mb-6">Fitur dan proyek yang telah berhasil dikerjakan dan diluncurkan</p>
+                            <p class="text-gray-300 mb-6">Fitur dan proyek yang telah berhasil dikerjakan dan
+                                diluncurkan</p>
                             <div class="bg-green-500/20 rounded-lg p-4">
                                 <p class="text-green-200 font-semibold">{{ $timelines['completed'] }} Selesai</p>
-                                <p class="text-sm text-green-300 mt-2">Terus berkembang dan berinovasi untuk komunitas</p>
+                                <p class="text-sm text-green-300 mt-2">Terus berkembang dan berinovasi untuk komunitas
+                                </p>
                             </div>
                         </div>
                     </div>
 
                     <div class="mt-12 text-center">
                         <p class="text-gray-200 mb-6">
-                            Dengan transparansi ini, kami membuktikan bahwa <span class="text-purple-300 font-bold">Kami Aktif!</span> dan terus bergerak maju untuk memberikan yang terbaik bagi komunitas.
+                            Dengan transparansi ini, kami membuktikan bahwa <span
+                                class="text-purple-300 font-bold">Kami Aktif!</span> dan terus bergerak maju untuk
+                            memberikan yang terbaik bagi komunitas.
                         </p>
                         <a href="{{ route('timelines.index') }}" wire:navigate
                             class="inline-block px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full font-bold text-lg shadow-lg hover:shadow-purple-500/40 transition-all transform hover:scale-105 ring-2 ring-purple-400/30 hover:ring-4 hover:ring-indigo-400/40">
@@ -250,7 +292,8 @@
                         class="bg-gradient-to-br from-pink-500/10 to-transparent backdrop-blur-lg rounded-3xl p-8 border border-pink-500/20 hover:border-pink-500/50 transition-all hover:shadow-xl hover:shadow-pink-500/20">
                         <div class="text-5xl mb-4">📅</div>
                         <h3 class="text-2xl font-bold mb-3">Timeline Komunitas</h3>
-                        <p class="text-gray-300 mb-4">Track milestone dan perjalanan komunitas Baricode dari awal hingga sekarang.</p>
+                        <p class="text-gray-300 mb-4">Track milestone dan perjalanan komunitas Baricode dari awal
+                            hingga sekarang.</p>
                         <a href="{{ route('timelines.index') }}"
                             class="inline-block px-6 py-2 bg-pink-600/80 text-white rounded-full font-semibold hover:bg-pink-700 transition-all">
                             Lihat Timeline
@@ -435,35 +478,45 @@
         <!-- Telegram Channel Section -->
         <section class="py-20 px-4 relative">
             <div class="max-w-6xl mx-auto">
-                <div class="bg-gradient-to-r from-cyan-600/40 via-sky-600/40 to-blue-600/40 backdrop-blur-xl rounded-3xl p-12 border border-cyan-500/30 overflow-hidden relative">
+                <div
+                    class="bg-gradient-to-r from-cyan-600/40 via-sky-600/40 to-blue-600/40 backdrop-blur-xl rounded-3xl p-12 border border-cyan-500/30 overflow-hidden relative">
                     <!-- Animated background elements -->
-                    <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/20 to-transparent rounded-full blur-3xl -mr-48 -mt-48"></div>
-                    <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-full blur-3xl -ml-48 -mb-48"></div>
+                    <div
+                        class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/20 to-transparent rounded-full blur-3xl -mr-48 -mt-48">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-full blur-3xl -ml-48 -mb-48">
+                    </div>
 
                     <div class="relative z-10">
                         <div class="text-center mb-12">
                             <div class="inline-block mb-6">
                                 <div class="text-7xl animate-bounce">📱</div>
                             </div>
-                            <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Jangan Ketinggalan Update Terbaru!</h2>
+                            <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Jangan Ketinggalan Update Terbaru!
+                            </h2>
                             <p class="text-xl md:text-2xl text-gray-100 font-semibold mb-4">
                                 Bergabunglah dengan Telegram Channel Baricode
                             </p>
                             <p class="text-lg text-cyan-200 max-w-3xl mx-auto">
-                                Dapatkan update terbaru tentang fitur baru, challenge menarik, event komunitas, dan tips & trik coding langsung ke Telegram kamu. Jadilah yang pertama tahu setiap perkembangan!
+                                Dapatkan update terbaru tentang fitur baru, challenge menarik, event komunitas, dan tips
+                                & trik coding langsung ke Telegram kamu. Jadilah yang pertama tahu setiap perkembangan!
                             </p>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
                             <!-- Benefit 1 -->
-                            <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-cyan-500/20 text-center hover:bg-white/10 transition-all">
+                            <div
+                                class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-cyan-500/20 text-center hover:bg-white/10 transition-all">
                                 <div class="text-4xl mb-3">⚡</div>
                                 <h3 class="font-bold mb-2">Update Real-time</h3>
-                                <p class="text-sm text-gray-300">Notifikasi langsung untuk fitur baru dan event penting</p>
+                                <p class="text-sm text-gray-300">Notifikasi langsung untuk fitur baru dan event penting
+                                </p>
                             </div>
 
                             <!-- Benefit 2 -->
-                            <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-cyan-500/20 text-center hover:bg-white/10 transition-all">
+                            <div
+                                class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-cyan-500/20 text-center hover:bg-white/10 transition-all">
                                 <div class="text-4xl mb-3">💡</div>
                                 <h3 class="font-bold mb-2">Tips & Tricks</h3>
                                 <p class="text-sm text-gray-300">Pelajari cara maksimalkan semua fitur Baricode</p>
@@ -475,7 +528,8 @@
                                 class="inline-block px-10 py-4 bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-500 rounded-full font-bold text-lg shadow-lg hover:shadow-cyan-500/40 transition-all transform hover:scale-105 ring-2 ring-cyan-400/30 hover:ring-4 hover:ring-blue-400/40">
                                 🚀 Bergabung di Telegram Sekarang
                             </a>
-                            <p class="text-sm text-gray-400 mt-4">Gratis • Tanpa biaya tersembunyi • Bisa keluar kapan saja</p>
+                            <p class="text-sm text-gray-400 mt-4">Gratis • Tanpa biaya tersembunyi • Bisa keluar kapan
+                                saja</p>
                         </div>
                     </div>
                 </div>
