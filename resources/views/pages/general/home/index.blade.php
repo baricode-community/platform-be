@@ -14,7 +14,6 @@
             </div>
 
             <div class="max-w-7xl mx-auto text-center z-10">
-                <div data-pusher-button></div>
                 <h1
                     class="text-5xl md:text-7xl font-extrabold mb-8 bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent drop-shadow-lg">
                     Komunitas IT Keren di Indonesia<br />
