@@ -44,6 +44,49 @@
             </div>
         </section>
 
+
+        <!-- TikTok Section -->
+        <section class="py-20 px-4 relative">
+            <div class="max-w-6xl mx-auto">
+                <div class="bg-gradient-to-r from-black/40 via-slate-900/40 to-black/40 backdrop-blur-xl rounded-3xl p-12 border border-slate-700/30 overflow-hidden relative">
+                    <!-- Animated background elements -->
+                    <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-pink-500/20 to-transparent rounded-full blur-3xl -mr-48 -mt-48"></div>
+                    <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-purple-500/20 to-transparent rounded-full blur-3xl -ml-48 -mb-48"></div>
+
+                    <div class="relative z-10">
+                        <div class="text-center mb-12">
+                            <div class="inline-block mb-6">
+                                <div class="text-7xl animate-bounce">🎵</div>
+                            </div>
+                            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Ikuti Baricode di TikTok!</h2>
+                            <p class="text-xl md:text-2xl text-gray-100 font-semibold mb-4">
+                                Konten Coding yang Seru dan Menghibur
+                            </p>
+                            <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                                Tutorial coding dengan gaya yang fun dan engaging. Dari tips & trik programming, project walkthroughs, hingga meme tentang developer. Semua ada di TikTok Baricode!
+                            </p>
+                        </div>
+
+                        <div class="mb-10">
+                            <div class="flex justify-center">
+                                <div class="w-full max-w-md bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden border border-pink-500/20 hover:border-pink-500/40 transition-all hover:shadow-xl hover:shadow-pink-500/20">
+                                    <iframe src="https://www.tiktok.com/embed/v2/7615595451449904404" width="100%" height="600" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <a href="https://www.tiktok.com/@baricode_org" target="_blank" rel="noopener noreferrer"
+                                class="inline-block px-10 py-4 bg-gradient-to-r from-pink-600 via-purple-600 to-pink-600 rounded-full font-bold text-lg shadow-lg hover:shadow-pink-500/40 transition-all transform hover:scale-105 ring-2 ring-pink-400/30 hover:ring-4 hover:ring-purple-400/40">
+                                🎵 Follow Baricode di TikTok
+                            </a>
+                            <p class="text-sm text-gray-400 mt-4">Konten baru setiap hari • Jangan ketinggalan updates terbaru!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Feature Highlight Section -->
         <section class="py-10 px-4 relative">
             <div class="max-w-3xl mx-auto text-center">
