@@ -2,15 +2,17 @@
 
 namespace App\Filament\Resources\Blogs\Schemas;
 
+use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Group;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Str;
 
 class BlogForm
 {
@@ -23,16 +25,20 @@ class BlogForm
                         TextInput::make('title')
                             ->required()
                             ->maxLength(255)
-                            ->label('Title'),
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(function (Set $set, ?string $state, ?string $operation) {
+                                if ($operation === 'create' && $state) {
+                                    $set('slug', Str::slug($state));
+                                }
+                            }),
                         TextInput::make('slug')
                             ->required()
                             ->unique(ignoreRecord: true)
                             ->maxLength(255)
-                            ->label('Slug'),
+                            ->hint('Auto-generated from title. Editable.'),
                         Textarea::make('excerpt')
                             ->maxLength(500)
-                            ->rows(3)
-                            ->label('Excerpt'),
+                            ->rows(3),
                     ]),
 
                 Section::make('Content')
@@ -40,8 +46,7 @@ class BlogForm
                     ->schema([
                         RichEditor::make('content')
                             ->required()
-                            ->columnSpanFull()
-                            ->label('Content'),
+                            ->columnSpanFull(),
                     ]),
 
                 Section::make('Media')
@@ -50,29 +55,67 @@ class BlogForm
                         FileUpload::make('featured_image')
                             ->image()
                             ->directory('blog-featured-images')
-                            ->label('Featured Image'),
+                            ->imageResizeMode('cover')
+                            ->imageCropAspectRatio('16:9'),
                     ]),
 
-                Section::make('Metadata')
+                Section::make('Publishing')
                     ->collapsible()
                     ->schema([
                         Select::make('author_id')
                             ->relationship('author', 'name')
                             ->required()
-                            ->searchable()
-                            ->label('Author'),
+                            ->searchable(),
                         Select::make('categories')
                             ->relationship('categories', 'name')
                             ->multiple()
                             ->preload()
-                            ->label('Categories'),
+                            ->createOptionForm([
+                                TextInput::make('name')
+                                    ->required()
+                                    ->live(onBlur: true)
+                                    ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state ?? ''))),
+                                TextInput::make('slug')
+                                    ->required()
+                                    ->unique('blog_categories', 'slug'),
+                            ]),
                         Select::make('tags')
                             ->relationship('tags', 'name')
                             ->multiple()
                             ->preload()
-                            ->label('Tags'),
+                            ->createOptionForm([
+                                TextInput::make('name')
+                                    ->required()
+                                    ->live(onBlur: true)
+                                    ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state ?? ''))),
+                                TextInput::make('slug')
+                                    ->required()
+                                    ->unique('blog_tags', 'slug'),
+                            ]),
                         Toggle::make('is_published')
-                            ->label('Published'),
+                            ->label('Published')
+                            ->helperText('Toggle to publish. Set a publish date below to schedule.'),
+                        DateTimePicker::make('published_at')
+                            ->label('Publish Date')
+                            ->helperText('Leave empty to publish immediately when toggled on.')
+                            ->nullable(),
+                    ]),
+
+                Section::make('SEO')
+                    ->collapsible()
+                    ->collapsed()
+                    ->schema([
+                        TextInput::make('meta_title')
+                            ->label('Meta Title')
+                            ->maxLength(60)
+                            ->helperText('Max 60 characters. Defaults to post title if empty.')
+                            ->nullable(),
+                        Textarea::make('meta_description')
+                            ->label('Meta Description')
+                            ->maxLength(160)
+                            ->rows(3)
+                            ->helperText('Max 160 characters. Defaults to excerpt if empty.')
+                            ->nullable(),
                     ]),
             ]);
     }

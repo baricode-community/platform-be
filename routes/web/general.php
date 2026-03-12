@@ -32,6 +32,8 @@ Route::controller(\App\Http\Controllers\Web\General\BlogController::class)
     ->prefix('/blog')
     ->group(function () {
         Route::get('/', 'index')->name('blog.index');
+        Route::get('/category/{slug}', 'category')->name('blog.category');
+        Route::get('/tag/{slug}', 'tag')->name('blog.tag');
         Route::get('/{slug}', 'show')->name('blog.show');
     });
 
