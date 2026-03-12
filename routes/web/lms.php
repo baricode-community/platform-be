@@ -18,4 +18,5 @@ Route::controller(QuizController::class)
     ->prefix('/quiz')
     ->group(function () {
         Route::get('/', 'index')->name('lms.quiz.index');
-});
+        Route::get('/{quiz}', 'show')->name('lms.quiz.show');
+    });
