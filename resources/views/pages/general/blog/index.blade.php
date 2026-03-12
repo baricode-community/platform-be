@@ -65,15 +65,11 @@
                 @foreach ($posts as $post)
                     <article class="blog-article">
                         <!-- Featured Image -->
-                        <div class="blog-article-featured">
+                        {{-- <div class="blog-article-featured">
                             @if ($post->featured_image)
                                 <img src="{{ Storage::url($post->featured_image) }}" alt="{{ $post->title }}" />
-                            @else
-                                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); display: flex; align-items: center; justify-content: center;">
-                                    <span style="font-size: 3rem;">📝</span>
-                                </div>
                             @endif
-                        </div>
+                        </div> --}}
 
                         <div class="blog-article-header">
                             <!-- Category Badges -->

@@ -41,15 +41,11 @@
         <!-- Article -->
         <article class="blog-article" style="border-radius: 15px; overflow: hidden;">
             <!-- Featured image -->
-            @if ($post->featured_image)
+            {{-- @if ($post->featured_image)
                 <div style="width: 100%; height: 450px; overflow: hidden; position: relative;">
                     <img src="{{ Storage::url($post->featured_image) }}" alt="{{ $post->title }}" style="width: 100%; height: 100%; object-fit: cover;" />
                 </div>
-            @else
-                <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); display: flex; align-items: center; justify-content: center;">
-                    <span style="font-size: 5rem; opacity: 0.4;">📝</span>
-                </div>
-            @endif
+            @endif --}}
 
             <!-- Article content -->
             <div style="padding: 3rem;">
