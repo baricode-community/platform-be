@@ -21,6 +21,7 @@ class BlogForm
         return $schema
             ->components([
                 Section::make('Basic Information')
+                    ->columns(1)
                     ->schema([
                         TextInput::make('title')
                             ->required()
@@ -42,6 +43,7 @@ class BlogForm
                     ]),
 
                 Section::make('Content')
+                    ->columns(1)
                     ->collapsible()
                     ->schema([
                         RichEditor::make('content')
@@ -50,6 +52,7 @@ class BlogForm
                     ]),
 
                 Section::make('Media')
+                    ->columns(1)
                     ->collapsible()
                     ->schema([
                         FileUpload::make('featured_image')
@@ -60,6 +63,7 @@ class BlogForm
                     ]),
 
                 Section::make('Publishing')
+                    ->columns(1)
                     ->collapsible()
                     ->schema([
                         Select::make('author_id')
@@ -102,6 +106,7 @@ class BlogForm
                     ]),
 
                 Section::make('SEO')
+                    ->columns(1)
                     ->collapsible()
                     ->collapsed()
                     ->schema([

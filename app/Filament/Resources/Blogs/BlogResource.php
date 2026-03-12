@@ -5,6 +5,8 @@ namespace App\Filament\Resources\Blogs;
 use App\Filament\Resources\Blogs\Pages\CreateBlog;
 use App\Filament\Resources\Blogs\Pages\EditBlog;
 use App\Filament\Resources\Blogs\Pages\ListBlogs;
+use App\Filament\Resources\Blogs\Pages\ManageBlogCategories;
+use App\Filament\Resources\Blogs\Pages\ManageBlogTags;
 use App\Filament\Resources\Blogs\Schemas\BlogForm;
 use App\Filament\Resources\Blogs\Tables\BlogsTable;
 use App\Models\Blog;
@@ -50,6 +52,8 @@ class BlogResource extends Resource
             'index' => ListBlogs::route('/'),
             'create' => CreateBlog::route('/create'),
             'edit' => EditBlog::route('/{record}/edit'),
+            'categories' => ManageBlogCategories::route('/categories'),
+            'tags' => ManageBlogTags::route('/tags'),
         ];
     }
 }
